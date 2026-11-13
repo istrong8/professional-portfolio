@@ -1,6 +1,6 @@
 # Ku Saga: Planet X — Orbital Dynamics & Scientific Worldbuilding
 
-**Research author and creative originator:** Gemma Strong  
+**Research author and creative originator:** Irais Strong  
 **Project affiliation:** Atom-Collab  
 **Research release:** v0.3.1 (publication review package)
 
@@ -51,7 +51,7 @@ The original scripts were reorganized into a publication folder structure; impor
 
 ## Authorship and Rights
 
-Gemma Strong confirmed that she authored the research and authorized publication of its scientific code, viewer, technical figures, and reports. Atom-Collab is the stated project affiliation. No open-source reuse license has yet been selected; public access alone does not grant a license to redistribute, adapt, or commercialize the project.
+Irais Strong confirmed that she authored the research and authorized publication of its scientific code, viewer, technical figures, and reports. Atom-Collab is the stated project affiliation. No open-source reuse license has yet been selected; public access alone does not grant a license to redistribute, adapt, or commercialize the project.
 
 Unpublished literary manuscripts and confidential business materials are not included.
 
