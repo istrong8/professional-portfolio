@@ -227,6 +227,7 @@ p { margin: 0; }
   border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px;
 }
 .case__links { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 6px; }
+.case > .case__links { margin-top: auto; padding-top: 6px; }
 .case__links .textlink { font-size: 14px; }
 .case__note { font-size: 12.5px !important; color: var(--muted) !important; border-top: 1px solid var(--line); padding-top: 14px; }
 
