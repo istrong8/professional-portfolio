@@ -48,29 +48,7 @@ Previously explored quantities include:
 
 The final portfolio project will include reproducible models, numerical results, verification checks, and a LaTeX technical report.
 
-### Project 02 — Reactor Criticality Benchmark
-
-**Status: Planned.**
-
-Develop a model based on an appropriate publicly available criticality benchmark and compare simulated results with published reference values.
-
-### Project 03 — Radiation Shielding Analysis
-
-**Status: Planned.**
-
-Investigate neutron and/or photon transport through selected shielding materials under clearly defined source and geometry assumptions.
-
-### Project 04 — Nuclear Data Sensitivity
-
-**Status: Planned.**
-
-Explore the effect of selected nuclear data inputs and model parameters on calculated reactor physics quantities.
-
-### Project 05 — Conceptual Space Reactor Neutronics
-
-**Status: Planned.**
-
-Develop an educational neutronics study relevant to a simplified space fission system, using independently created models and publicly distributable information.
+Further OpenMC studies (criticality benchmark, shielding, nuclear data sensitivity, conceptual space reactor neutronics) are listed in [`ROADMAP.md`](../../ROADMAP.md).
 
 ## Project Documentation Standards
 
