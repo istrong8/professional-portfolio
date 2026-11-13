@@ -13,6 +13,10 @@ Nuclear facility safety analysis, space fission systems research, and scientific
 | **OpenMC pin-cell study** — k-eff, flux, multigroup spectra, fission rates, Monte Carlo convergence | Exercises complete; write-up in preparation | [Notes](01-nuclear-engineering/openmc/) |
 | **TLECUIL** — first-order fission surface power sizer; benchmarked against four published NASA designs | v0.2.1, open source (BSD-3-Clause) | [Calculator](https://istrong8.github.io/tlecuil/) · [Code](https://github.com/istrong8/tlecuil) |
 
+## Writing
+
+- [Reframing Nuclear Licensing: The FSAR as a Tool, Not a Barrier](docs/papers/reframing-nuclear-licensing-fsar.pdf) — white paper, NE 5599, Idaho State University, May 2025. The Oklo case study reflects the NRC's 2022 denial; Oklo's licensing has progressed since.
+
 Planned studies and areas of exploration are listed in [`ROADMAP.md`](ROADMAP.md).
 
 ## Repository layout
