@@ -15,7 +15,7 @@ Nuclear facility safety analysis, space fission systems research, and scientific
 
 ## Writing
 
-- [Reframing Nuclear Licensing: The FSAR as a Tool, Not a Barrier](docs/papers/reframing-nuclear-licensing-fsar.pdf) — white paper, NE 5599, Idaho State University, May 2025. The Oklo case study reflects the NRC's 2022 denial; Oklo's licensing has progressed since.
+- **Reframing Nuclear Licensing: The FSAR as a Tool, Not a Barrier** — white paper, NE 5599, Idaho State University, May 2025. [PDF](docs/papers/reframing-nuclear-licensing-fsar.pdf) · [LaTeX source](writing/fsar-white-paper/). The Oklo case study covers the NRC's 2022 denial; a footnote notes Oklo's 2025 NRC readiness assessment.
 
 Planned studies and areas of exploration are listed in [`ROADMAP.md`](ROADMAP.md).
 
@@ -25,6 +25,7 @@ Planned studies and areas of exploration are listed in [`ROADMAP.md`](ROADMAP.md
 docs/                       GitHub Pages site (index.html, assets/, planet_x_live.html)
 01-nuclear-engineering/     OpenMC work
 02-space-astronomy/         Planet X orbital dynamics
+writing/                    white paper source (LaTeX)
 ROADMAP.md                  planned work
 ```
 

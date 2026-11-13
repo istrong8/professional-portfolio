@@ -328,6 +328,8 @@ p { margin: 0; }
 .writing__title { font: 400 italic clamp(20px, 2.2vw, 26px)/1.35 var(--serif); margin-top: 10px; }
 .writing__type { color: var(--muted); font-size: 14px; margin-top: 4px; }
 .writing__abstract { color: var(--text-2); font-size: 15px; max-width: 70ch; margin: 14px 0 20px; }
+.writing__links { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.writing__links .textlink { font-size: 14px; }
 .writing__fmt { font: 400 11px var(--mono); color: var(--muted); letter-spacing: .04em; }
 .writing__note { color: var(--muted); font-size: 12.5px; max-width: 70ch; margin-top: 14px; }
 
