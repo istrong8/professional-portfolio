@@ -1,0 +1,114 @@
+% Public résumé — Gemma Irais Strong
+% Build: pdflatex resume.tex
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.6in,top=0.5in,bottom=0.55in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{5B3FC4}
+\definecolor{muted}{HTML}{555555}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\renewcommand{\familydefault}{\sfdefault}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-6pt}{\color{accent}\rule{\linewidth}{0.6pt}}]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+\setlist[itemize]{leftmargin=1.1em,itemsep=0.5pt,topsep=1.5pt,parsep=0pt,label={\color{accent}\textbullet}}
+
+\newcommand{\role}[4]{%
+  \textbf{#1}\hfill{\color{muted}#3}\\
+  {\itshape #2}\hfill{\color{muted}\itshape #4}\par\vspace{1pt}}
+
+\begin{document}
+
+{\LARGE\bfseries Gemma Irais Strong}\hspace{6pt}{\large\color{muted}(Irais / Ira)}\\[2pt]
+{\color{accent}\bfseries Nuclear Engineer — Nuclear Safety Analysis · Space Fission Systems · Scientific Computing}\\[3pt]
+{\small
+\href{mailto:irastrong3@gmail.com}{irastrong3@gmail.com} \textbar{}
+\href{https://istrong8.github.io/professional-portfolio/}{istrong8.github.io/professional-portfolio} \textbar{}
+\href{https://www.linkedin.com/in/iraisstrong/}{linkedin.com/in/iraisstrong} \textbar{}
+\href{https://github.com/istrong8}{github.com/istrong8}}
+
+\section{Summary}
+Nuclear Safety Analyst III with DOE safety basis experience across Hazard Category 1, 2, and 3 nuclear facilities; commercial reactor engineering and NQA-1 software quality assurance at Palo Verde; and doctoral research on the feasibility and safety analysis of nuclear reactors for Mars. Contributor to ANS and ASTM consensus standards for space nuclear power. Fourteen years of supply chain leadership before engineering. Bilingual English–Spanish.
+
+\section{Experience}
+\role{Nuclear Safety Analyst III}{Idaho National Laboratory}{Jun 2026 -- present}{Nuclear Safety Analyst II, Sep 2023 -- Jun 2026}
+\begin{itemize}
+  \item Develop and maintain Documented Safety Analyses and Technical Safety Requirements under 10 CFR 830 Subpart B for Hazard Category 1, 2, and 3 facilities, supporting facility changes, experiments, annual updates, and implementation of new DOE requirements.
+  \item Perform unreviewed safety question (USQ) evaluations and potential inadequacy of the safety analysis (PISA) evaluations for proposed changes and new information.
+  \item Hazard classification, facility categorization, and accident consequence assessment; dose consequence analysis with RSAC and MicroShield.
+  \item Supported natural phenomena hazard updates for a Hazard Category 1 facility; performed gap analyses aligning legacy analyses with current DOE standards and research-reactor methodologies.
+  \item Authored the Nuclear Safety Analyst Procedure, a standard framework for safety basis products; provide peer review and mentoring; resolve DOE review comments.
+  \item Qualified USQ Evaluator; Radiological Worker I.
+\end{itemize}
+
+\role{Engineer II}{Palo Verde Generating Station}{Jun 2020 -- Jul 2023}{Tonopah, AZ}
+\begin{itemize}
+  \item Performed reload analysis calculations for Nuclear Fuel Management, including as dependent engineer (fuel performance, non-LOCA, and thermal-hydraulic benchmark checklists).
+  \item Led NQA-1 software quality assurance for nuclear fuel management software; headquarters representative for a team Six Sigma initiative that saved about \$100K.
+  \item Led Python automation and code standardization, addressing legacy code and retirements; made FORTRAN and Perl code changes; Git for source control; trained staff on new processes.
+  \item Mapped Quality Assurance Program Description requirements to current processes; helped rewrite Nuclear Fuel Management policies and procedures.
+  \item Rotations in Design Engineering, Plant Engineering, Nuclear Fuel Management, and Maintenance; outage support including containment entries.
+\end{itemize}
+
+\role{Engineering Intern, Nuclear Fuel Management}{Palo Verde Generating Station}{Summers 2018, 2019}{Tonopah, AZ}
+\begin{itemize}
+  \item Reactor Engineering (2019): code to extract assembly-specific axial burnup profiles from SIMULATE for comparison with criticality limits; revised and validated the B-10 mixing calculation in an engineering evaluation.
+  \item Reload Analysis (2018): VIPRE thermal-hydraulic inputs; Perl automation of input preparation and output reduction; method for critical heat flux error trends across axial power shapes.
+\end{itemize}
+
+\role{Undergraduate Researcher}{University of New Mexico, Nuclear Engineering}{2016 -- 2020}{Albuquerque, NM}
+\begin{itemize}
+  \item Thermal-fluids (LSAMP, 2016--2019): ultrasonically enhanced sparging for tritium capture in fluoride-salt-cooled high-temperature reactors; supported the SUMATRA experiments and built hardware for the PULST prototype (Inventor design, Python analysis).
+  \item Extreme materials (2018--2020): microhardness testing of irradiated 14YWT (DOE NEUP); supported hot-cell attenuation calculations for the permit to operate the department's nuclear engineering laboratory.
+\end{itemize}
+
+\role{Supply Chain and Materials Management}{Eaton · Total Electronics · MCT Industries · AMMEX}{2001 -- 2015}{Reynosa, Mexico · Albuquerque, NM}
+\begin{itemize}
+  \item Eaton (2003--2013): led the supply chain transfer of an acquired business to South Texas (about \$100K in cost reductions); managed suppliers across North and South America, Europe, and Asia; implemented consignment for about 30\% of inventory (payables extended to 90 days); cut Material Review Board inventory from \$308K to \$192K in three weeks.
+  \item Total Electronics, Materials Manager (2006--2007): raised inventory accuracy from 76\% to 95\% and turnover from 4 to 8; value stream mapping cut scrap from \$6K to \$1K a year.
+  \item MCT Industries (2014--2015): wrote 50+ purchasing and inventory procedures; phase-gate process enabled an \$18K cost reduction.
+\end{itemize}
+
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}Xr@{}}
+\textbf{Ph.D., Nuclear Engineering} — Idaho State University. Research: feasibility and safety analysis of nuclear reactors for Mars & 2025 -- present\\
+\textbf{M.S., Nuclear Engineering} — University of New Mexico & Dec 2021\\
+\textbf{B.S., Nuclear Engineering} — University of New Mexico. Minors: Mathematics; Chicana and Chicano Studies & 2020\\
+\textbf{B.S., Computer Systems Engineering} — Universidad del Atlántico, Reynosa, Mexico & 2008\\
+\end{tabularx}
+
+\section{Standards and Service}
+\begin{itemize}
+  \item \textbf{Consensus standards:} ANS-31.1, Testing and Facilities for Space Nuclear Power and Propulsion Reactors (contributing member); ASTM WK86387, Guide for Safe Operations of Fission Reactors in Outer Space, F47.05 (contributing member, 2026--); ANS-2.26, Categorization of Nuclear Facility SSCs for Seismic Design (contributing member); ANS-15.21, Format and Content for Safety Analysis Reports for Research Reactors (member).
+  \item \textbf{American Nuclear Society:} ANS Cares Committee, Vice Chair; Spanish Communications Subcommittee, founding chair (2019), 40+ volunteer translators; Arizona Local Section, Vice Chair (2022--23) and Treasurer (2021--22); UNM Student Section, President (2017--18) — raised \$25K for a record 22-student delegation; Glasstone Award, second place (2018).
+  \item \textbf{Astronomy outreach:} Founder and President, Reynosa Astronomical Society (2010--2015); Mexico country program manager, Universe Awareness (UNAWE), a UNESCO and International Astronomical Union program.
+\end{itemize}
+
+\section{Projects and Writing}
+\begin{itemize}
+  \item \textbf{TLECUIL} — open first-order fission surface power sizer (Python, JavaScript, LaTeX); 16 verification tests; benchmarked against four published NASA designs; V\&V plan structured after NQA-1-2024 Subpart 2.7. \href{https://github.com/istrong8/tlecuil}{github.com/istrong8/tlecuil}
+  \item \textbf{Ku Saga: Planet X} — N-body orbital dynamics of a fictional star–black hole binary system (velocity-Verlet, REBOUND/IAS15, SciPy cross-checks) with an interactive viewer.
+  \item \textbf{White paper:} \emph{Reframing Nuclear Licensing: The FSAR as a Tool, Not a Barrier} (NE 5599, Idaho State University, 2025).
+\end{itemize}
+
+\section{Technical Skills}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Safety analysis} & RSAC, MicroShield (applied in DOE safety basis work); MELCOR, SAPHIRE (training)\\
+\textbf{Reactor physics \& T-H} & SIMULATE, VIPRE (industry); MCNP (graduate and undergraduate work); SCALE (graduate criticality coursework); Serpent (undergraduate senior project); OpenMC; RELAP5\\
+\textbf{Computing} & Python, FORTRAN, Perl, shell scripting, MATLAB, LaTeX, Git, Linux; REBOUND, SciPy, NumPy\\
+\textbf{Certifications} & Python Institute PCEP (2021); Six Sigma Yellow Belt (2021)\\
+\textbf{Languages} & English; Spanish (native); Portuguese (reading)\\
+\end{tabularx}
+
+\section{Awards}
+ANS Undergraduate Scholarship (2019--20) · UNM Leadership and Involvement Award (2019) · Commendation for Service and Leadership, ANS Student Conference (2018) · Three third-place research poster awards, ANS and New Mexico AMP student conferences (2016--2018) · Stellar Outreach Award, Albuquerque Astronomical Society (2014)
+
+\end{document}

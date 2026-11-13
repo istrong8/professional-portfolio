@@ -4,6 +4,8 @@ Nuclear facility safety analysis, space fission systems research, and scientific
 
 **Website:** https://istrong8.github.io/professional-portfolio/
 **LinkedIn:** https://www.linkedin.com/in/iraisstrong/
+**Résumé:** [PDF](docs/resume/Gemma-Irais-Strong-Resume.pdf) (source: `resume/resume.tex`)
+**Email:** irastrong3@gmail.com
 
 ## Projects
 
