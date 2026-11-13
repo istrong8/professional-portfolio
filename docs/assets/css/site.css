@@ -287,6 +287,10 @@ p { margin: 0; }
 .tools thead th { font: 500 10.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .tools tbody th { font: 500 14.5px var(--mono); color: var(--text); white-space: nowrap; }
 .tools td { color: var(--text-2); }
+.tools__certs { margin-top: 16px; font-size: 14px; color: var(--text-2); }
+.tools__certs span { font: 500 10.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-right: 10px; }
+.btn__fmt { font: 400 11px var(--mono); color: var(--muted); }
+.btn--solid .btn__fmt { color: #4a3f6b; }
 .use { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; }
 .use::before { content: ""; width: 26px; height: 4px; border-radius: 2px; background: var(--line-2); }
 .use--1::before { background: linear-gradient(90deg, var(--violet) 100%, transparent 0); }
