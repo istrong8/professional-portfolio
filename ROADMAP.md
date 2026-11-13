@@ -6,7 +6,7 @@ Planned work, kept separate from finished projects so that nothing in this repos
 
 - **Ku Saga: Planet X — source release.** Upload the v0.3.1 archive (`src/`, `tests/`, `reports/`, `figures/`, results), confirm the reorganized scripts run, and choose a license.
 - **OpenMC pin-cell study — write-up.** Reproducible inputs, convergence and verification checks, LaTeX technical report.
-- **TLECUIL — first-order fission surface power sizer.** Python engine, interactive front end, and theory document; benchmarking against published studies and NASA's EZ FSP Sizer; V&V structured toward NQA-1-style software QA.
+- **TLECUIL v0.3.** Independent human review (IR-002), verification tests VT-01 to VT-07, golden-file regression, and a first signed release record. v0.2.1 is released at [istrong8/tlecuil](https://github.com/istrong8/tlecuil).
 
 ## Later — OpenMC
 

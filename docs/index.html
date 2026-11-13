@@ -138,11 +138,18 @@
 
     <!-- TLECUIL -->
     <article class="case">
-      <p class="status status--dev">In development</p>
+      <p class="status status--live">v0.2 · Open source</p>
       <h3>TLECUIL — first-order fission surface power sizer</h3>
-      <p>An open, documented first-order sizing tool for surface fission power systems, scaling past 100 kWe. Python calculation engine, an interactive front end, and a LaTeX theory document written for undergraduate readers. Planned benchmarking against published studies and NASA's EZ FSP Sizer, with V&amp;V structured toward NQA-1-style software QA.</p>
+      <p>An open first-order thermal–electrical balance for surface fission power: reactor thermal power, conversion efficiency, waste heat, radiator area, and U-235 burned, at any power level. Sixteen verification tests; the JavaScript and Python engines agree to machine precision.</p>
+      <p>Benchmarked against four published NASA designs (2010–2025). With one panel-effectiveness factor calibrated on the 2010 reference design, it predicts the two 2025 government designs within 3%; a third falls just outside the ±15% acceptance band, with the reasons documented. Includes a theory document for undergraduates and a V&amp;V plan structured after NQA-1-2024 Subpart 2.7.</p>
       <p class="case__name">Named for <em>tlecuilli</em> — Nahuatl for the three-stone hearth.</p>
-      <ul class="case__meta"><li>Python · HTML/JS · LaTeX</li><li>Repository not yet public</li></ul>
+      <ul class="case__meta"><li>Python · JavaScript · LaTeX</li><li>BSD-3-Clause</li></ul>
+      <div class="case__links">
+        <a class="btn btn--solid" href="https://istrong8.github.io/tlecuil/">Try the calculator <span aria-hidden="true">↗</span></a>
+        <a class="textlink" href="https://github.com/istrong8/tlecuil">Code</a>
+        <a class="textlink" href="https://github.com/istrong8/tlecuil/blob/main/docs/tlecuil_theory.pdf">Theory (PDF)</a>
+        <a class="textlink" href="https://github.com/istrong8/tlecuil/blob/main/docs/tlecuil_vv_plan.pdf">V&amp;V plan (PDF)</a>
+      </div>
     </article>
 
     <!-- OpenMC -->
