@@ -179,6 +179,56 @@ p{margin:0}
 .open li{margin:4px 0}
 .idx{font:400 italic 30px/1 var(--serif);color:var(--violet);margin-bottom:14px}
 
+
+/* Hazards */
+.hz{display:grid;gap:16px}
+.hz__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-raise);padding:26px;display:grid;gap:16px}
+.hz__card h3{font:400 25px/1.2 var(--serif);letter-spacing:-.01em}
+.hz__card p.lead{color:var(--text-2);font-size:15px;max-width:70ch}
+.hz__kicker{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
+.hz__note{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;line-height:1.55}
+.ctrls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ctrl label{display:flex;justify-content:space-between;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ctrl output{color:var(--text);font:500 13px var(--mono);letter-spacing:0;text-transform:none}
+.ctrl input[type=range]{width:100%;accent-color:var(--violet)}
+.ctrl select{width:100%;background:var(--bg-panel);color:var(--text);border:1px solid var(--line-2);border-radius:8px;padding:8px 10px;font:400 14px var(--sans)}
+.big{display:flex;flex-wrap:wrap;gap:28px;align-items:baseline}
+.big b{font:300 clamp(34px,4vw,48px)/1 var(--serif);color:var(--violet-hi)}
+.big span{display:block;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.hits{width:100%;border-collapse:collapse;font-size:14px}
+.hits th,.hits td{text-align:left;padding:9px 10px 9px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+.hits thead th{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hits td.n{font:500 13.5px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--violet-lo),var(--violet));min-width:2px}
+.barcell{width:34%}
+.yr{position:relative;height:56px;border:1px solid var(--line);border-radius:8px;background:var(--bg-panel);overflow:hidden}
+.yr i{position:absolute;top:8px;height:22px;border-radius:4px;background:rgba(167,139,250,.28);border:1px solid rgba(167,139,250,.5)}
+.yr i.on{background:rgba(232,184,106,.45);border-color:var(--amber)}
+.yr .pk{position:absolute;top:8px;width:2px;height:22px;background:var(--violet-hi)}
+.yr .today{position:absolute;top:0;bottom:0;width:2px;background:var(--live);box-shadow:0 0 0 3px rgba(126,224,181,.14)}
+.yr__m{position:absolute;bottom:4px;font:400 10px var(--mono);color:var(--muted);transform:translateX(-50%)}
+.showers{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.sh{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:4px}
+.sh.on{border-color:var(--amber);background:rgba(232,184,106,.06)}
+.sh b{font:500 15px var(--sans)}
+.sh span{font:400 12.5px var(--mono);color:var(--muted)}
+.sh em{font-style:normal;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.qbtns{display:flex;flex-wrap:wrap;gap:8px}
+.qbtns button{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:7px 13px;cursor:pointer}
+.qbtns button[aria-pressed="true"]{background:var(--violet-hi);color:#150e27;border-color:var(--violet-hi)}
+.seis{position:relative;height:220px;border:1px solid var(--line);border-radius:10px;background:#08070d;overflow:hidden}
+.seis canvas{position:absolute;inset:0;width:100%;height:100%}
+.qfacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.qfacts>div{padding:12px 14px 4px 0}
+.qfacts>div+div{padding-left:14px;border-left:1px solid var(--line)}
+.qfacts dt{font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.qfacts dd{margin:4px 0 0;font:500 15px var(--mono);color:var(--text)}
+.status-row{display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:8px;font:500 11px var(--mono);letter-spacing:.06em;color:var(--text-2);border:1px solid var(--line-2);border-radius:999px;padding:5px 12px}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.pill.up::before{background:var(--amber)}
+@media (max-width:760px){.ctrls,.qfacts{grid-template-columns:1fr 1fr}.barcell{width:24%}}
+
 footer{margin-top:clamp(72px,9vw,120px);border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:26px 0 40px;color:var(--muted);font-size:13px}
 footer p{max-width:70ch}
@@ -209,6 +259,7 @@ footer p{max-width:70ch}
     </a>
     <nav class="sitenav" aria-label="Page">
       <a href="#destinations">Moon &amp; Mars</a>
+      <a href="#hazards">Hazards</a>
       <a href="#projects">Projects</a>
       <a href="#standards">Standards</a>
       <a class="sitenav__cta" href="./">Portfolio</a>
@@ -317,9 +368,79 @@ footer p{max-width:70ch}
   </div>
 </section>
 
-<section class="section wrap" id="projects" aria-labelledby="proj-title">
+
+<section class="section wrap" id="hazards" aria-labelledby="hz-title">
   <header class="section__head">
     <p class="section__num">§ 02</p>
+    <div>
+      <h2 id="hz-title">Lunar hazards, by the numbers</h2>
+      <p class="section__intro">Meteoroids and moonquakes are the Moon's version of wind and earthquakes. No sensor reports them live today, so these tools compute them from the published models and the Apollo record.</p>
+    </div>
+  </header>
+  <div class="hz indent">
+
+    <article class="hz__card" aria-labelledby="mc-title">
+      <p class="hz__kicker">Meteoroids · calculator</p>
+      <h3 id="mc-title">How many hits will a surface take?</h3>
+      <p class="lead">Set the exposed area and the mission length. The table shows the expected number of meteoroid hits at or above each size, and the chance of at least one.</p>
+      <div class="ctrls">
+        <div class="ctrl"><label for="mc-a">Exposed area <output id="mc-ao">100 m²</output></label><input id="mc-a" type="range" min="1" max="500" step="1" value="100"></div>
+        <div class="ctrl"><label for="mc-y">Mission length <output id="mc-yo">10 years</output></label><input id="mc-y" type="range" min="1" max="20" step="1" value="10"></div>
+        <div class="ctrl"><label for="mc-d">Meteoroid density</label>
+          <select id="mc-d"><option value="1">1.0 g/cm³ · porous, cometary</option><option value="2.5" selected>2.5 g/cm³ · typical stony</option><option value="3.5">3.5 g/cm³ · dense stony</option></select></div>
+      </div>
+      <div class="big" aria-live="polite">
+        <div><b id="mc-h1">—</b><span>Expected hits ≥ 1 mm</span></div>
+        <div><b id="mc-p1">—</b><span>Chance of at least one ≥ 1 mm</span></div>
+        <div><b id="mc-e1">—</b><span>Energy of a 1 mm hit at 20 km/s</span></div>
+      </div>
+      <table class="hits">
+        <thead><tr><th>Particle at least</th><th>Mass</th><th>Expected hits</th><th class="barcell">Relative (log)</th><th>Chance ≥ 1</th><th>Energy</th></tr></thead>
+        <tbody id="mc-rows"></tbody>
+      </table>
+      <p class="hz__note">Model: Grün et al. (1985) interplanetary flux at 1 AU on a randomly oriented plate, 20 km/s mean speed, as used in NASA's Meteoroid Engineering Model. Expected hits = flux × area × years; chance = 1 − e<sup>−N</sup>. LRO counted about 33% more new craters than the standard lunar model predicted, and secondary debris from nearby impacts adds slower particles, so treat these as a floor.</p>
+    </article>
+
+    <article class="hz__card" aria-labelledby="ms-title">
+      <p class="hz__kicker">Meteor showers · live calendar</p>
+      <h3 id="ms-title">Which streams is the Moon crossing right now?</h3>
+      <p class="lead" id="ms-lead">Earth and the Moon pass through the same meteoroid streams every year.</p>
+      <div class="yr" id="ms-yr" aria-hidden="true"></div>
+      <div class="showers" id="ms-list"></div>
+      <p class="hz__note">Typical activity windows and peaks from the International Meteor Organization calendar; peaks shift by about a day from year to year. Showers add only about 1–5% of the total meteoroid flux, depending on size, so they matter less than the steady background in the calculator above.</p>
+    </article>
+
+    <article class="hz__card" aria-labelledby="mq-title">
+      <p class="hz__kicker">Moonquakes · Apollo record 1969–1977</p>
+      <h3 id="mq-title">Why a moonquake is not an earthquake</h3>
+      <p class="lead">The dry, fractured lunar crust scatters seismic energy instead of damping it, so the Moon keeps ringing long after the shaking starts. Pick an event type to compare.</p>
+      <div class="qbtns" role="group" aria-label="Event type">
+        <button type="button" data-q="shallow" aria-pressed="true">Shallow moonquake</button>
+        <button type="button" data-q="deep" aria-pressed="false">Deep moonquake</button>
+        <button type="button" data-q="impact" aria-pressed="false">Meteoroid impact</button>
+        <button type="button" data-q="earth" aria-pressed="false">Earthquake (for comparison)</button>
+      </div>
+      <div class="seis"><canvas id="mq-cv" aria-hidden="true"></canvas></div>
+      <dl class="qfacts" aria-live="polite">
+        <div><dt>Recorded by Apollo</dt><dd id="q-n">28</dd></div>
+        <div><dt>Depth</dt><dd id="q-dp">&lt; 100 km</dd></div>
+        <div><dt>Size</dt><dd id="q-sz">M 3–5</dd></div>
+        <div><dt>Relevance to a reactor</dt><dd id="q-rv">Design basis</dd></div>
+      </dl>
+      <div class="status-row">
+        <span class="pill">No seismometer reporting live from the Moon</span>
+        <span class="pill up">Coming: Chang'e-7 seismograph at the south pole</span>
+        <span class="pill up">Coming: Farside Seismic Suite, Schrödinger basin</span>
+      </div>
+      <p class="hz__note">Waveforms are illustrative shapes, not recorded data; time axis spans one hour. Event counts from the Apollo Passive Seismic Experiment (four near-side stations): 28 shallow moonquakes, about 7,000 deep moonquakes, and about 1,700 meteoroid impacts of roughly 0.1–50 kg on the long-period sensors.</p>
+    </article>
+
+  </div>
+</section>
+
+<section class="section wrap" id="projects" aria-labelledby="proj-title">
+  <header class="section__head">
+    <p class="section__num">§ 03</p>
     <div>
       <h2 id="proj-title">Projects</h2>
       <p class="section__intro">Independent academic work at Idaho State University. Each states its status plainly.</p>
@@ -358,7 +479,7 @@ footer p{max-width:70ch}
 
 <section class="section wrap" id="standards" aria-labelledby="std-title">
   <header class="section__head">
-    <p class="section__num">§ 03</p>
+    <p class="section__num">§ 04</p>
     <div>
       <h2 id="std-title">Standards work</h2>
       <p class="section__intro">Volunteer contributions to the consensus standards that will govern nuclear systems in space.</p>
@@ -378,7 +499,7 @@ footer p{max-width:70ch}
 
 <section class="section wrap" aria-labelledby="open-title">
   <header class="section__head">
-    <p class="section__num">§ 04</p>
+    <p class="section__num">§ 05</p>
     <div>
       <h2 id="open-title">What is shared, and what is not</h2>
       <p class="section__intro">Safety work earns trust through review. Methods and status are public here; the work itself is shared once it has been checked.</p>
@@ -575,6 +696,101 @@ footer p{max-width:70ch}
   size();draw();
   if(!reduce){raf=requestAnimationFrame(loop);}
   document.addEventListener('visibilitychange',function(){if(document.hidden&&raf){cancelAnimationFrame(raf);raf=null;}else if(!document.hidden&&!reduce&&!raf){raf=requestAnimationFrame(loop);}});
+})();
+</script>
+
+<script>
+(function(){
+  /* ---------- Meteoroid calculator (Grün et al. 1985) ---------- */
+  var C=[3.156e7,2.2e3,15,1.3e-9,1e11,1e27,1.3e-16,1e6];
+  function F(m){return C[0]*(Math.pow(C[1]*Math.pow(m,0.306)+C[2],-4.38)+C[3]*Math.pow(m+C[4]*m*m+C[5]*Math.pow(m,4),-0.36)+C[6]*Math.pow(m+C[7]*m*m,-0.85));}
+  var sizes=[0.1,0.5,1,2,5,10]; // mm
+  function massG(dmm,rho){var r=dmm/20;return rho*4/3*Math.PI*r*r*r;}
+  function fmtN(n){if(n>=1000)return Math.round(n).toLocaleString();if(n>=10)return n.toFixed(0);if(n>=0.1)return n.toFixed(2);if(n===0)return '0';return n.toExponential(1).replace('e','×10^').replace(/\^(-?\d+)/,function(_,e){return '<sup>'+e+'</sup>';});}
+  function fmtP(p){if(p>0.999)return '>99.9%';if(p>=0.995)return (p*100).toFixed(1)+'%';if(p>=0.01)return (p*100).toFixed(p<0.1?1:0)+'%';if(p>=1e-4)return (p*100).toFixed(2)+'%';return '<0.01%';}
+  function fmtM(g){if(g>=1)return g.toFixed(g<10?1:0)+' g';if(g>=1e-3)return (g*1e3).toFixed(g<1e-2?1:0)+' mg';return (g*1e6).toFixed(g<1e-5?2:0)+' µg';}
+  function fmtE(J){if(J>=1e3)return (J/1e3).toFixed(J<1e4?1:0)+' kJ';if(J>=1)return J.toFixed(J<10?1:0)+' J';return (J*1e3).toFixed(0)+' mJ';}
+  function calc(){
+    var A=+document.getElementById('mc-a').value, Y=+document.getElementById('mc-y').value, rho=+document.getElementById('mc-d').value;
+    document.getElementById('mc-ao').textContent=A+' m²'; document.getElementById('mc-yo').textContent=Y+(Y===1?' year':' years');
+    var rows='', maxL=Math.log10(F(massG(sizes[0],rho))*A*Y)+0.5, minL=-6;
+    sizes.forEach(function(d){
+      var m=massG(d,rho), N=F(m)*A*Y, P=1-Math.exp(-N), E=0.5*(m/1000)*4e8;
+      var w=Math.max(0,Math.min(100,(Math.log10(Math.max(N,1e-9))-minL)/(maxL-minL)*100));
+      rows+='<tr><td>'+(d<1?d+' mm':d>=10?(d/10)+' cm':d+' mm')+'</td><td class="n">'+fmtM(m)+'</td><td class="n">'+fmtN(N)+'</td><td class="barcell"><div class="bar" style="width:'+w.toFixed(1)+'%"></div></td><td class="n">'+fmtP(P)+'</td><td class="n">'+fmtE(E)+'</td></tr>';
+      if(d===1){document.getElementById('mc-h1').innerHTML=fmtN(N);document.getElementById('mc-p1').textContent=fmtP(P);document.getElementById('mc-e1').textContent=fmtE(E);}
+    });
+    document.getElementById('mc-rows').innerHTML=rows;
+  }
+  ['mc-a','mc-y','mc-d'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+  calc();
+
+  /* ---------- Meteor showers (IMO typical dates) ---------- */
+  var SH=[
+    ['Quadrantids',[12,28],[1,12],[1,4],41],
+    ['Lyrids',[4,14],[4,30],[4,22],49],
+    ['Eta Aquariids',[4,19],[5,28],[5,6],66],
+    ['Perseids',[7,17],[8,24],[8,12],59],
+    ['Orionids',[10,2],[11,7],[10,21],66],
+    ['Northern Taurids',[10,20],[12,10],[11,12],29],
+    ['Leonids',[11,6],[11,30],[11,17],71],
+    ['Geminids',[12,4],[12,20],[12,14],35]
+  ]; // name, start, end, peak, entry speed km/s
+  var now=new Date(), Y0=now.getFullYear();
+  function doy(m,d,y){return (Date.UTC(y,m-1,d)-Date.UTC(y,0,1))/864e5;}
+  var t=(Date.UTC(Y0,now.getMonth(),now.getDate())-Date.UTC(Y0,0,1))/864e5, len=doy(12,31,Y0)+1;
+  var yr=document.getElementById('ms-yr'), html='', list='', active=[], nextPk=null;
+  SH.forEach(function(s){
+    var a=doy(s[1][0],s[1][1],Y0), b=doy(s[2][0],s[2][1],Y0), pk=doy(s[3][0],s[3][1],Y0), wrap=b<a;
+    var on=wrap?(t>=a||t<=b):(t>=a&&t<=b);
+    if(on)active.push(s[0]);
+    function seg(x0,x1){html+='<i class="'+(on?'on':'')+'" style="left:'+(x0/len*100)+'%;width:'+((x1-x0+1)/len*100)+'%" title="'+s[0]+'"></i>';}
+    if(wrap){seg(a,len-1);seg(0,b);}else seg(a,b);
+    html+='<span class="pk" style="left:'+(pk/len*100)+'%"></span>';
+    var today0=new Date(Y0,now.getMonth(),now.getDate()), pk0=new Date(Y0,s[3][0]-1,s[3][1]);
+    var past=Math.round((today0-pk0)/864e5), justPeaked=on&&past>0&&past<40;
+    var pkDate=pk0; if(pkDate<today0&&!justPeaked)pkDate=new Date(Y0+1,s[3][0]-1,s[3][1]);
+    var days=Math.round((pkDate-today0)/864e5);
+    if(!justPeaked&&(!nextPk||days<nextPk.days))nextPk={n:s[0],days:days};
+    list+='<div class="sh'+(on?' on':'')+'">'+(on?'<em>Active now</em>':'')+'<b>'+s[0]+'</b><span>Peak '+pkDate.toLocaleDateString(undefined,{month:'short',day:'numeric'})+' · '+(justPeaked?'peaked '+past+' d ago':days===0?'today':'in '+days+' d')+'</span><span>Entry speed ~'+s[4]+' km/s</span></div>';
+  });
+  ['Jan','Apr','Jul','Oct'].forEach(function(mn,i){var x=doy([1,4,7,10][i],1,Y0)/len*100;html+='<span class="yr__m" style="left:'+(x+2)+'%">'+mn+'</span>';});
+  html+='<span class="today" style="left:'+(t/len*100)+'%" title="Today"></span>';
+  yr.innerHTML=html; document.getElementById('ms-list').innerHTML=list;
+  document.getElementById('ms-lead').textContent = active.length
+    ? 'Right now the Earth–Moon system is inside '+active.join(' and ')+'. Next peak: '+nextPk.n+(nextPk.days===0?' today.':' in '+nextPk.days+' days.')
+    : 'No major stream is active right now. Next peak: '+nextPk.n+' in '+nextPk.days+' days.';
+
+  /* ---------- Moonquake vs earthquake waveforms (illustrative) ---------- */
+  var Q={
+    shallow:{n:'28',dp:'< 100 km',sz:'M 3–5',rv:'Design basis',rise:3,decay:22,amp:1.0,freq:7,label:'Shallow moonquake · rare but strongest'},
+    deep:{n:'~7,000',dp:'700–1,000 km',sz:'Small',rv:'Minor',rise:6,decay:16,amp:0.25,freq:5,label:'Deep moonquake · tidal, repeating, weak'},
+    impact:{n:'~1,700',dp:'Surface',sz:'0.1–50 kg',rv:'Local damage',rise:5,decay:18,amp:0.55,freq:9,label:'Meteoroid impact · emergent, long coda'},
+    earth:{n:'—',dp:'Varies',sz:'Same M',rv:'Reference',rise:0.4,decay:1.6,amp:1.0,freq:4,label:'Earthquake · energy damped within minutes'}
+  };
+  var cv=document.getElementById('mq-cv'), cx=cv.getContext('2d'), cur='shallow', seed=1;
+  function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647-0.5;}
+  function drawQ(){
+    var r=cv.getBoundingClientRect(),D=Math.min(window.devicePixelRatio||1,2);cv.width=r.width*D;cv.height=r.height*D;cx.setTransform(D,0,0,D,0,0);
+    var W=r.width,H=r.height,mid=H*0.5;cx.clearRect(0,0,W,H);
+    cx.strokeStyle='rgba(205,190,255,.08)';cx.lineWidth=1;
+    for(var g=0;g<=6;g++){var x=g/6*W;cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke();}
+    cx.beginPath();cx.moveTo(0,mid);cx.lineTo(W,mid);cx.stroke();
+    cx.font='400 10px "IBM Plex Mono",monospace';cx.fillStyle='rgba(157,151,174,.9)';
+    for(var k=0;k<=6;k++)cx.fillText((k*10)+' min',Math.min(k/6*W+4,W-38),H-6);
+    var q=Q[cur]; seed=7;
+    function trace(p,color,alpha){cx.strokeStyle=color;cx.globalAlpha=alpha;cx.lineWidth=1;cx.beginPath();
+      for(var i=0;i<W;i++){var tm=i/W*60;var env=tm<p.rise?Math.pow(tm/p.rise,2):Math.exp(-(tm-p.rise)/p.decay);
+        var y=mid-(H*0.42)*p.amp*env*(Math.sin(i*p.freq*0.11)*0.6+rnd()*1.1);if(i===0)cx.moveTo(i,y);else cx.lineTo(i,y);}
+      cx.stroke();cx.globalAlpha=1;}
+    if(cur!=='earth')trace(Q.earth,'#8ea0ff',0.35);
+    trace(q,cur==='earth'?'#8ea0ff':'#d9ccff',0.95);
+    cx.fillStyle='rgba(217,204,255,.95)';cx.font='500 11px "IBM Plex Mono",monospace';cx.fillText(q.label.toUpperCase(),12,18);
+    if(cur!=='earth'){cx.fillStyle='rgba(142,160,255,.9)';cx.fillText('FAINT TRACE: EARTHQUAKE OF SAME SIZE',12,34);}
+    ['n','dp','sz','rv'].forEach(function(k2){document.getElementById('q-'+k2).textContent=q[k2];});
+  }
+  document.querySelectorAll('.qbtns button').forEach(function(b){b.addEventListener('click',function(){cur=b.dataset.q;document.querySelectorAll('.qbtns button').forEach(function(o){o.setAttribute('aria-pressed',o===b);});drawQ();});});
+  window.addEventListener('resize',drawQ); drawQ();
 })();
 </script>
 </body>
