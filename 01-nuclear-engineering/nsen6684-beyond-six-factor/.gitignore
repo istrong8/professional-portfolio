@@ -1,0 +1,24 @@
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+# Python / Node
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+# OS / editor
+.DS_Store
+Thumbs.db
+~$*.pptx
+# OpenMC outputs
+openmc/*.h5
+openmc/*/

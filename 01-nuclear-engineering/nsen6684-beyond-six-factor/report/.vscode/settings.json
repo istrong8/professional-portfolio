@@ -1,0 +1,17 @@
+{
+  // LaTeX Workshop recipes for Windows (MiKTeX or TeX Live).
+  // "pdflatex -> bibtex -> pdflatex x2" needs no Perl, so it works with a plain MiKTeX install.
+  "latex-workshop.latex.recipes": [
+    { "name": "pdflatex -> bibtex -> pdflatex x2", "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"] },
+    { "name": "latexmk (needs Perl on MiKTeX)", "tools": ["latexmk"] }
+  ],
+  "latex-workshop.latex.tools": [
+    { "name": "pdflatex", "command": "pdflatex",
+      "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"] },
+    { "name": "bibtex", "command": "bibtex", "args": ["%DOCFILE%"] },
+    { "name": "latexmk", "command": "latexmk",
+      "args": ["-pdf", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"] }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.autoClean.run": "onBuilt"
+}

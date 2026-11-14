@@ -1,0 +1,56 @@
+==============================================================================
+NSEN 6684 analysis -- LA-13511 benchmark constants, Monte Carlo vs diffusion
+MC settings: 40000 particles/generation, 50 inactive, 250 active generations
+==============================================================================
+
+[0] Classical six-factor ledger (assumed LWR-like factors, review only): k_eff = 1.0111
+
+[1] VERIFICATION against exact LA-13511 transport solutions (k = 1 by construction)
+  Ua-1-0-SP  bare sphere R = 7.428998 cm: k_MC = 0.99968 +/- 0.00033   k_diffusion = 0.93964
+  Ub-H2O(1)-1-0-SP   core 6.12745 cm, H2O  3.06372 cm: k_MC = 1.00015 +/- 0.00034   k_diffusion = 0.88317   fissions by reflector-returned neutrons = 14.6%
+  Uc-H2O(2)-1-0-SP   core 6.12745 cm, H2O  6.12745 cm: k_MC = 0.99998 +/- 0.00032   k_diffusion = 0.89344   fissions by reflector-returned neutrons = 17.8%
+  Ud-H2O(3)-1-0-SP   core 6.12745 cm, H2O  9.19118 cm: k_MC = 1.00012 +/- 0.00033   k_diffusion = 0.89664   fissions by reflector-returned neutrons = 18.8%
+  U-2-0-SP   two-group bare R = 7.909444 cm: k_MC = 1.00010 +/- 0.00034   k_diffusion(2-group) = 0.93714
+  Flux shape, normalized at r/rc = 0.25 (exact | MC | diffusion):
+     r/rc = 0.25: 1.0000 | 1.0000 | 1.0000
+     r/rc = 0.50: 0.7995 | 0.7971 | 0.8211
+     r/rc = 0.75: 0.5158 | 0.5136 | 0.5656
+     r/rc = 1.00: 0.1842 | 0.1856 | 0.2861
+
+[2] SENSITIVITY: k_eff and leakage vs radius, bare U-235(a) sphere
+  R =  4.0000 cm (1.31 mfp): k_MC = 0.5707 +/- 0.0002  k_diff = 0.5145  leakage MC =  74.6%  diff =  77.1%  diffusion error = -9.84%
+  R =  5.0000 cm (1.63 mfp): k_MC = 0.7063 +/- 0.0003  k_diff = 0.6432  leakage MC =  68.6%  diff =  71.4%  diffusion error = -8.93%
+  R =  6.0000 cm (1.96 mfp): k_MC = 0.8341 +/- 0.0003  k_diff = 0.7693  leakage MC =  62.9%  diff =  65.8%  diffusion error = -7.77%
+  R =  7.0000 cm (2.28 mfp): k_MC = 0.9515 +/- 0.0003  k_diff = 0.8900  leakage MC =  57.7%  diff =  60.4%  diffusion error = -6.46%
+  R =  7.4290 cm (2.42 mfp): k_MC = 0.9998 +/- 0.0004  k_diff = 0.9396  leakage MC =  55.6%  diff =  58.2%  diffusion error = -6.01%
+  R =  8.0000 cm (2.61 mfp): k_MC = 1.0614 +/- 0.0003  k_diff = 1.0034  leakage MC =  52.8%  diff =  55.4%  diffusion error = -5.47%
+  R =  9.0000 cm (2.94 mfp): k_MC = 1.1607 +/- 0.0004  k_diff = 1.1083  leakage MC =  48.4%  diff =  50.7%  diffusion error = -4.51%
+  R = 10.0000 cm (3.26 mfp): k_MC = 1.2524 +/- 0.0004  k_diff = 1.2046  leakage MC =  44.3%  diff =  46.5%  diffusion error = -3.81%
+  R = 12.0000 cm (3.92 mfp): k_MC = 1.4086 +/- 0.0005  k_diff = 1.3718  leakage MC =  37.4%  diff =  39.0%  diffusion error = -2.62%
+  R = 14.0000 cm (4.57 mfp): k_MC = 1.5371 +/- 0.0005  k_diff = 1.5083  leakage MC =  31.7%  diff =  33.0%  diffusion error = -1.87%
+  Critical radius: exact transport 7.428998 cm; diffusion 7.9691 cm (+7.3%)
+
+[3] REFLECTOR: critical core radius vs H2O(c=0.9) reflector thickness, fuel U-235(a)
+  T =  3.06372 cm (1 mfp): R_c MC = 6.4057 +/- 0.0027 cm   R_c diffusion = 7.2258 cm   savings MC = 1.023  diffusion = 0.743  slab formula = 2.790 cm
+  T =  6.12745 cm (2 mfp): R_c MC = 6.1488 +/- 0.0026 cm   R_c diffusion = 6.9110 cm   savings MC = 1.280  diffusion = 1.058  slab formula = 4.468 cm
+  T =  9.19118 cm (3 mfp): R_c MC = 6.0725 +/- 0.0024 cm   R_c diffusion = 6.8122 cm   savings MC = 1.356  diffusion = 1.157  slab formula = 5.190 cm
+
+[4] SPECTRAL: two-group U-235 (LA-13511 Tables 33-35)
+  k_inf = 2.216349; infinite-medium flux fractions fast/slow = 0.3220/0.6780
+  MC at exact R_c: k = 0.99990 +/- 0.00036; leakage fast 24.9% + slow 30.7% of source
+  share of leaked neutrons that are fast = 44.7%  (fast share of infinite-medium flux = 32.2%)
+  two-group diffusion: R_c = 8.5203 cm; k at exact R_c = 0.93714
+  one-group collapse with infinite-medium spectrum (w_fast = 0.3220): transport R_c = 7.8216 +/- 0.0021 cm (-1.11% vs exact two-group); diffusion R_c = 8.4033 cm
+  one-group collapse with leakage-weighted spectrum (w_fast = 0.4037): transport R_c = 7.8602 +/- 0.0034 cm (-0.62% vs exact two-group); diffusion R_c = 8.4582 cm
+
+[5] FEEDBACK: reactivity response to uniform thermal expansion (strain eps)
+    density scales as (1+eps)^-3, dimensions as (1+eps)
+  bare sphere, whole core expands                  dln k/d eps = -1.654 +/- 0.013
+  reflected (Ub-H2O(1)), core only expands         dln k/d eps = -1.455 +/- 0.013
+  reflected (Ub-H2O(1)), reflector only expands    dln k/d eps = -0.290 +/- 0.014
+  bare sphere, diffusion                           dln k/d eps = -1.802
+  -> bare sphere, whole core expands: alpha*dln k/d eps / beta = -0.413 +/- 0.003 cents/K
+  -> reflected (Ub-H2O(1)), core only expands: alpha*dln k/d eps / beta = -0.364 +/- 0.003 cents/K
+  KRUSTY (published): fuel coefficient -0.1844 c/K (design model, Table II); ~90% from expansion -> -0.166 c/K; measured magnitude ~0.2 c/C near 800 C
+
+Total runtime: 4.3 min
