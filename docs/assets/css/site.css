@@ -462,3 +462,28 @@ p { margin: 0; }
   body::before, .masthead, .instrument, .case__viz, .contact { display: none; }
   .section h2, .case h3 { color: #000; }
 }
+
+/* ---------- Moon & Mars card ---------- */
+.case--wide { grid-column: 1 / -1; }
+.mm__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 18px; }
+.mm__head h3 { margin-top: 12px; }
+.mm__moon { color: #b9bfca; }
+.mm__mars { color: #e0855a; }
+.mm__tracks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.mm__tracks > div { padding: 16px 24px 4px 0; }
+.mm__tracks > div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+.mm__lane { font: 500 10.5px var(--mono) !important; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+.mm__lane--moon { color: #b9bfca !important; }
+.mm__lane--mars { color: #e0855a !important; }
+.mm__list { list-style: none; margin: 0; padding: 0; }
+.mm__list li { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 14.5px; color: var(--text); }
+.mm__list li:last-child { border-bottom: 0; }
+.st { display: inline-flex; align-items: center; gap: 7px; font: 500 10.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-2); white-space: nowrap; }
+.st::before { content: ""; width: 7px; height: 7px; border-radius: 50%; }
+.st--draft::before { background: #7ee0b5; box-shadow: 0 0 0 3px rgba(126,224,181,.12); }
+.st--next::before { background: var(--amber); }
+.st--plan::before { border: 1px solid var(--muted); }
+@media (max-width: 760px) {
+  .mm__tracks { grid-template-columns: 1fr; }
+  .mm__tracks > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+}

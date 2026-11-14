@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moon and Mars — Irais Strong</title>
+<meta name="description" content="Irais Strong — research and standards work on the safety of fission power for the Moon and Mars.">
+<meta name="theme-color" content="#07060b">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307060b'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23a78bfa' stroke-width='2.5' transform='rotate(-28 32 32)'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e4d9ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..400&display=swap">
+<style>
+/* Same system as the portfolio: technical report × mission instrument panel.
+   Violet from Cherenkov light; Moon in regolith grey, Mars in iron-oxide orange. */
+:root{
+  --bg:#07060b; --bg-raise:#0d0b14; --bg-panel:#110e1a;
+  --line:rgba(205,190,255,.10); --line-2:rgba(205,190,255,.18);
+  --text:#ece9f4; --text-2:#c3bdd3; --muted:#9d97ae;
+  --violet:#a78bfa; --violet-hi:#d9ccff; --violet-lo:#6d4fd8;
+  --cherenkov:#8ea0ff; --amber:#e8b86a; --live:#7ee0b5;
+  --moon:#b9bfca; --mars:#e0855a;
+  --serif:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --wrap:1180px; --gutter:clamp(20px,4vw,40px); --radius:14px; --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body::before{content:"";position:absolute;inset:0 0 auto 0;height:1100px;pointer-events:none;z-index:-1;
+  background:radial-gradient(60% 50% at 78% 18%,rgba(109,79,216,.16),transparent 70%),
+  repeating-linear-gradient(90deg,transparent 0 119px,rgba(205,190,255,.035) 119px 120px);
+  -webkit-mask-image:linear-gradient(#000 30%,transparent);mask-image:linear-gradient(#000 30%,transparent)}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:400}
+p{margin:0}
+:focus-visible{outline:2px solid var(--violet-hi);outline-offset:3px;border-radius:4px}
+::selection{background:rgba(167,139,250,.35);color:#fff}
+.wrap{width:min(var(--wrap),100% - 2*var(--gutter));margin-inline:auto}
+.label{font:500 11.5px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.textlink{color:var(--violet-hi);text-decoration:underline;text-decoration-color:rgba(217,204,255,.35);text-underline-offset:4px}
+.textlink:hover{text-decoration-color:currentColor}
+.btn{display:inline-flex;align-items:center;gap:.5em;min-height:46px;padding:0 20px;border:1px solid var(--line-2);border-radius:999px;font:500 14px var(--sans);color:var(--text);text-decoration:none;background:rgba(255,255,255,.015);transition:border-color .25s var(--ease),background .25s var(--ease)}
+.btn:hover{border-color:var(--violet);background:rgba(167,139,250,.08)}
+.btn--solid{background:var(--violet-hi);border-color:var(--violet-hi);color:#150e27}
+.btn--solid:hover{background:#fff;border-color:#fff}
+
+/* Masthead */
+.masthead{position:sticky;top:0;z-index:50;background:rgba(7,6,11,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+.masthead__row{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.wordmark{display:inline-flex;align-items:center;gap:11px;font:400 21px/1 var(--serif);letter-spacing:-.01em;text-decoration:none}
+.wordmark svg{width:26px;height:26px}
+.wordmark ellipse{fill:none;stroke:var(--violet);stroke-width:1.6}
+.wordmark circle{fill:var(--violet-hi)}
+.sitenav{display:flex;align-items:center;gap:26px;font-size:14px}
+.sitenav a{color:var(--text-2);text-decoration:none}
+.sitenav a:hover{color:var(--text)}
+.sitenav__cta{border:1px solid var(--line-2);border-radius:999px;padding:7px 15px}
+.sitenav__cta:hover{border-color:var(--violet)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(48px,8vw,96px) 0 clamp(24px,3vw,40px)}
+.hero h1{margin:18px 0 24px;font:300 clamp(54px,8vw,108px)/.94 var(--serif);letter-spacing:-.035em}
+.hero h1 .m{font-style:italic;color:var(--moon)}
+.hero h1 .r{font-style:italic;color:var(--mars)}
+.hero__lede{font:400 clamp(20px,2vw,25px)/1.42 var(--serif);max-width:32ch}
+.hero__sub{margin-top:18px;color:var(--text-2);max-width:54ch;font-size:15.5px}
+.hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+/* Instrument */
+.instrument{margin:0;border:1px solid var(--line-2);border-radius:var(--radius);background:linear-gradient(180deg,var(--bg-panel),var(--bg-raise));box-shadow:0 40px 120px -40px rgba(109,79,216,.35);overflow:hidden}
+.instrument__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 11.5px var(--mono);letter-spacing:.06em;color:var(--text-2)}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:2px}
+.seg button{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);background:transparent;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--violet-hi);color:#150e27}
+.seg button:hover:not([aria-pressed="true"]){color:var(--text)}
+.instrument__stage{position:relative;aspect-ratio:16/10;background:#08070d}
+.instrument__stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.stage__tag{position:absolute;left:14px;top:12px;font:400 10.5px var(--mono);color:var(--muted);letter-spacing:.04em}
+.readout{display:grid;grid-template-columns:repeat(4,1fr);margin:0;border-top:1px solid var(--line)}
+.readout>div{padding:11px 14px;border-right:1px solid var(--line)}
+.readout>div:last-child{border-right:0}
+.readout dt{font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.readout dd{margin:4px 0 0;font:500 16px var(--mono);font-variant-numeric:tabular-nums;color:var(--text)}
+.instrument figcaption{padding:11px 14px 14px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;line-height:1.55}
+
+/* Sections */
+.section{padding:clamp(64px,9vw,112px) 0 0}
+.section__head{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;margin-bottom:clamp(30px,4vw,48px);padding-top:22px;border-top:1px solid var(--line)}
+.section__num{font:500 12px var(--mono);color:var(--violet);letter-spacing:.08em;padding-top:10px}
+.section h2{font:300 clamp(34px,4.4vw,54px)/1.05 var(--serif);letter-spacing:-.025em}
+.section__intro{margin-top:14px;max-width:62ch;color:var(--text-2)}
+.indent{margin-left:144px}
+
+/* Destinations */
+.dest{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.place{padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-raise);display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.place::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;opacity:.16;pointer-events:none}
+.place--moon::after{background:radial-gradient(circle at 35% 35%,#eef0f4,#7d8593 70%)}
+.place--mars::after{background:radial-gradient(circle at 35% 35%,#f2b08c,#8f3a1c 70%)}
+.place h3{font:400 30px/1.15 var(--serif);letter-spacing:-.01em}
+.place--moon h3 em{color:var(--moon)}
+.place--mars h3 em{color:var(--mars)}
+.place p{color:var(--text-2);font-size:15px}
+.place > ol{margin:0;padding:0;list-style:none;display:grid;gap:12px;counter-reset:q}
+.place > ol > li{counter-increment:q;display:grid;grid-template-columns:34px 1fr;gap:6px;color:var(--text);font-size:15.5px;line-height:1.5}
+.place > ol > li::before{content:"Q" counter(q);font:500 11px var(--mono);color:var(--violet);padding-top:3px;letter-spacing:.06em}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.meta li{font:400 12px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+
+.track{border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+.track__title{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.track ol{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:none}
+.track li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--text)}
+.track li::before{content:none}
+.track li:last-child{border-bottom:0}
+.st{display:inline-flex;align-items:center;gap:7px;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-2);white-space:nowrap}
+.st::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--line-2)}
+.st--draft::before{background:var(--live);box-shadow:0 0 0 3px rgba(126,224,181,.12)}
+.st--next::before{background:var(--amber)}
+.st--plan::before{background:transparent;border:1px solid var(--muted)}
+
+/* Work cards */
+.work{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.case{display:flex;flex-direction:column;gap:14px;padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-raise);transition:border-color .3s var(--ease)}
+.case:hover{border-color:var(--line-2)}
+.case h3{font:400 25px/1.2 var(--serif);letter-spacing:-.01em}
+.case p{color:var(--text-2);font-size:15px}
+.case__links{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:auto;padding-top:6px}
+.case__links .textlink{font-size:14px}
+.dots{display:flex;gap:6px}
+.dots span{width:9px;height:9px;border-radius:50%}
+.d-moon{background:var(--moon)} .d-mars{background:var(--mars)}
+.status{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-2)}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.status--live::before{background:var(--live);box-shadow:0 0 0 4px rgba(126,224,181,.12)}
+.status--dev::before{background:var(--amber)}
+.status--prep::before{background:var(--cherenkov)}
+.case__top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* Standards table */
+.std table{width:100%;border-collapse:collapse;font-size:14.5px}
+.std th,.std td{text-align:left;padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.std thead th{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.std tbody th{font:500 14.5px var(--mono);color:var(--text);white-space:nowrap;font-weight:500}
+.std td{color:var(--text-2)}
+.std__note{margin-top:16px;color:var(--text-2);font-size:14.5px}
+
+/* Openness */
+.open{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
+.open>div{padding:24px 26px 28px 0}
+.open>div+div{padding-left:26px;border-left:1px solid var(--line)}
+.open h3{font:500 17px/1.35 var(--sans);margin-bottom:10px}
+.open ul{margin:0;padding-left:18px;color:var(--text-2);font-size:15px}
+.open li{margin:4px 0}
+.idx{font:400 italic 30px/1 var(--serif);color:var(--violet);margin-bottom:14px}
+
+footer{margin-top:clamp(72px,9vw,120px);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:26px 0 40px;color:var(--muted);font-size:13px}
+footer p{max-width:70ch}
+
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr}
+  .indent{margin-left:0}
+  .section__head{grid-template-columns:1fr;gap:6px}
+  .dest,.work,.open{grid-template-columns:1fr}
+  .open>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+}
+@media (max-width:560px){
+  .sitenav a:not(.sitenav__cta){display:none}
+  .readout{grid-template-columns:repeat(2,1fr)}
+  .readout>div:nth-child(2){border-right:0}
+  .readout>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead__row">
+    <a class="wordmark" href="./" aria-label="Irais Strong — portfolio home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="12" ry="5" transform="rotate(-28 16 16)"/><circle cx="16" cy="16" r="2.6"/></svg>
+      Irais Strong
+    </a>
+    <nav class="sitenav" aria-label="Page">
+      <a href="#destinations">Moon &amp; Mars</a>
+      <a href="#projects">Projects</a>
+      <a href="#standards">Standards</a>
+      <a class="sitenav__cta" href="./">Portfolio</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero wrap" aria-labelledby="hero-title">
+  <div>
+    <p class="label">Space fission safety · Research overview</p>
+    <h1 id="hero-title"><span class="m">Moon</span> and <span class="r">Mars</span></h1>
+    <p class="hero__lede">How do you show a reactor is safe when the nearest people are astronauts, the ground shakes from moonquakes, and there is no air to carry anything away?</p>
+    <p class="hero__sub">This page tracks my research and standards work on fission power for the lunar and Martian surface: the questions, the projects, and where each one stands.</p>
+    <div class="hero__actions">
+      <a class="btn btn--solid" href="#projects">See the projects</a>
+      <a class="btn" href="#standards">Standards work</a>
+    </div>
+  </div>
+
+  <figure class="instrument" aria-labelledby="inst-cap">
+    <div class="instrument__bar">
+      <span>SURFACE ENVIRONMENT</span>
+      <div class="seg" role="group" aria-label="Choose a destination">
+        <button type="button" id="b-moon" aria-pressed="true">Moon</button>
+        <button type="button" id="b-mars" aria-pressed="false">Mars</button>
+      </div>
+    </div>
+    <div class="instrument__stage">
+      <canvas id="stage" aria-hidden="true"></canvas>
+      <span class="stage__tag" id="stag">Illustrative · not to scale</span>
+    </div>
+    <dl class="readout" aria-live="polite">
+      <div><dt>Gravity</dt><dd id="r-g">1.62 m/s²</dd></div>
+      <div><dt>Surface pressure</dt><dd id="r-p">~0</dd></div>
+      <div><dt>Day length</dt><dd id="r-d">29.5 d</dd></div>
+      <div><dt>Light delay</dt><dd id="r-l">1.3 s</dd></div>
+    </dl>
+    <figcaption id="inst-cap">The four numbers that drive the safety case: gravity sets loads and how far particles fly, pressure decides whether anything disperses, day length sets the power-storage problem, and light delay is why the reactor must protect itself.</figcaption>
+  </figure>
+</section>
+
+<section class="section wrap" id="destinations" aria-labelledby="dest-title">
+  <header class="section__head">
+    <p class="section__num">§ 01</p>
+    <div>
+      <h2 id="dest-title">Two destinations, two safety problems</h2>
+      <p class="section__intro">Terrestrial safety methods assume a public at a fence line, an atmosphere, and earthquakes. Neither the Moon nor Mars offers all three, so each method has to be rebuilt from its physics.</p>
+    </div>
+  </header>
+  <div class="dest indent">
+    <article class="place place--moon">
+      <h3>The <em>Moon</em></h3>
+      <ul class="meta"><li>1/6 g</li><li>No atmosphere</li><li>~40–390 K</li><li>Moonquakes</li></ul>
+      <ol>
+        <li>What should a safety basis protect when the only people nearby are the crew?</li>
+        <li>How do hazard criteria change when earthquakes become moonquakes, and wind becomes micrometeoroids and landing-plume ejecta?</li>
+        <li>How does released material move in a vacuum, where nothing carries it downwind?</li>
+      </ol>
+      <div class="track"><p class="track__title">Safety document track</p><ol><li>Safety Design Strategy<span class="st st--draft">Draft</span></li><li>Conceptual Safety Design Report<span class="st st--next">Next</span></li><li>Hazard analysis<span class="st st--plan">Planned</span></li><li>Accident analysis<span class="st st--plan">Planned</span></li><li>Preliminary Safety Design Report<span class="st st--plan">Planned</span></li><li>Preliminary Documented Safety Analysis<span class="st st--plan">Planned</span></li><li>Launch safety analysis<span class="st st--plan">Planned</span></li><li>Lunar natural phenomena hazard criteria<span class="st st--next">Started</span></li></ol></div>
+    </article>
+    <article class="place place--mars">
+      <h3><em>Mars</em></h3>
+      <ul class="meta"><li>0.38 g</li><li>~6 mbar CO₂</li><li>Dust storms</li><li>3–22 min light delay</li></ul>
+      <ol>
+        <li>Is a fission reactor feasible for a crewed Mars surface base, and what does its safety case need to show?</li>
+        <li>How do a thin atmosphere and dust storms change heat rejection and the spread of released material?</li>
+        <li>How does a reactor protect itself when Earth is minutes away?</li>
+      </ol>
+      <div class="track"><p class="track__title">Safety document track</p><ol><li>Safety Design Strategy<span class="st st--plan">Planned</span></li><li>Conceptual Safety Design Report<span class="st st--plan">Planned</span></li><li>Hazard analysis<span class="st st--plan">Planned</span></li><li>Accident analysis<span class="st st--plan">Planned</span></li><li>Preliminary Safety Design Report<span class="st st--plan">Planned</span></li><li>Preliminary Documented Safety Analysis<span class="st st--plan">Planned</span></li><li>Launch safety analysis<span class="st st--plan">Planned</span></li><li>Mars natural phenomena hazard criteria<span class="st st--plan">Planned</span></li></ol></div>
+    </article>
+  </div>
+</section>
+
+<section class="section wrap" id="projects" aria-labelledby="proj-title">
+  <header class="section__head">
+    <p class="section__num">§ 02</p>
+    <div>
+      <h2 id="proj-title">Projects</h2>
+      <p class="section__intro">Independent academic work at Idaho State University. Each states its status plainly.</p>
+    </div>
+  </header>
+  <div class="work indent">
+    <article class="case">
+      <div class="case__top"><p class="status status--dev">In development</p><div class="dots" aria-label="Moon"><span class="d-moon"></span></div></div>
+      <h3>Path to Moon SAR</h3>
+      <p>A worked example of how a lunar surface reactor could move through a safety design sequence, from strategy to a preliminary safety analysis, using DOE reactor safety methods adapted for the lunar surface.</p>
+      <ul class="meta"><li>Safety basis</li><li>Hazard &amp; accident analysis</li></ul>
+    </article>
+    <article class="case">
+      <div class="case__top"><p class="status status--dev">Paper in progress</p><div class="dots" aria-label="Moon and Mars"><span class="d-moon"></span><span class="d-mars"></span></div></div>
+      <h3>Natural phenomena hazards beyond Earth</h3>
+      <p>How seismic, wind, and temperature hazard criteria translate to the lunar and Martian surface, as groundwork for a future standard.</p>
+      <ul class="meta"><li>Moonquakes</li><li>Meteoroids</li><li>Dust</li></ul>
+    </article>
+    <article class="case">
+      <div class="case__top"><p class="status status--live">v0.2 · Open source</p><div class="dots" aria-label="Moon and Mars"><span class="d-moon"></span><span class="d-mars"></span></div></div>
+      <h3>TLECUIL — fission surface power sizer</h3>
+      <p>A first-order sizing tool for surface reactor power systems, with a commented Python engine, an interactive calculator, and a theory document written for undergraduates. Named for <em>tlecuilli</em>, the three-stone hearth.</p>
+      <div class="case__links">
+        <a class="textlink" href="https://istrong8.github.io/tlecuil/">Try the calculator ↗</a>
+        <a class="textlink" href="https://github.com/istrong8/tlecuil">Code</a>
+      </div>
+    </article>
+    <article class="case">
+      <div class="case__top"><p class="status status--prep">Dissertation</p><div class="dots" aria-label="Mars"><span class="d-mars"></span></div></div>
+      <h3>Mars surface reactor feasibility and safety</h3>
+      <p>PhD research on the feasibility and safety analysis of fission reactors for a crewed Mars surface base.</p>
+      <ul class="meta"><li>Neutronics</li><li>Safety analysis</li></ul>
+    </article>
+  </div>
+</section>
+
+<section class="section wrap" id="standards" aria-labelledby="std-title">
+  <header class="section__head">
+    <p class="section__num">§ 03</p>
+    <div>
+      <h2 id="std-title">Standards work</h2>
+      <p class="section__intro">Volunteer contributions to the consensus standards that will govern nuclear systems in space.</p>
+    </div>
+  </header>
+  <div class="std indent">
+    <table>
+      <thead><tr><th scope="col">Standard</th><th scope="col">Subject</th><th scope="col">Role</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">ANS-31.1</th><td>Testing and facilities for space nuclear power and propulsion reactors</td><td>Contributing member</td></tr>
+        <tr><th scope="row">ASTM WK86387</th><td>Guide for safe operations of fission reactors in outer space (F47.05)</td><td>Working group member</td></tr>
+      </tbody>
+    </table>
+    <p class="std__note">Co-author of a paper on ANS-31.1 for NETS 2027 (Nuclear and Emerging Technologies for Space).</p>
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="open-title">
+  <header class="section__head">
+    <p class="section__num">§ 04</p>
+    <div>
+      <h2 id="open-title">What is shared, and what is not</h2>
+      <p class="section__intro">Safety work earns trust through review. Methods and status are public here; the work itself is shared once it has been checked.</p>
+    </div>
+  </header>
+  <div class="open indent">
+    <div>
+      <p class="idx">i</p>
+      <h3>Public</h3>
+      <ul><li>Research questions and project status</li><li>Open-source tools such as TLECUIL</li><li>Standards participation and published papers</li></ul>
+    </div>
+    <div>
+      <p class="idx">ii</p>
+      <h3>Shared after review</h3>
+      <ul><li>Design details and models</li><li>Calculations and preliminary results</li><li>Draft safety documents</li></ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Independent academic work. Views are my own and do not represent any employer or agency. No proprietary, internal, or export-controlled information appears on this page.</p>
+    <p>Updated November 2026 · <a class="textlink" href="https://github.com/istrong8">GitHub</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var cv=document.getElementById('stage'); if(!cv) return;
+  var ctx=cv.getContext('2d');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W=0,H=0,DPR=1,t=0,raf=null;
+  var data={
+    moon:{g:'1.62 m/s²',p:'~0',d:'29.5 d',l:'1.3 s',c1:'#8d95a3',c2:'#4a515d',haze:null,dust:false,craters:true},
+    mars:{g:'3.71 m/s²',p:'~6 mbar',d:'24.6 h',l:'3–22 min',c1:'#b8653d',c2:'#6e2a13',haze:'rgba(224,133,90,',dust:true,craters:false}
+  };
+  var cur='moon';
+  var stars=[]; for(var i=0;i<140;i++){stars.push([Math.random(),Math.random()*0.62,Math.random()*1.1+0.2,Math.random()*6.28]);}
+  var craters=[[.18,.06,.05],[.34,.11,.03],[.55,.04,.06],[.72,.09,.035],[.86,.05,.045],[.44,.15,.025]];
+  var motes=[]; for(var k=0;k<70;k++){motes.push([Math.random(),Math.random()*0.35,Math.random()*0.6+0.2]);}
+  function size(){
+    var r=cv.getBoundingClientRect(); DPR=Math.min(window.devicePixelRatio||1,2);
+    W=Math.max(1,r.width); H=Math.max(1,r.height);
+    cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  function draw(){
+    var d=data[cur]; ctx.clearRect(0,0,W,H);
+    // sky
+    var sky=ctx.createLinearGradient(0,0,0,H);
+    if(d.haze){sky.addColorStop(0,'#120a10');sky.addColorStop(.65,'#2a1410');sky.addColorStop(1,'#3b1c12');}
+    else{sky.addColorStop(0,'#07060b');sky.addColorStop(1,'#0d0b14');}
+    ctx.fillStyle=sky; ctx.fillRect(0,0,W,H);
+    // stars
+    for(var i=0;i<stars.length;i++){var s=stars[i];var a=(d.haze?.25:.75)*(.55+.45*Math.sin(t*.8+s[3]));
+      ctx.fillStyle='rgba(236,233,244,'+a.toFixed(3)+')'; ctx.fillRect(s[0]*W,s[1]*H,s[2],s[2]);}
+    // distant body: Earth over the Moon, Phobos over Mars
+    if(cur==='moon'){var ex=W*.82,ey=H*.18,er=Math.min(W,H)*.06;
+      var eg=ctx.createRadialGradient(ex-er*.3,ey-er*.3,er*.1,ex,ey,er);eg.addColorStop(0,'#bcd2ff');eg.addColorStop(1,'#2b4f9e');
+      ctx.fillStyle=eg;ctx.beginPath();ctx.arc(ex,ey,er,0,6.283);ctx.fill();
+      ctx.fillStyle='rgba(7,6,11,.75)';ctx.beginPath();ctx.arc(ex+er*.55,ey,er,0,6.283);ctx.fill();}
+    else{var px=W*(.15+.7*((t*.02)%1)),py=H*.16;ctx.fillStyle='rgba(210,190,175,.8)';ctx.beginPath();ctx.ellipse(px,py,5,3.4,.3,0,6.283);ctx.fill();}
+    // surface: large planet limb
+    var R=W*1.6, cx=W*.5, cy=H*.70+R;
+    var gr=ctx.createLinearGradient(0,H*.66,0,H);
+    gr.addColorStop(0,d.c1);gr.addColorStop(.35,d.c2);gr.addColorStop(1,'#120f16');
+    ctx.fillStyle=gr;ctx.beginPath();ctx.arc(cx,cy,R,0,6.283);ctx.fill();
+    // craters
+    if(d.craters){ctx.save();ctx.beginPath();ctx.arc(cx,cy,R,0,6.283);ctx.clip();
+      for(var c=0;c<craters.length;c++){var q=craters[c];var x=q[0]*W,y=H*.72+q[1]*H,r=q[2]*W;
+        ctx.fillStyle='rgba(0,0,0,.28)';ctx.beginPath();ctx.ellipse(x,y,r,r*.32,0,0,6.283);ctx.fill();
+        ctx.strokeStyle='rgba(255,255,255,.12)';ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(x,y-1,r,r*.32,0,3.4,6.0);ctx.stroke();}
+      ctx.restore();}
+    // reactor + radial "keep-out" rings (illustrative 1/r^2 fade)
+    var rx=W*.50, ry=H*.74;
+    for(var n=1;n<=4;n++){var rr=(n*0.09+((t*.05)%0.09))*W;var al=.38/(n*n)+.02;
+      ctx.strokeStyle='rgba(167,139,250,'+al.toFixed(3)+')';ctx.lineWidth=1.2;
+      ctx.beginPath();ctx.ellipse(rx,ry,rr,rr*.18,0,0,6.283);ctx.stroke();}
+    // shield cone toward habitat
+    var sc=ctx.createLinearGradient(rx,0,rx+W*.34,0);sc.addColorStop(0,'rgba(217,204,255,.10)');sc.addColorStop(1,'rgba(217,204,255,0)');ctx.fillStyle=sc;ctx.beginPath();ctx.moveTo(rx,ry-6);ctx.lineTo(rx+W*.34,ry-H*.03);ctx.lineTo(rx+W*.34,ry+H*.05);ctx.closePath();ctx.fill();
+    // reactor body
+    ctx.fillStyle='#d9ccff';ctx.fillRect(rx-4,ry-22,8,22);
+    ctx.fillStyle='#a78bfa';ctx.beginPath();ctx.moveTo(rx-12,ry-22);ctx.lineTo(rx+12,ry-22);ctx.lineTo(rx+6,ry-30);ctx.lineTo(rx-6,ry-30);ctx.closePath();ctx.fill();
+    // radiator panels
+    ctx.strokeStyle='rgba(217,204,255,.7)';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(rx-5,ry-16);ctx.lineTo(rx-34,ry-38);ctx.moveTo(rx+5,ry-16);ctx.lineTo(rx+34,ry-38);ctx.stroke();
+    var glow=.35+.25*Math.sin(t*2);ctx.fillStyle='rgba(142,160,255,'+glow.toFixed(3)+')';ctx.beginPath();ctx.arc(rx,ry-12,4,0,6.283);ctx.fill();
+    // habitat
+    var hx=W*.88,hy=H*.77;ctx.fillStyle='rgba(236,233,244,.85)';ctx.beginPath();ctx.ellipse(hx,hy,18,9,0,3.1416,6.283);ctx.fill();
+    ctx.fillStyle='rgba(236,233,244,.35)';ctx.fillRect(hx-20,hy,40,2);
+    // cable
+    ctx.strokeStyle='rgba(232,184,106,.55)';ctx.setLineDash([3,4]);ctx.beginPath();ctx.moveTo(rx+6,ry);ctx.quadraticCurveTo((rx+hx)/2,ry+10,hx-18,hy);ctx.stroke();ctx.setLineDash([]);
+    // labels
+    ctx.font='500 10.5px "IBM Plex Mono", monospace';ctx.fillStyle='rgba(195,189,211,.9)';
+    ctx.fillText('REACTOR',rx-24,ry+18);ctx.fillText('HABITAT',hx-24,hy+18);
+    // Mars dust
+    if(d.dust){for(var m=0;m<motes.length;m++){var o=motes[m];var x2=((o[0]+t*.03*o[2])%1)*W,y2=H*.45+o[1]*H;
+      ctx.fillStyle='rgba(240,170,130,'+(0.25*o[2]).toFixed(3)+')';ctx.fillRect(x2,y2,1.6,1.6);}
+      ctx.fillStyle=d.haze+'0.10)';ctx.fillRect(0,0,W,H);}
+  }
+  function loop(){t+=1/60;draw();raf=requestAnimationFrame(loop);}
+  function set(k){cur=k;var d=data[k];
+    document.getElementById('r-g').textContent=d.g;document.getElementById('r-p').textContent=d.p;
+    document.getElementById('r-d').textContent=d.d;document.getElementById('r-l').textContent=d.l;
+    document.getElementById('b-moon').setAttribute('aria-pressed',k==='moon');
+    document.getElementById('b-mars').setAttribute('aria-pressed',k==='mars');
+    if(reduce)draw();}
+  document.getElementById('b-moon').addEventListener('click',function(){set('moon');});
+  document.getElementById('b-mars').addEventListener('click',function(){set('mars');});
+  window.addEventListener('resize',function(){size();draw();});
+  size();draw();
+  if(!reduce){raf=requestAnimationFrame(loop);}
+  document.addEventListener('visibilitychange',function(){if(document.hidden&&raf){cancelAnimationFrame(raf);raf=null;}else if(!document.hidden&&!reduce&&!raf){raf=requestAnimationFrame(loop);}});
+})();
+</script>
+</body>
+</html>
