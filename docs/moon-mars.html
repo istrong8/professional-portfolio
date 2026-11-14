@@ -102,6 +102,8 @@ p{margin:0}
 .strip__axis{display:flex;justify-content:space-between;font:400 10px var(--mono);color:var(--muted);padding-bottom:6px}
 .polar__note{font-size:12px;color:var(--muted);line-height:1.5;padding-bottom:8px}
 .is-hidden{display:none}
+.readout--3{grid-template-columns:repeat(3,1fr)!important}
+.mars-t{color:var(--mars)!important}
 .lg{display:inline-flex;align-items:center;gap:6px}
 .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-left:8px}
 .sw.lit{background:rgba(232,184,106,.55)} .sw.dark{background:rgba(142,160,255,.25)}
@@ -254,9 +256,30 @@ footer p{max-width:70ch}
         <div><dt>Season</dt><dd id="p-se">—</dd></div>
         <div><dt>Next change</dt><dd id="p-nx">—</dd></div>
       </dl>
+      <dl class="readout readout--3">
+        <div><dt>Flat sunlit ground</dt><dd id="t-flat">—</dd></div>
+        <div><dt>Sun-facing surface</dt><dd id="t-face">—</dd></div>
+        <div><dt>Shadowed crater floor</dt><dd id="t-psr">~40 K · −233 °C</dd></div>
+      </dl>
       <div class="strip" id="p-strip" aria-label="Next 12 months: sunlit and dark seasons at the pole"><i class="strip__now"></i></div>
       <div class="strip__axis"><span>Today</span><span class="lg"><i class="sw lit"></i>Sunlit season<i class="sw dark"></i>Dark season</span><span>+12 months</span></div>
-      <p class="polar__note">Computed in your browser from today's date: the Sun's position relative to the Moon, for a flat horizon at the geographic pole. At the pole the Sun never rises more than about 1.5°, so terrain decides almost everything: high ridges can stay sunlit for most of the year, while crater floors never see the Sun. A fission reactor keeps the base powered through the dark seasons.</p>
+      <p class="polar__note">Computed in your browser from today's date: the Sun's position relative to the Moon, for a flat horizon at the geographic pole. At the pole the Sun never rises more than about 1.5°, so terrain decides almost everything: high ridges can stay sunlit for most of the year, while crater floors never see the Sun. A fission reactor keeps the base powered through the dark seasons. Temperatures are modeled, not measured live: no thermometer operates at the pole yet. Sunlit values are radiative balance for today's Sun angle; the crater value is from LRO Diviner, which measured permanently shadowed craters near the south pole at about 40 K.</p>
+    </div>
+
+    <div class="polar is-hidden" id="marsnow">
+      <div class="polar__head"><span class="polar__title mars-t">Mars now · near the equator</span><span class="polar__live" id="m-time">Live</span></div>
+      <dl class="readout">
+        <div><dt>Season (north)</dt><dd id="m-se">—</dd></div>
+        <div><dt>Solar longitude</dt><dd id="m-ls">—</dd></div>
+        <div><dt>Dust storm season</dt><dd id="m-ds">—</dd></div>
+        <div><dt>Sun distance</dt><dd id="m-r">—</dd></div>
+      </dl>
+      <dl class="readout readout--3">
+        <div><dt>Typical day high</dt><dd>≈ 0 °C</dd></div>
+        <div><dt>Typical night low</dt><dd>≈ −70 °C</dd></div>
+        <div><dt>Reference site</dt><dd>Gale crater, 4.6°S</dd></div>
+      </dl>
+      <p class="polar__note">Season and Sun distance are computed in your browser from today's date. Temperatures are typical air values measured by Curiosity's weather station in Gale crater, not a live reading. Large dust storms cluster in northern fall and winter (solar longitude 150°–360°) and mostly start in the northern lowlands (Acidalia, Utopia, Arcadia) and the Hellas basin. A planet-encircling storm can still reach any site, which is why solar power is a risk and a reactor is not.</p>
     </div>
     <figcaption id="inst-cap">The four numbers that drive the safety case: gravity sets loads and how far particles fly, pressure decides whether anything disperses, day length sets the power-storage problem, and light delay is why the reactor must protect itself.</figcaption>
   </figure>
@@ -411,7 +434,31 @@ footer p{max-width:70ch}
     var b0=Math.asin(-Math.sin(W*RAD)*Math.sin(I*RAD))/RAD;
     var A=Math.atan2(Math.sin(W*RAD)*Math.cos(I*RAD),Math.cos(W*RAD))/RAD;
     var l0=nrm(A-F); if(l0>180) l0-=360;
-    return {elev:-b0, lon:l0};
+    var e=0.016708634, nu=(M+C)*RAD, Rau=1.000001018*(1-e*e)/(1+e*Math.cos(nu));
+    return {elev:-b0, lon:l0, R:Rau};
+  }
+
+  // ---- Mars season (Allison & McEwen 2000, Mars24 algorithm) ----
+  var marsDust=false;
+  function marsNow(date){
+    var JD=date.getTime()/86400000+2440587.5+69.184/86400, dt=JD-2451545.0;
+    var M=19.3871+0.52402073*dt, a=270.3871+0.524038496*dt;
+    var A=[0.0071,0.0057,0.0039,0.0037,0.0021,0.0020,0.0018], T=[2.2353,2.7543,1.1177,15.7866,2.1354,2.4694,32.8493], P=[49.409,168.173,191.837,21.736,15.704,95.528,49.095];
+    var pbs=0; for(var i=0;i<7;i++) pbs+=A[i]*Math.cos((0.985626*dt/T[i]+P[i])*RAD);
+    var nuM=(10.691+3e-7*dt)*Math.sin(M*RAD)+0.623*Math.sin(2*M*RAD)+0.050*Math.sin(3*M*RAD)+0.005*Math.sin(4*M*RAD)+0.0005*Math.sin(5*M*RAD)+pbs;
+    var Ls=nrm(a+nuM);
+    var r=1.52367934*(1.00436-0.09309*Math.cos(M*RAD)-0.004336*Math.cos(2*M*RAD)-0.00031*Math.cos(3*M*RAD)-0.00003*Math.cos(4*M*RAD));
+    return {Ls:Ls,r:r};
+  }
+  function updateMars(now){
+    var m=marsNow(now), Ls=m.Ls;
+    var se=Ls<90?'Spring':Ls<180?'Summer':Ls<270?'Autumn':'Winter';
+    marsDust=(Ls>=150);
+    document.getElementById('m-se').textContent=se;
+    document.getElementById('m-ls').textContent=Ls.toFixed(1)+'°';
+    document.getElementById('m-ds').textContent=marsDust?'Active':'Quieter';
+    document.getElementById('m-r').textContent=m.r.toFixed(3)+' AU';
+    document.getElementById('m-time').textContent='Live · '+now.toLocaleDateString(undefined,{month:'short',day:'numeric'});
   }
   var LIMB=-0.27; // Sun's upper limb on a flat horizon
   var pole={elev:0,lon:0};
@@ -428,6 +475,12 @@ footer p{max-width:70ch}
     if(!strip.dataset.built){var html='';for(var k=0;k<365;k+=3){var dd=new Date(now.getTime()+k*86400000);html+='<span class="'+(sunPole(dd).elev>LIMB?'lit':'dark')+'"></span>';}
       strip.insertAdjacentHTML('beforeend',html);strip.dataset.built='1';}
     document.getElementById('p-time').textContent='Live · '+now.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'});
+    var SIG=5.670e-8, Sm=1361/(pole.R*pole.R), AL=0.12, EM=0.95;
+    function TK(f){return Math.pow(Math.max(f,0)*(1-AL)/(EM*SIG),0.25);}
+    function fmtT(k){return Math.round(k)+' K · '+Math.round(k-273.15)+' °C';}
+    document.getElementById('t-flat').textContent = pole.elev>LIMB ? fmtT(TK(Sm*Math.sin(Math.max(pole.elev,0.05)*RAD))) : 'In shadow';
+    document.getElementById('t-face').textContent = pole.elev>LIMB ? fmtT(TK(Sm)) : 'In shadow';
+    updateMars(now);
   }
   updatePolar(); setInterval(updatePolar,60000);
   function size(){
@@ -502,7 +555,7 @@ footer p{max-width:70ch}
     ctx.font='500 10.5px "IBM Plex Mono", monospace';ctx.fillStyle='rgba(195,189,211,.9)';
     ctx.fillText('REACTOR',rx-24,ry+18);ctx.fillText('HABITAT',hx-24,hy+18);
     // Mars dust
-    if(d.dust){for(var m=0;m<motes.length;m++){var o=motes[m];var x2=((o[0]+t*.03*o[2])%1)*W,y2=H*.45+o[1]*H;
+    if(d.dust){var nM=marsDust?motes.length:Math.floor(motes.length*0.35);for(var m=0;m<nM;m++){var o=motes[m];var x2=((o[0]+t*.03*o[2])%1)*W,y2=H*.45+o[1]*H;
       ctx.fillStyle='rgba(240,170,130,'+(0.25*o[2]).toFixed(3)+')';ctx.fillRect(x2,y2,1.6,1.6);}
       ctx.fillStyle=d.haze+'0.10)';ctx.fillRect(0,0,W,H);}
   }
@@ -513,6 +566,8 @@ footer p{max-width:70ch}
     document.getElementById('b-moon').setAttribute('aria-pressed',k==='moon');
     document.getElementById('b-mars').setAttribute('aria-pressed',k==='mars');
     document.getElementById('polar').classList.toggle('is-hidden',k!=='moon');
+    document.getElementById('marsnow').classList.toggle('is-hidden',k!=='mars');
+    document.getElementById('stag').textContent=(k==='moon'?'Lunar south pole':'Mars, near the equator')+' · illustrative, not to scale';
     if(reduce)draw();}
   document.getElementById('b-moon').addEventListener('click',function(){set('moon');});
   document.getElementById('b-mars').addEventListener('click',function(){set('mars');});
