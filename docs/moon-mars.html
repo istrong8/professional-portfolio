@@ -87,6 +87,25 @@ p{margin:0}
 .readout dd{margin:4px 0 0;font:500 16px var(--mono);font-variant-numeric:tabular-nums;color:var(--text)}
 .instrument figcaption{padding:11px 14px 14px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;line-height:1.55}
 
+.polar{border-top:1px solid var(--line);padding:12px 14px 4px}
+.polar__head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.polar__title{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--violet-hi)}
+.polar__live{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+.polar__live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 0 3px rgba(126,224,181,.14)}
+.polar .readout{border-top:0}
+.polar .readout>div{padding:6px 12px 8px 0}
+.polar .readout>div+div{padding-left:12px}
+.strip{position:relative;height:16px;border-radius:4px;overflow:hidden;display:flex;margin:6px 0 4px;border:1px solid var(--line)}
+.strip span{flex:1 1 0;height:100%}
+.strip .lit{background:rgba(232,184,106,.55)} .strip .dark{background:rgba(142,160,255,.14)}
+.strip__now{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--text);left:0}
+.strip__axis{display:flex;justify-content:space-between;font:400 10px var(--mono);color:var(--muted);padding-bottom:6px}
+.polar__note{font-size:12px;color:var(--muted);line-height:1.5;padding-bottom:8px}
+.is-hidden{display:none}
+.lg{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-left:8px}
+.sw.lit{background:rgba(232,184,106,.55)} .sw.dark{background:rgba(142,160,255,.25)}
+
 /* Sections */
 .section{padding:clamp(64px,9vw,112px) 0 0}
 .section__head{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;margin-bottom:clamp(30px,4vw,48px);padding-top:22px;border-top:1px solid var(--line)}
@@ -202,7 +221,7 @@ footer p{max-width:70ch}
     <p class="label">Space fission safety · Research overview</p>
     <h1 id="hero-title"><span class="m">Moon</span> and <span class="r">Mars</span></h1>
     <p class="hero__lede">How do you show a reactor is safe when the nearest people are astronauts, the ground shakes from moonquakes, and there is no air to carry anything away?</p>
-    <p class="hero__sub">This page tracks my research and standards work on fission power for the lunar and Martian surface: the questions, the projects, and where each one stands.</p>
+    <p class="hero__sub">The first lunar reactor is planned for the south pole, where the Sun circles the horizon and some ground never sees daylight. This page tracks my research and standards work on fission power for the lunar and Martian surface: the questions, the projects, and where each one stands.</p>
     <div class="hero__actions">
       <a class="btn btn--solid" href="#projects">See the projects</a>
       <a class="btn" href="#standards">Standards work</a>
@@ -219,7 +238,7 @@ footer p{max-width:70ch}
     </div>
     <div class="instrument__stage">
       <canvas id="stage" aria-hidden="true"></canvas>
-      <span class="stage__tag" id="stag">Illustrative · not to scale</span>
+      <span class="stage__tag" id="stag">Lunar south pole · illustrative, not to scale</span>
     </div>
     <dl class="readout" aria-live="polite">
       <div><dt>Gravity</dt><dd id="r-g">1.62 m/s²</dd></div>
@@ -227,6 +246,18 @@ footer p{max-width:70ch}
       <div><dt>Day length</dt><dd id="r-d">29.5 d</dd></div>
       <div><dt>Light delay</dt><dd id="r-l">1.3 s</dd></div>
     </dl>
+    <div class="polar" id="polar">
+      <div class="polar__head"><span class="polar__title">Lunar south pole · sunlight now</span><span class="polar__live" id="p-time">Live</span></div>
+      <dl class="readout">
+        <div><dt>Sun elevation</dt><dd id="p-el">—</dd></div>
+        <div><dt>Sun toward</dt><dd id="p-az">—</dd></div>
+        <div><dt>Season</dt><dd id="p-se">—</dd></div>
+        <div><dt>Next change</dt><dd id="p-nx">—</dd></div>
+      </dl>
+      <div class="strip" id="p-strip" aria-label="Next 12 months: sunlit and dark seasons at the pole"><i class="strip__now"></i></div>
+      <div class="strip__axis"><span>Today</span><span class="lg"><i class="sw lit"></i>Sunlit season<i class="sw dark"></i>Dark season</span><span>+12 months</span></div>
+      <p class="polar__note">Computed in your browser from today's date: the Sun's position relative to the Moon, for a flat horizon at the geographic pole. At the pole the Sun never rises more than about 1.5°, so terrain decides almost everything: high ridges can stay sunlit for most of the year, while crater floors never see the Sun. A fission reactor keeps the base powered through the dark seasons.</p>
+    </div>
     <figcaption id="inst-cap">The four numbers that drive the safety case: gravity sets loads and how far particles fly, pressure decides whether anything disperses, day length sets the power-storage problem, and light delay is why the reactor must protect itself.</figcaption>
   </figure>
 </section>
@@ -367,6 +398,38 @@ footer p{max-width:70ch}
   var stars=[]; for(var i=0;i<140;i++){stars.push([Math.random(),Math.random()*0.62,Math.random()*1.1+0.2,Math.random()*6.28]);}
   var craters=[[.18,.06,.05],[.34,.11,.03],[.55,.04,.06],[.72,.09,.035],[.86,.05,.045],[.44,.15,.025]];
   var motes=[]; for(var k=0;k<70;k++){motes.push([Math.random(),Math.random()*0.35,Math.random()*0.6+0.2]);}
+
+  // ---- Sun at the lunar south pole (Meeus ch. 25 & 53, low precision) ----
+  var RAD=Math.PI/180;
+  function nrm(a){a%=360;return a<0?a+360:a;}
+  function sunPole(date){
+    var JD=date.getTime()/86400000+2440587.5, T=(JD-2451545)/36525;
+    var L0=280.46646+36000.76983*T, M=357.52911+35999.05029*T;
+    var C=(1.914602-0.004817*T)*Math.sin(M*RAD)+0.019993*Math.sin(2*M*RAD)+0.000289*Math.sin(3*M*RAD);
+    var lam=nrm(L0+C), Om=nrm(125.0445479-1934.1362891*T), F=nrm(93.2720950+483202.0175233*T), I=1.54242;
+    var W=nrm(lam+180-Om);
+    var b0=Math.asin(-Math.sin(W*RAD)*Math.sin(I*RAD))/RAD;
+    var A=Math.atan2(Math.sin(W*RAD)*Math.cos(I*RAD),Math.cos(W*RAD))/RAD;
+    var l0=nrm(A-F); if(l0>180) l0-=360;
+    return {elev:-b0, lon:l0};
+  }
+  var LIMB=-0.27; // Sun's upper limb on a flat horizon
+  var pole={elev:0,lon:0};
+  function fmtDate(d){return d.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});}
+  function updatePolar(){
+    var now=new Date(); pole=sunPole(now);
+    var lit=pole.elev>LIMB;
+    document.getElementById('p-el').textContent=(pole.elev>=0?'+':'')+pole.elev.toFixed(2)+'°';
+    var L=pole.lon; document.getElementById('p-az').textContent=Math.abs(L).toFixed(0)+'°'+(L>=0?'E':'W');
+    document.getElementById('p-se').textContent=lit?'Sunlit':'Dark';
+    var next=null; for(var i=1;i<400;i++){var d=new Date(now.getTime()+i*86400000); if((sunPole(d).elev>LIMB)!==lit){next=d;break;}}
+    document.getElementById('p-nx').textContent=next?fmtDate(next):'—';
+    var strip=document.getElementById('p-strip');
+    if(!strip.dataset.built){var html='';for(var k=0;k<365;k+=3){var dd=new Date(now.getTime()+k*86400000);html+='<span class="'+(sunPole(dd).elev>LIMB?'lit':'dark')+'"></span>';}
+      strip.insertAdjacentHTML('beforeend',html);strip.dataset.built='1';}
+    document.getElementById('p-time').textContent='Live · '+now.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'});
+  }
+  updatePolar(); setInterval(updatePolar,60000);
   function size(){
     var r=cv.getBoundingClientRect(); DPR=Math.min(window.devicePixelRatio||1,2);
     W=Math.max(1,r.width); H=Math.max(1,r.height);
@@ -376,6 +439,7 @@ footer p{max-width:70ch}
     var d=data[cur]; ctx.clearRect(0,0,W,H);
     // sky
     var sky=ctx.createLinearGradient(0,0,0,H);
+    var mLit=(cur==='moon')?(pole.elev>LIMB):true;
     if(d.haze){sky.addColorStop(0,'#120a10');sky.addColorStop(.65,'#2a1410');sky.addColorStop(1,'#3b1c12');}
     else{sky.addColorStop(0,'#07060b');sky.addColorStop(1,'#0d0b14');}
     ctx.fillStyle=sky; ctx.fillRect(0,0,W,H);
@@ -391,7 +455,8 @@ footer p{max-width:70ch}
     // surface: large planet limb
     var R=W*1.6, cx=W*.5, cy=H*.70+R;
     var gr=ctx.createLinearGradient(0,H*.66,0,H);
-    gr.addColorStop(0,d.c1);gr.addColorStop(.35,d.c2);gr.addColorStop(1,'#120f16');
+    var c1=d.c1,c2=d.c2; if(cur==='moon'&&!mLit){c1='#3a3f49';c2='#22252c';}
+    gr.addColorStop(0,c1);gr.addColorStop(.35,c2);gr.addColorStop(1,'#120f16');
     ctx.fillStyle=gr;ctx.beginPath();ctx.arc(cx,cy,R,0,6.283);ctx.fill();
     // craters
     if(d.craters){ctx.save();ctx.beginPath();ctx.arc(cx,cy,R,0,6.283);ctx.clip();
@@ -399,6 +464,19 @@ footer p{max-width:70ch}
         ctx.fillStyle='rgba(0,0,0,.28)';ctx.beginPath();ctx.ellipse(x,y,r,r*.32,0,0,6.283);ctx.fill();
         ctx.strokeStyle='rgba(255,255,255,.12)';ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(x,y-1,r,r*.32,0,3.4,6.0);ctx.stroke();}
       ctx.restore();}
+    if(cur==='moon'){
+      var L=pole.lon, hx0=W*.5+(L/90)*W*.5, hy0=H*.70-(pole.elev*14);
+      if(Math.abs(L)<=90){
+        var sg=ctx.createRadialGradient(hx0,hy0,0,hx0,hy0,W*.22);
+        sg.addColorStop(0,mLit?'rgba(255,236,190,.55)':'rgba(255,236,190,.12)');sg.addColorStop(1,'rgba(255,236,190,0)');
+        ctx.fillStyle=sg;ctx.fillRect(0,0,W,H*.8);
+        if(pole.elev>LIMB){ctx.fillStyle='#fff6dc';ctx.beginPath();ctx.arc(hx0,hy0,5,0,6.283);ctx.fill();}
+      } else {
+        ctx.font='500 10px "IBM Plex Mono", monospace';ctx.fillStyle='rgba(195,189,211,.7)';
+        ctx.fillText(mLit?'SUN BEHIND VIEWER':'SUN BELOW HORIZON',W-150,H*.62);
+      }
+      if(!mLit){ctx.font='500 10px "IBM Plex Mono", monospace';ctx.fillStyle='rgba(142,160,255,.8)';ctx.fillText('DARK SEASON · REACTOR POWER ONLY',14,H-14);}
+    }
     // reactor + radial "keep-out" rings (illustrative 1/r^2 fade)
     var rx=W*.50, ry=H*.74;
     for(var n=1;n<=4;n++){var rr=(n*0.09+((t*.05)%0.09))*W;var al=.38/(n*n)+.02;
@@ -406,6 +484,8 @@ footer p{max-width:70ch}
       ctx.beginPath();ctx.ellipse(rx,ry,rr,rr*.18,0,0,6.283);ctx.stroke();}
     // shield cone toward habitat
     var sc=ctx.createLinearGradient(rx,0,rx+W*.34,0);sc.addColorStop(0,'rgba(217,204,255,.10)');sc.addColorStop(1,'rgba(217,204,255,0)');ctx.fillStyle=sc;ctx.beginPath();ctx.moveTo(rx,ry-6);ctx.lineTo(rx+W*.34,ry-H*.03);ctx.lineTo(rx+W*.34,ry+H*.05);ctx.closePath();ctx.fill();
+    if(cur==='moon'&&mLit){var dir=(Math.abs(pole.lon)<=90)?(pole.lon>=0?-1:1):(pole.lon>=0?1:-1);
+      ctx.fillStyle='rgba(0,0,0,.35)';ctx.beginPath();ctx.moveTo(rx-3,ry);ctx.lineTo(rx+dir*W*.22,ry+4);ctx.lineTo(rx+dir*W*.22,ry+7);ctx.lineTo(rx+3,ry+2);ctx.closePath();ctx.fill();}
     // reactor body
     ctx.fillStyle='#d9ccff';ctx.fillRect(rx-4,ry-22,8,22);
     ctx.fillStyle='#a78bfa';ctx.beginPath();ctx.moveTo(rx-12,ry-22);ctx.lineTo(rx+12,ry-22);ctx.lineTo(rx+6,ry-30);ctx.lineTo(rx-6,ry-30);ctx.closePath();ctx.fill();
@@ -432,6 +512,7 @@ footer p{max-width:70ch}
     document.getElementById('r-d').textContent=d.d;document.getElementById('r-l').textContent=d.l;
     document.getElementById('b-moon').setAttribute('aria-pressed',k==='moon');
     document.getElementById('b-mars').setAttribute('aria-pressed',k==='mars');
+    document.getElementById('polar').classList.toggle('is-hidden',k!=='moon');
     if(reduce)draw();}
   document.getElementById('b-moon').addEventListener('click',function(){set('moon');});
   document.getElementById('b-mars').addEventListener('click',function(){set('mars');});
