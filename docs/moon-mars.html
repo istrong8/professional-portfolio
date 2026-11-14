@@ -240,8 +240,16 @@ footer p{max-width:70ch}
   .dest,.work,.open{grid-template-columns:1fr}
   .open>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
 }
+.case--link{text-decoration:none;color:inherit}
+.case--link:hover{border-color:var(--violet)}
+.case--link .textlink{margin-top:auto;font-size:14px}
+@media (max-width:760px){
+  .masthead__row{height:auto;flex-wrap:wrap;padding:12px 0 8px;gap:8px}
+  .sitenav{width:100%;gap:18px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+  .sitenav::-webkit-scrollbar{display:none}
+  .sitenav a{white-space:nowrap}
+}
 @media (max-width:560px){
-  .sitenav a:not(.sitenav__cta){display:none}
   .readout{grid-template-columns:repeat(2,1fr)}
   .readout>div:nth-child(2){border-right:0}
   .readout>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
@@ -262,6 +270,8 @@ footer p{max-width:70ch}
       <a href="#hazards">Hazards</a>
       <a href="#projects">Projects</a>
       <a href="#standards">Standards</a>
+      <a href="moon-mars-reading.html">Reading list</a>
+      <a href="space-reactors.html">Space reactors</a>
       <a class="sitenav__cta" href="./">Portfolio</a>
     </nav>
   </div>
@@ -516,6 +526,30 @@ footer p{max-width:70ch}
       <h3>Shared after review</h3>
       <ul><li>Design details and models</li><li>Calculations and preliminary results</li><li>Draft safety documents</li></ul>
     </div>
+  </div>
+</section>
+
+<section class="section wrap" id="more" aria-labelledby="more-title">
+  <header class="section__head">
+    <p class="section__num">§ 06</p>
+    <div>
+      <h2 id="more-title">Keep reading</h2>
+      <p class="section__intro">Two companion pages built from public sources: the literature behind these questions, and the history of reactors in space.</p>
+    </div>
+  </header>
+  <div class="work indent">
+    <a class="case case--link" href="moon-mars-reading.html">
+      <div class="case__top"><p class="label">Reading list</p><div class="dots" aria-label="Moon and Mars"><span class="d-moon"></span><span class="d-mars"></span></div></div>
+      <h3>Moon and Mars hazards</h3>
+      <p>Papers grouped by hazard, from vacuum and dust to moonquakes, plus space reactor safety, release and transport in a vacuum, and Mars dust storms. Filter by destination and topic, or search.</p>
+      <span class="textlink">Open the reading list →</span>
+    </a>
+    <a class="case case--link" href="space-reactors.html">
+      <div class="case__top"><p class="label">Background</p><div class="dots" aria-label="Moon and Mars"><span class="d-moon"></span><span class="d-mars"></span></div></div>
+      <h3>Space reactors</h3>
+      <p>Power conversion, missions, cooling, and fuels, then an interactive timeline from Rover/NERVA and SNAP-10A to SR-1 Freedom and Lunar Reactor-1.</p>
+      <span class="textlink">Open the timeline →</span>
+    </a>
   </div>
 </section>
 

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moon and Mars hazards reading list — Irais Strong</title>
+<meta name="description" content="A filterable reading list on lunar and Martian surface hazards, space reactor safety, and release and transport in vacuum. Public sources only, linked not hosted.">
+<meta name="theme-color" content="#07060b">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307060b'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23a78bfa' stroke-width='2.5' transform='rotate(-28 32 32)'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e4d9ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..400&display=swap">
+<style>
+:root{
+  --bg:#07060b; --bg-raise:#0d0b14; --bg-panel:#110e1a;
+  --line:rgba(205,190,255,.10); --line-2:rgba(205,190,255,.18);
+  --text:#ece9f4; --text-2:#c3bdd3; --muted:#9d97ae;
+  --violet:#a78bfa; --violet-hi:#d9ccff; --violet-lo:#6d4fd8;
+  --cherenkov:#8ea0ff; --amber:#e8b86a; --live:#7ee0b5;
+  --moon:#b9bfca; --mars:#e0855a;
+  --serif:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --wrap:1180px; --gutter:clamp(20px,4vw,40px); --radius:14px; --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body::before{content:"";position:absolute;inset:0 0 auto 0;height:900px;pointer-events:none;z-index:-1;
+  background:radial-gradient(60% 50% at 78% 18%,rgba(109,79,216,.16),transparent 70%),
+  repeating-linear-gradient(90deg,transparent 0 119px,rgba(205,190,255,.035) 119px 120px);
+  -webkit-mask-image:linear-gradient(#000 30%,transparent);mask-image:linear-gradient(#000 30%,transparent)}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:400}
+p{margin:0}
+:focus-visible{outline:2px solid var(--violet-hi);outline-offset:3px;border-radius:4px}
+::selection{background:rgba(167,139,250,.35);color:#fff}
+.wrap{width:min(var(--wrap),100% - 2*var(--gutter));margin-inline:auto}
+.label{font:500 11.5px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.textlink{color:var(--violet-hi);text-decoration:underline;text-decoration-color:rgba(217,204,255,.35);text-underline-offset:4px}
+.textlink:hover{text-decoration-color:currentColor}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Masthead (shared) */
+.masthead{position:sticky;top:0;z-index:50;background:rgba(7,6,11,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+.masthead__row{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.wordmark{display:inline-flex;align-items:center;gap:11px;font:400 21px/1 var(--serif);letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.wordmark svg{width:26px;height:26px}
+.wordmark ellipse{fill:none;stroke:var(--violet);stroke-width:1.6}
+.wordmark circle{fill:var(--violet-hi)}
+.sitenav{display:flex;align-items:center;gap:26px;font-size:14px}
+.sitenav a{color:var(--text-2);text-decoration:none;white-space:nowrap}
+.sitenav a:hover,.sitenav a[aria-current="page"]{color:var(--text)}
+.sitenav a[aria-current="page"]{text-decoration:underline;text-decoration-color:var(--violet);text-underline-offset:6px}
+.sitenav__cta{border:1px solid var(--line-2);border-radius:999px;padding:7px 15px}
+.sitenav__cta:hover{border-color:var(--violet)}
+
+/* Hero */
+.hero{padding:clamp(48px,7vw,88px) 0 clamp(20px,3vw,32px)}
+.hero h1{margin:16px 0 20px;font:300 clamp(44px,6.4vw,84px)/.98 var(--serif);letter-spacing:-.03em}
+.hero h1 .m{font-style:italic;color:var(--moon)} .hero h1 .r{font-style:italic;color:var(--mars)}
+.hero__lede{font:400 clamp(19px,1.9vw,23px)/1.45 var(--serif);max-width:52ch;color:var(--text)}
+.hero__sub{margin-top:14px;color:var(--text-2);max-width:68ch;font-size:15px}
+
+/* Start here */
+.start{margin-top:28px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:start;padding:26px 28px;border:1px solid var(--line-2);border-radius:var(--radius);background:linear-gradient(180deg,var(--bg-panel),var(--bg-raise));box-shadow:0 40px 120px -50px rgba(109,79,216,.35)}
+.start__tag{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#150e27;background:var(--violet-hi);border-radius:999px;padding:5px 11px;white-space:nowrap}
+.start h2{font:400 clamp(24px,2.6vw,30px)/1.2 var(--serif);letter-spacing:-.01em}
+.start p{color:var(--text-2);font-size:15px;margin-top:8px;max-width:72ch}
+.start .cite{font:400 13px/1.55 var(--mono);color:var(--muted);margin-top:12px}
+.start__links{margin-top:14px;display:flex;flex-wrap:wrap;gap:18px;font-size:14.5px}
+
+/* Controls */
+.controls{position:sticky;top:68px;z-index:20;margin-top:36px;padding:14px 0;background:rgba(7,6,11,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.controls__row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:2px}
+.seg button{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);background:transparent;border:0;border-radius:999px;padding:6px 13px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--violet-hi);color:#150e27}
+.seg button:hover:not([aria-pressed="true"]){color:var(--text)}
+.search{flex:1 1 220px;display:flex;align-items:center;gap:8px;border:1px solid var(--line-2);border-radius:999px;padding:0 14px;background:var(--bg-panel)}
+.search svg{width:15px;height:15px;stroke:var(--muted);fill:none;stroke-width:2;flex:none}
+.search input{flex:1;min-width:0;background:transparent;border:0;color:var(--text);font:400 14.5px var(--sans);padding:9px 0;outline:none}
+.count{font:500 11px var(--mono);letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+.chips{display:flex;gap:8px;margin-top:12px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.chips button{flex:none;font:500 11px var(--mono);letter-spacing:.06em;color:var(--text-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.chips button[aria-pressed="true"]{background:rgba(167,139,250,.16);border-color:var(--violet);color:var(--text)}
+
+/* Groups */
+.groups{display:grid;gap:18px;margin-top:28px}
+.grp{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-raise);padding:24px 26px}
+.grp__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px;margin-bottom:6px}
+.grp h2{font:400 26px/1.2 var(--serif);letter-spacing:-.01em}
+.grp__meta{font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.grp__lead{color:var(--text-2);font-size:14.5px;max-width:78ch}
+.grp__pending{margin-top:10px;font-size:13px;color:var(--muted);border-left:2px solid var(--amber);padding-left:10px}
+.refs{list-style:none;margin:14px 0 0;padding:0}
+.ref{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;padding:13px 0;border-top:1px dashed var(--line)}
+.ref__t{font:500 15.5px/1.4 var(--sans)}
+.ref__t a{color:var(--text);text-decoration:none;border-bottom:1px solid rgba(217,204,255,.25)}
+.ref__t a:hover{color:var(--violet-hi);border-bottom-color:currentColor}
+.ref__by{color:var(--text-2);font-size:13.5px;margin-top:2px}
+.ref__tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;align-content:flex-start}
+.tag{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line-2);border-radius:6px;padding:2px 7px;color:var(--muted);white-space:nowrap}
+.tag--moon{color:var(--moon);border-color:rgba(185,191,202,.35)}
+.tag--mars{color:var(--mars);border-color:rgba(224,133,90,.4)}
+.tag--le{color:var(--violet-hi);border-color:rgba(167,139,250,.4)}
+.tag--doc{color:var(--amber);border-color:rgba(232,184,106,.4)}
+.empty{margin-top:28px;padding:28px;border:1px dashed var(--line-2);border-radius:var(--radius);color:var(--text-2);text-align:center}
+
+/* Notes */
+.notes{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.notes>div{padding:22px 24px 6px 0}
+.notes>div+div{padding-left:24px;border-left:1px solid var(--line)}
+.notes h3{font:500 15px/1.35 var(--sans);margin-bottom:8px}
+.notes p{color:var(--text-2);font-size:14px}
+
+/* Next */
+.next{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:56px}
+.next a{display:flex;flex-direction:column;gap:8px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-raise);text-decoration:none;transition:border-color .3s var(--ease)}
+.next a:hover{border-color:var(--violet)}
+.next b{font:400 23px/1.2 var(--serif)}
+.next span{color:var(--text-2);font-size:14.5px}
+
+footer{margin-top:clamp(64px,8vw,104px);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:26px 0 40px;color:var(--muted);font-size:13px}
+footer p{max-width:70ch}
+
+@media (max-width:760px){
+  .masthead__row{height:auto;flex-wrap:wrap;padding:12px 0 8px;gap:8px}
+  .sitenav{width:100%;gap:18px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+  .sitenav::-webkit-scrollbar{display:none}
+  .controls{top:0;position:relative}
+  .start{grid-template-columns:1fr;padding:22px}
+  .ref{grid-template-columns:1fr}
+  .ref__tags{justify-content:flex-start}
+  .notes,.next{grid-template-columns:1fr}
+  .notes>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .grp{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead__row">
+    <a class="wordmark" href="./" aria-label="Irais Strong — portfolio home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="12" ry="5" transform="rotate(-28 16 16)"/><circle cx="16" cy="16" r="2.6"/></svg>
+      Irais Strong
+    </a>
+    <nav class="sitenav" aria-label="Site">
+      <a href="moon-mars.html">Moon &amp; Mars</a>
+      <a href="moon-mars-reading.html" aria-current="page">Reading list</a>
+      <a href="space-reactors.html">Space reactors</a>
+      <a class="sitenav__cta" href="./">Portfolio</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+<section class="hero" aria-labelledby="hero-title">
+  <p class="label">Reading list · Public sources only</p>
+  <h1 id="hero-title"><span class="m">Moon</span> and <span class="r">Mars</span> hazards</h1>
+  <p class="hero__lede">What the surface does to hardware, and what a reactor safety case has to account for.</p>
+  <p class="hero__sub">Grouped by hazard, with extra sections on space reactor safety, release and transport in a vacuum, and Mars. Every entry links to the publisher, NASA's Technical Reports Server, or the issuing agency. Nothing is hosted here.</p>
+
+  <article class="start" aria-labelledby="start-title">
+    <span class="start__tag">Start here</span>
+    <div>
+      <h2 id="start-title">Lunar Engineering 101</h2>
+      <p>A video and paper series that walks through the lunar surface environment one hazard at a time: vacuum, gravity, thermal, illumination, terrain, impacts, dust, radiation, charging, UV, and moonquakes. The hazard groups below follow its structure.</p>
+      <p class="cite">Graziano et al., "New Presentation Series: Lunar Engineering 101," 2025 IEEE Aerospace Conference. ©2025 IEEE, link only.</p>
+      <div class="start__links">
+        <a class="textlink" href="https://lsic.jhuapl.edu/Resources/Lunar-Engineering-101.php" rel="noopener">Watch the series ↗</a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<div class="controls" role="region" aria-label="Filter the reading list">
+  <div class="controls__row">
+    <div class="seg" role="group" aria-label="Destination">
+      <button type="button" data-dest="all" aria-pressed="true">All</button>
+      <button type="button" data-dest="moon" aria-pressed="false">Moon</button>
+      <button type="button" data-dest="mars" aria-pressed="false">Mars</button>
+    </div>
+    <label class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <span class="sr">Search by keyword</span>
+      <input id="q" type="search" placeholder="Search title, author, journal…" autocomplete="off">
+    </label>
+    <span class="count" id="count" aria-live="polite"></span>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="Topic"></div>
+</div>
+
+<div class="groups" id="groups"></div>
+<p class="empty" id="empty" hidden>No entries match. Clear the search or pick another topic.</p>
+
+<section class="notes" aria-label="About this list">
+  <div><h3>How links are built</h3><p>NASA reports link to <code>ntrs.nasa.gov/citations/&lt;ID&gt;</code>; journal articles link to <code>doi.org/&lt;DOI&gt;</code>. Six DOIs that were broken in the source list were repaired and checked against Crossref before being added.</p></div>
+  <div><h3>What is not here</h3><p>No copyrighted PDFs, no export-controlled data, and no licensed code or nuclear data libraries. Only public documents.</p></div>
+  <div><h3>Affiliation</h3><p>This is an independent reading list. It is not produced by, endorsed by, or affiliated with the Lunar Surface Innovation Consortium or Johns Hopkins APL.</p></div>
+</section>
+
+<nav class="next" aria-label="Related pages">
+  <a href="moon-mars.html"><span class="label">Research overview</span><b>Moon and Mars</b><span>The safety questions, the hazard calculators, and where each project stands.</span></a>
+  <a href="space-reactors.html"><span class="label">History and types</span><b>Space reactors</b><span>How space reactors convert heat, what they are cooled and fueled with, and every one that has flown.</span></a>
+</nav>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Independent academic work. Views are my own and do not represent any employer or agency. No proprietary, internal, or export-controlled information appears on this page.</p>
+    <p>Updated November 2026 · <a class="textlink" href="https://github.com/istrong8">GitHub</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---- Groups ----------------------------------------------------------
+  // le: [first,last] reference numbers in the Lunar Engineering 101 paper.
+  var GROUPS=[
+    {id:'architecture',name:'Architecture',dest:['moon'],le:[14,16],lead:'Mission and surface architecture: where systems sit, how they are delivered, and how they depend on each other.'},
+    {id:'vacuum',name:'Vacuum',dest:['moon'],le:[27,58],lead:'The tenuous lunar exosphere, outgassing, cold welding, and contamination. For a reactor, vacuum also means no air to cool, filter, or carry anything away.'},
+    {id:'gravity',name:'Gravity',dest:['moon'],le:[59,65],lead:'One-sixth g changes loads, traction, settling, and how far ejected particles travel.'},
+    {id:'thermal',name:'Thermal',dest:['moon'],le:[66,68],lead:'Day and night swings of a few hundred kelvin, and permanently shadowed crater floors near 40 K.'},
+    {id:'illumination',name:'Illumination',dest:['moon'],le:[69,76],lead:'Near-horizon Sun at the poles, long shadows, and the dark seasons that make fission power attractive.'},
+    {id:'terrain',name:'Terrain',dest:['moon'],le:[77,84],lead:'Slopes, rocks, craters, and the site characterization a foundation design depends on.'},
+    {id:'impacts',name:'Impacts',dest:['moon'],le:[85,95],lead:'Micrometeoroids, secondary ejecta, and landing-plume debris: the Moon’s equivalent of wind-driven missiles.'},
+    {id:'dust',name:'Dust and regolith',dest:['moon'],le:[96,106],lead:'Abrasive, adhesive, electrostatically charged fines, and their effects on seals, radiators, optics, and people.'},
+    {id:'radiation',name:'Radiation',dest:['moon'],le:[107,122],lead:'Galactic cosmic rays, solar particle events, and secondary neutrons from the regolith, which add to any reactor source term.'},
+    {id:'charging',name:'Charging',dest:['moon'],le:[123,127],lead:'Surface and spacecraft charging driven by sunlight and the solar wind, especially at the terminator and in shadow.'},
+    {id:'uv',name:'UV',dest:['moon'],le:[128,134],lead:'Unfiltered solar ultraviolet: material degradation, photoemission, and exposure.'},
+    {id:'moonquakes',name:'Moonquakes',dest:['moon'],le:[135,145],lead:'Shallow, deep, thermal, and impact events from the Apollo seismic record, and what they imply for a seismic design basis.'},
+    {id:'reactor',name:'Space reactor safety',dest:['moon','mars'],lead:'Launch-approval policy, NASA nuclear flight safety requirements, the SP-100 safety program, and the DOE safety-in-design and safety-analysis standards used to adapt terrestrial methods.'},
+    {id:'transport',name:'Release and transport in vacuum',dest:['moon'],lead:'With no atmosphere, released material moves on ballistic and free-molecular paths, and charged dust can loft. These papers bound how far, and how fast.'},
+    {id:'mars',name:'Mars hazards',dest:['mars'],lead:'Dust storm statistics, surface weather from Curiosity, and how dust and sand move in a thin CO₂ atmosphere.'}
+  ];
+
+  // ---- Entries -----------------------------------------------------------
+  // Only public sources. le = reference number in LE101; doc = policy or standard.
+  var R=[
+    // Vacuum (LE101 27-58)
+    {g:'vacuum',le:31,t:'The lunar atmosphere',a:'E. J. Öpik',v:'Planetary and Space Science 9(5), 211–244',y:1962,doi:'10.1016/0032-0633(62)90149-6'},
+    {g:'vacuum',le:37,t:'Lunar Atmosphere, Transport and Storage of Volatiles',a:'N. Schörghofer',v:'Encyclopedia of Lunar Science',y:2017,doi:'10.1007/978-3-319-05546-6_92-1'},
+    {g:'vacuum',le:48,t:'Outgassing Environment of Spacecraft: An Overview',a:'Z. Jiao, L. Jiang, J. Sun, J. Huang, Y. Zhu',v:'IOP Conf. Series: Materials Science and Engineering 611',y:2019,doi:'10.1088/1757-899X/611/1/012071'},
+    {g:'vacuum',le:58,t:'Euclid cleanliness and contamination control',a:'M. Portaluppi, S. Fontorbes, A. Saverino, R. Rampini',v:'IOP Conf. Series: Materials Science and Engineering 1287',y:2023,doi:'10.1088/1757-899X/1287/1/012018'},
+    // Dust (LE101 96-106)
+    {g:'dust',le:98,t:'Overview of lunar dust toxicity risk',a:'M. Pohlen, D. Carroll, G. K. Prisk, A. J. Sawyer',v:'npj Microgravity 8',y:2022,doi:'10.1038/s41526-022-00244-1'},
+    // UV (LE101 128-134)
+    {g:'uv',le:132,t:'Space Radiation and Cataracts in Astronauts',a:'F. A. Cucinotta et al.',v:'Radiation Research 156(5)',y:2001,doi:'10.1667/0033-7587(2001)156[0460:SRACIA]2.0.CO;2'},
+
+    // Space reactor safety
+    {g:'reactor',doc:1,t:'SP-100 space reactor safety (DOE/NE-0083)',a:'U.S. Department of Energy, Office of Nuclear Energy',v:'Program booklet on SP-100 design, safety features, and the safety review process',y:1987,url:'https://www.osti.gov/biblio/6434038'},
+    {g:'reactor',doc:1,t:'SP-100 Program: Safety program review, space reactor electric power systems (ESG-DOE-13414)',a:'Prepared for the U.S. Department of Energy',v:'Nuclear safety criteria, program safety plan, and lessons from the SNAP-10A aerospace safety program',y:1983,url:'https://www.osti.gov/servlets/purl/5658625'},
+    {g:'reactor',doc:1,t:'Nuclear safety for the Space Exploration Initiative',a:'NASA contractor report',v:'Hazards and safety issues for reactor power on the lunar and Martian surfaces, building on SP-100',y:1993,ntrs:'19930008843'},
+    {g:'reactor',doc:1,t:'NPR 8715.26, Nuclear Flight Safety',a:'NASA Office of Safety and Mission Assurance',v:'NASA Procedural Requirements',y:2022,url:'https://nodis3.gsfc.nasa.gov/displayDir.cfm?t=NPR&c=8715&s=26'},
+    {g:'reactor',doc:1,t:'NASA-HDBK-8715.26, Nuclear Flight Safety handbook',a:'NASA Office of Safety and Mission Assurance',v:'Companion handbook to NPR 8715.26',y:2023,url:'https://standards.nasa.gov/standard/NASA/NASA-HDBK-871526'},
+    {g:'reactor',doc:1,t:'NSPM-20, Launch of Spacecraft Containing Space Nuclear Systems',a:'National Security Presidential Memorandum',v:'Three-tier launch authorization process for space nuclear systems',y:2019,url:'https://www.govinfo.gov/content/pkg/DCPD-201900558/pdf/DCPD-201900558.pdf'},
+    {g:'reactor',doc:1,t:'DOE-STD-3009-2014, Preparation of Nonreactor Nuclear Facility Documented Safety Analysis',a:'U.S. Department of Energy',v:'DOE technical standard',y:2014,url:'https://www.standards.doe.gov/standards-documents/3000/3009-astd-2014'},
+    {g:'reactor',doc:1,t:'DOE-STD-1189-2016, Integration of Safety into the Design Process',a:'U.S. Department of Energy',v:'DOE technical standard',y:2016,url:'https://www.standards.doe.gov/standards-documents/1100/1189-astd-2016'},
+
+    // Release and transport in vacuum
+    {g:'transport',t:'The behavior of volatiles on the lunar surface',a:'K. Watson, B. C. Murray, H. Brown',v:'Journal of Geophysical Research 66(9) · ballistic hopping and cold trapping',y:1961,doi:'10.1029/JZ066i009p03033'},
+    {g:'transport',t:'A dynamic fountain model for lunar dust',a:'T. J. Stubbs, R. R. Vondrak, W. M. Farrell',v:'Advances in Space Research 37 · electrostatic dust lofting',y:2006,doi:'10.1016/j.asr.2005.04.048'},
+    {g:'transport',t:'Lunar surface: Dust dynamics and regolith mechanics',a:'J. E. Colwell, S. Batiste, M. Horányi, S. Robertson, S. Sture',v:'Reviews of Geophysics 45',y:2007,doi:'10.1029/2005RG000184'},
+    {g:'transport',t:'Dust charging and transport on airless planetary bodies',a:'X. Wang, J. Schwan, H.-W. Hsu, E. Grün, M. Horányi',v:'Geophysical Research Letters 43',y:2016,doi:'10.1002/2016GL069491'},
+    {g:'transport',t:'Phenomenology of soil erosion due to rocket exhaust on the Moon and the Mauna Kea lunar test site',a:'P. T. Metzger, J. Smith, J. E. Lane',v:'Journal of Geophysical Research 116 · ballistic ejecta from landing plumes',y:2011,doi:'10.1029/2010JE003745'},
+
+    // Mars
+    {g:'mars',t:'The Mars Dust Activity Database (MDAD): A comprehensive statistical study of dust storm sequences',a:'M. Battalio, H. Wang',v:'Icarus 354',y:2021,doi:'10.1016/j.icarus.2020.114059'},
+    {g:'mars',t:'REMS: The Environmental Sensor Suite for the Mars Science Laboratory Rover',a:'J. Gómez-Elvira et al.',v:'Space Science Reviews 170',y:2012,doi:'10.1007/s11214-012-9921-1'},
+    {g:'mars',doc:1,t:'Curiosity REMS weather data archive',a:'NASA Planetary Data System, Atmospheres Node',v:'Pressure, temperature, humidity, wind, and UV from Gale crater',y:null,url:'https://atmos.nmsu.edu/data_and_services/atmospheres_data/MARS/curiosity/rems.html'},
+    {g:'mars',t:'Threshold windspeeds for sand on Mars: Wind tunnel simulations',a:'R. Greeley, R. Leach, B. White, J. Iversen, J. Pollack',v:'Geophysical Research Letters 7(2) · low-pressure wind tunnel',y:1980,doi:'10.1029/GL007i002p00121'},
+    {g:'mars',t:'The physics of wind-blown sand and dust',a:'J. F. Kok, E. J. R. Parteli, T. I. Michaels, D. Bou Karam',v:'Reports on Progress in Physics 75',y:2012,doi:'10.1088/0034-4885/75/10/106901'},
+    {g:'mars',t:'Sand transport, erosion and granular electrification',a:'J. P. Merrison',v:'Aeolian Research 4 · Mars simulation chamber results',y:2012,doi:'10.1016/j.aeolia.2011.12.003'}
+  ];
+
+  function href(r){
+    if(r.doi) return 'https://doi.org/'+r.doi;
+    if(r.ntrs) return 'https://ntrs.nasa.gov/citations/'+r.ntrs;
+    return r.url;
+  }
+  var byG={}; GROUPS.forEach(function(g){byG[g.id]=g;});
+  R.forEach(function(r){r.dest=byG[r.g].dest; r.hay=(r.t+' '+r.a+' '+r.v+' '+(r.y||'')+' '+byG[r.g].name+' '+(r.doi||'')).toLowerCase();});
+
+  var state={dest:'all',topic:'all',q:''};
+  var chips=document.getElementById('chips');
+  var topics=[{id:'all',name:'All topics'}].concat(GROUPS.map(function(g){return {id:g.id,name:g.name};}));
+  chips.innerHTML=topics.map(function(t){return '<button type="button" data-topic="'+t.id+'" aria-pressed="'+(t.id==='all')+'">'+t.name+'</button>';}).join('');
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function tagsFor(r){
+    var h=r.dest.map(function(d){return '<span class="tag tag--'+d+'">'+(d==='moon'?'Moon':'Mars')+'</span>';}).join('');
+    if(r.le) h+='<span class="tag tag--le">LE101 #'+r.le+'</span>';
+    if(r.doc) h+='<span class="tag tag--doc">'+(r.g==='mars'?'Data':'Document')+'</span>';
+    if(r.y) h+='<span class="tag">'+r.y+'</span>';
+    return h;
+  }
+  function render(){
+    var q=state.q.trim().toLowerCase(), total=0, html='';
+    GROUPS.forEach(function(g){
+      if(state.topic!=='all' && state.topic!==g.id) return;
+      if(state.dest!=='all' && g.dest.indexOf(state.dest)<0) return;
+      var items=R.filter(function(r){return r.g===g.id && (!q || r.hay.indexOf(q)>=0);});
+      if(q && !items.length) return;
+      total+=items.length;
+      var meta=g.le ? 'LE101 refs '+g.le[0]+'–'+g.le[1] : 'Added group';
+      var pending='';
+      if(g.le){
+        var n=g.le[1]-g.le[0]+1, have=R.filter(function(r){return r.g===g.id;}).length;
+        if(have<n) pending='<p class="grp__pending">'+(have?have+' of '+n+' LE101 references listed so far. The rest are being added.':'The '+n+' LE101 references for this hazard are being added.')+'</p>';
+      }
+      html+='<section class="grp" id="g-'+g.id+'" aria-labelledby="h-'+g.id+'">'+
+        '<div class="grp__head"><h2 id="h-'+g.id+'">'+esc(g.name)+'</h2><span class="grp__meta">'+meta+' · '+g.dest.map(function(d){return d==='moon'?'Moon':'Mars';}).join(' + ')+'</span></div>'+
+        '<p class="grp__lead">'+esc(g.lead)+'</p>'+(q?'':pending)+
+        (items.length?'<ul class="refs">'+items.map(function(r){
+          return '<li class="ref"><div><p class="ref__t"><a href="'+esc(href(r))+'" rel="noopener">'+esc(r.t)+'</a></p>'+
+                 '<p class="ref__by">'+esc(r.a)+' · '+esc(r.v)+'</p></div><div class="ref__tags">'+tagsFor(r)+'</div></li>';
+        }).join('')+'</ul>':'')+
+      '</section>';
+    });
+    document.getElementById('groups').innerHTML=html;
+    document.getElementById('empty').hidden=!!html;
+    document.getElementById('count').textContent=total+(total===1?' entry':' entries');
+  }
+  document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){
+    state.dest=b.dataset.dest;
+    document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    render();
+  });});
+  chips.addEventListener('click',function(e){var b=e.target.closest('button'); if(!b) return;
+    state.topic=b.dataset.topic;
+    chips.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    render();
+  });
+  var qi=document.getElementById('q'); qi.addEventListener('input',function(){state.q=qi.value; render();});
+  render();
+})();
+</script>
+</body>
+</html>
