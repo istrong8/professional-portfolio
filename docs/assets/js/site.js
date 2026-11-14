@@ -334,3 +334,19 @@
     });
   })();
 })();
+
+/* NSEN 6684 talk: swap the poster for a YouTube player once data-youtube holds a video ID. */
+(function () {
+  document.querySelectorAll('.talk__media[data-youtube]').forEach(function (box) {
+    var id = (box.getAttribute('data-youtube') || '').trim();
+    if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + id;
+    f.title = box.getAttribute('data-title') || 'Video';
+    f.loading = 'lazy';
+    f.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    f.allowFullscreen = true;
+    box.innerHTML = '';
+    box.appendChild(f);
+  });
+})();

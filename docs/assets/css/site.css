@@ -487,3 +487,14 @@ p { margin: 0; }
   .mm__tracks { grid-template-columns: 1fr; }
   .mm__tracks > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
 }
+
+/* ---------- NSEN 6684 talk card ---------- */
+.talk__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 28px; align-items: center; }
+.talk__text { display: flex; flex-direction: column; gap: 14px; }
+.talk__media { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden; background: #08070d; }
+.talk__poster { display: block; width: 100%; height: 100%; }
+.talk__poster img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.talk__poster:hover img { transform: scale(1.02); }
+.talk__badge { position: absolute; right: 12px; top: 12px; font: 500 11.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text); background: rgba(7,6,11,.78); border: 1px solid var(--line-2); border-radius: 999px; padding: 7px 12px; }
+.talk__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (max-width: 900px) { .talk__grid { grid-template-columns: 1fr; } .talk__media { order: -1; } .talk__badge { display: none; } }

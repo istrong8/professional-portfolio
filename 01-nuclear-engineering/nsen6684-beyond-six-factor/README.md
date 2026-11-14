@@ -4,7 +4,7 @@
 
 > **Thesis.** Classical neutron life-cycle theory provides the conceptual foundation for criticality, but compact fast-spectrum space reactors require more detailed consideration of neutron transport, leakage, reflector interactions, and temperature-dependent reactivity.
 
-▶ **Video:** _add your YouTube link here_
+▶ **Video:** _coming soon_ · 📄 **[Slides (PDF)](presentation/NSEN6684_Beyond_Six_Factor.pdf)** · 📘 **[Technical report (PDF)](report/NSEN6684_Beyond_Six_Factor_Report.pdf)** · 🌐 **[Portfolio page](https://istrong8.github.io/professional-portfolio/#work)**
 
 This repository holds an ~18-minute graduate presentation and everything behind it:
 
@@ -20,7 +20,7 @@ This repository holds an ~18-minute graduate presentation and everything behind 
 
 | Folder | What's inside |
 |---|---|
-| [`presentation/`](presentation/) | `NSEN6684_Beyond_Six_Factor.pptx`: 13 content slides + references, dark 16:9, full speaker notes, clickable section navigation, fade transitions. `build_deck.js` regenerates it. |
+| [`presentation/`](presentation/) | `NSEN6684_Beyond_Six_Factor.pdf` (view in the browser) and `NSEN6684_Beyond_Six_Factor.pptx`: 13 content slides + references, dark 16:9, full speaker notes, clickable section navigation, fade transitions. `build_deck.js` regenerates it. |
 | [`narration/`](narration/) | `NSEN6684_Narration_Script.md`: ~2,300-word script with slide numbers, titles and target times (18:00). |
 | [`report/`](report/) | `NSEN6684_Beyond_Six_Factor_Report.tex`, `references.bib`, compiled PDF. See [`report/README.md`](report/README.md) for Windows / VS Code build steps. |
 | [`code/`](code/) | `benchmarks.py` (published constants), `mc_transport.py` (multigroup Monte Carlo k-eigenvalue solver), `diffusion.py`, `run_analysis.py` (all studies), `make_figures.py`, `make_diagrams.py`. |
