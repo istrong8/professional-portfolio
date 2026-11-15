@@ -297,6 +297,18 @@ p { margin: 0; }
 .use--2::before { background: linear-gradient(90deg, var(--violet) 66%, var(--line-2) 0); }
 .use--3::before { background: linear-gradient(90deg, var(--violet) 33%, var(--line-2) 0); }
 
+/* Categorized analysis-code inventory */
+.tools__group { margin-top: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-raise); overflow: hidden; }
+.tools__group summary { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; cursor: pointer; padding: 17px 18px; list-style-position: inside; }
+.tools__group summary::marker { color: var(--violet); }
+.tools__group-title { font: 500 15.5px/1.4 var(--sans); color: var(--text); }
+.tools__group-count { color: var(--violet-hi); font: 400 11px var(--mono); white-space: nowrap; }
+.tools__group-note { color: var(--muted); padding: 0 18px; font-size: 13px; }
+.tools__table-scroll { overflow-x: auto; padding: 0 18px 14px; }
+.tools__group table { margin-top: 12px; min-width: 580px; }
+.tools__group tbody th { white-space: normal; }
+.tools__status-note { margin-top: 20px; color: var(--muted); font-size: 13px; line-height: 1.7; max-width: 85ch; }
+
 /* ---------- Experience ---------- */
 .timeline { list-style: none; margin: 0 0 0 144px; padding: 0; }
 .timeline li {
