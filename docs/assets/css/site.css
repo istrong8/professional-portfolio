@@ -299,10 +299,10 @@ p { margin: 0; }
 
 /* Categorized analysis-code inventory */
 .tools__group { margin-top: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-raise); overflow: hidden; }
-.tools__group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 17px 18px; border-bottom: 1px solid var(--line); }
-.tools__group-head h4 { margin: 0; }
+.tools__group summary { cursor: pointer; padding: 17px 18px; color: var(--violet-hi); }
+.tools__group summary::marker { color: var(--violet); }
+.tools__group summary:focus-visible { outline: 2px solid var(--violet); outline-offset: -2px; }
 .tools__group-title { font: 500 15.5px/1.4 var(--sans); color: var(--text); }
-.tools__group-count { color: var(--violet-hi); font: 400 11px var(--mono); white-space: nowrap; }
 .tools__group-note { color: var(--muted); padding: 0 18px; font-size: 13px; }
 .tools__table-scroll { overflow-x: auto; padding: 0 18px 14px; }
 .tools__group table { margin-top: 12px; min-width: 580px; }
