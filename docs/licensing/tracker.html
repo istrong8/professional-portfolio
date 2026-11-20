@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advanced Reactor Tracker — Irais Strong</title>
+<meta name="description" content="Status of U.S. advanced reactor and fuel-cycle developers on DOE authorization and NRC licensing routes, with dates and primary documents.">
+<meta name="theme-color" content="#07060b">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307060b'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23a78bfa' stroke-width='2.5' transform='rotate(-28 32 32)'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e4d9ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..400&display=swap">
+<link rel="stylesheet" href="../assets/css/page.css?v=20261120">
+</head>
+<body>
+<a class="sr" href="#main" style="position:absolute;left:-999px">Skip to content</a>
+<header class="masthead">
+  <div class="wrap masthead__row">
+    <a class="wordmark" href="../" aria-label="Irais Strong — portfolio home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="12" ry="5" transform="rotate(-28 16 16)"/><circle cx="16" cy="16" r="2.6"/></svg>
+      Irais Strong
+    </a>
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html">Licensing &amp; QA</a>
+      <a href="tracker.html" aria-current="page">Tracker</a>
+      <a href="pathways.html">Pathways</a>
+      <a href="software-qa.html">Software QA</a>
+      <a href="../moon-mars.html">Moon &amp; Mars</a>
+      <a class="sitenav__cta" href="../">Portfolio</a>
+    </nav>
+  </div>
+</header><nav class="rail" aria-label="On this page"><div class="wrap"><ul><li><a href="#tracker">Projects</a></li><li><a href="#criticality">2026 criticalities</a></li><li><a href="#pipeline">Pipeline</a></li><li><a href="#fuelcycle">Fuel cycle</a></li><li><a href="#gain">GAIN &amp; NRIC</a></li><li><a href="#sources">Sources</a></li></ul></div></nav><main id="main">
+<section class="hero wrap" aria-labelledby="page-title">
+  <p class="label">Status as of 20 Nov 2026 · public sources only</p>
+  <h1 id="page-title">Advanced reactor <em>tracker</em></h1>
+  <p class="hero__lede">Where each U.S. advanced reactor and fuel-cycle developer stands on the DOE authorization route and the NRC licensing route, with dates and primary documents.</p>
+  <p class="hero__sub">This page changes monthly. The rules behind each route are on <a href="pathways.html">Licensing pathways</a>; software qualification is on <a href="software-qa.html">Nuclear software QA</a>.</p>
+  <div class="grid tiles" id="tiles"></div>
+  <div class="callout">
+<p><b>Read this first.</b> Status moves monthly; every stage below carries a date and a source link, and each card is tagged by confidence: <span class="chip sure">Sure</span> primary or multiple sources, <span class="chip prob">Probable</span> strong inference, <span class="chip spec">Speculating</span> estimate.</p>
+<p>DOE authorization is not an NRC license. A DOE-authorized test reactor still needs an NRC construction permit and operating license (or a combined license) before any commercial deployment.</p>
+</div>
+</section>
+<section class="section wrap" id="tracker" aria-labelledby="tracker-title">
+  <header class="section__head">
+    <p class="section__num">§ 01</p>
+    <div>
+      <h2 id="tracker-title">Project tracker</h2>
+      <p class="section__intro">One card per project. Each bar is a stage on that project's route; a project on two routes shows both.</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="legend">
+<span><i style="background:var(--done)"></i>Completed</span>
+<span><i style="background:var(--next)"></i>Next stage</span>
+<span><i style="background:var(--todo)"></i>Ahead</span>
+<span><i style="background:var(--na);border:1px dashed var(--todo)"></i>Not applicable</span>
+<span><span class="chip inl">INL site</span></span>
+<span><span class="chip crit">Critical 2026</span></span>
+</div>
+<div aria-label="Filter projects" class="filters" role="group">
+<button aria-pressed="true" data-f="all" id="f-all" type="button">All</button>
+<button aria-pressed="false" data-f="doe" id="f-doe" type="button">DOE-authorized</button>
+<button aria-pressed="false" data-f="nrc" id="f-nrc" type="button">NRC-licensed</button>
+<button aria-pressed="false" data-f="inl" id="f-inl" type="button">At INL</button>
+<button aria-pressed="false" data-f="crit" id="f-crit" type="button">Went critical 2026</button>
+<button aria-pressed="false" data-f="fuel" id="f-fuel" type="button">Fuel cycle</button>
+</div>
+<div class="grid cards" id="cards"></div>
+</div>
+</section>
+<section class="section wrap" id="criticality" aria-labelledby="criticality-title">
+  <header class="section__head">
+    <p class="section__num">§ 02</p>
+    <div>
+      <h2 id="criticality-title">2026 criticalities</h2>
+      <p class="section__intro">EO 14301 asked for three DOE-authorized criticalities by 4 July 2026. Four arrived by that date and a fifth in August. All five were zero- or low-power first criticalities; only Valar has reported reaching its rated full power (100 kWt).</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="chartbox"><svg aria-label="Timeline of 2026 reactor criticalities" id="tl" role="img"></svg></div>
+<div class="tablebox"><table>
+<thead><tr><th>Date</th><th>Reactor</th><th>Where</th><th>Authority</th><th>What it was</th></tr></thead>
+<tbody>
+<tr><td class="num">2025-11</td><td>Valar NOVA core</td><td>NCERC, Nevada (LANL)</td><td>DOE/NNSA lab experiment</td><td>Cold critical test ahead of Ward 250</td></tr>
+<tr><td class="num">2026-06-04</td><td>Antares Mark-0</td><td>INL MFC-793</td><td>DOE RPP</td><td>&lt;100 Wt, dry, no coolant; first RPP criticality, 53rd reactor built at INL</td></tr>
+<tr><td class="num">2026-06-18</td><td>Valar Ward 250</td><td>Utah San Rafael Energy Lab</td><td>DOE RPP</td><td>Zero power; 100 kWt full power reported 2 Jul 2026</td></tr>
+<tr><td class="num">2026-06-30</td><td>Deployable Energy Unity CE</td><td>INL MFC (NRAD facility)</td><td>DOE Launch Pad</td><td>&lt;1 Wt water-moderated critical assembly (announced 1 Jul)</td></tr>
+<tr><td class="num">2026-07-04</td><td>Aalo-X Critical Test Reactor</td><td>INL</td><td>DOE RPP</td><td>&lt;10 W, dry; full-scale core components (00:20 MT)</td></tr>
+<tr><td class="num">2026-08-05</td><td>Oklo Groves-1 isotope test reactor</td><td>Lockhart, Texas</td><td>DOE RPP</td><td>15 MWt pool reactor at low power; first DOE-authorized criticality on private land</td></tr>
+<tr><td class="num">2026-08-24</td><td>Westinghouse eVinci experiment</td><td>NCERC, Nevada</td><td>DOE/NRC criticality-safety collaboration</td><td>Zero-power mock-up, not the monolith core</td></tr>
+</tbody>
+</table></div>
+</div>
+</section>
+<section class="section wrap" id="pipeline" aria-labelledby="pipeline-title">
+  <header class="section__head">
+    <p class="section__num">§ 03</p>
+    <div>
+      <h2 id="pipeline-title">Pipeline &amp; Launch Pad</h2>
+      <p class="section__intro">The Reactor Pilot Program was a one-time selection (August 2025). In March 2026 DOE folded it into the longer-running Nuclear Energy Launch Pad, run by NRIC at INL, with two tracks: Launch Pad INL and Launch Pad U.S.A.</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="tablebox"><table>
+<thead><tr><th>Program</th><th>Selected</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Reactor Pilot Program (Aug 2025)</td><td>Aalo, Antares, Atomic Alchemy (now Oklo Isotopes), Deep Fission, Last Energy, Natura, Oklo (2 projects), Radiant, Terrestrial, Valar</td><td>10 companies, 11 projects; goal of 3 criticalities by 4 Jul 2026</td></tr>
+<tr><td>Launch Pad round 1 (27 Apr 2026)</td><td>Deployable Energy, General Matter, NuCube Energy with Idaho State University, Radiant</td><td>Drawn from the pilot programs' applicant pools</td></tr>
+<tr><td>Launch Pad round 2 (24 Aug 2026)</td><td>New: Atlas Atomics (heavy water), Forge Atomics (25 MWe PWR), Hexium (Li isotope separation), Lightbridge (U-Zr fuel), Nusano (isotopes), Raven-Flint (U conversion), Scaled Atomics (MN-350 microreactor), Sublime (fuel cycle). Returning: Antares, Deployable Energy (2 projects), Oklo, Valar</td><td>13 projects, 12 companies</td></tr>
+</tbody>
+</table></div>
+<h3 class="sub">Other developers to add as they move</h3>
+<p class="prose">From GAIN's Advanced Nuclear Directory (Apr 2026) and NRC pre-application lists; none has a public DOE or NRC milestone in 2026 beyond pre-application.</p>
+<div class="tablebox"><table>
+<thead><tr><th>Developer</th><th>Design</th><th>Type</th><th>Public regulatory status</th></tr></thead>
+<tbody>
+<tr><td>ARC Clean Technology</td><td>ARC-100</td><td>Sodium fast, 100 MWe</td><td>REP Rev 2 (Jul 2026) selects 10 CFR Part 53 <span class="chip sure">Sure</span></td></tr>
+<tr><td>Newcleo Americas</td><td>LFR-AS-200</td><td>Lead fast, 200 MWe, MOX</td><td>NRC pre-app since Mar 2026; MOX fuel plant docket 07007051</td></tr>
+<tr><td>Hadron Energy</td><td>Halo</td><td>Integral PWR micro, 10 MWe</td><td>Pre-application materials submitted</td></tr>
+<tr><td>BWX Technologies</td><td>BANR</td><td>HTGR micro, 17 MWe</td><td>Not stated in directory</td></tr>
+<tr><td>General Atomics EMS</td><td>FMR / EM2</td><td>Helium fast</td><td>FMR targeted mid-2030s</td></tr>
+<tr><td>NuCube Energy</td><td>NuSun-1 / NuSun-15</td><td>TRISO heat-pipe micro</td><td>Launch Pad round 1; GAIN vouchers with ANL and INL</td></tr>
+<tr><td>Exodys, Flibe, ThorCon, MicroNuclear, Alpha Tech</td><td>various</td><td>Molten salt</td><td>No public milestone</td></tr>
+<tr><td>Neutronix, HolosGen, Mobile Nuclear, NuGen</td><td>various</td><td>Gas-cooled micro</td><td>No public milestone</td></tr>
+</tbody>
+</table></div>
+</div>
+</section>
+<section class="section wrap" id="fuelcycle" aria-labelledby="fuelcycle-title">
+  <header class="section__head">
+    <p class="section__num">§ 04</p>
+    <div>
+      <h2 id="fuelcycle-title">Fuel cycle &amp; conversion</h2>
+      <p class="section__intro">Conversion turns U3O8 from mills into UF6 for enrichment. The United States has one operating plant, so several companies are now racing Raven-Flint for the second. Every one of them faces the same NRC rule set; only Raven-Flint is also using a DOE route (Launch Pad at INL) for its pilot. The CFR map is on <a href="pathways.html#fuelcycle-cfr">Licensing pathways</a>.</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="tablebox"><table>
+<thead><tr><th>Company</th><th>Project</th><th>Site</th><th>Public regulatory status (Nov 2026)</th></tr></thead>
+<tbody>
+<tr><td>Solstice Advanced Materials / ConverDyn</td><td>Metropolis Works (incumbent); "Metropolis 2.0" feasibility study</td><td>Metropolis, IL</td><td>Operating under Part 40 license SUB-526 (docket 40-3392); about 10,000 tU of UF6 planned for 2026; new-plant study launched Apr 2026 <span class="chip sure">Sure</span></td></tr>
+<tr><td>Raven-Flint Nuclear</td><td>MATCH lab → Torch pilot (500 t/yr) → Forge (5,000–10,000 t/yr)</td><td>Idaho Falls lab; Torch at INL</td><td>Part 40 lab application docketed Aug 2026 (raising possession from a 1.5 kg admin cap to 500 kg); Launch Pad Aug 2026; Aalo LOI for 100% of pilot output from 2028 <span class="chip sure">Sure</span></td></tr>
+<tr><td>Uranium Energy Corp (UR&amp;C subsidiary)</td><td>Refining and conversion plant (Fluor concept: 10,000 t UF6/yr)</td><td>Wyoming</td><td>NRC docket number Mar 2026 after a Part 40 LOI; first pre-application meeting May 2026 <span class="chip sure">Sure</span></td></tr>
+<tr><td>FluxPoint Energy</td><td>Greenfield U3O8 → UF6 plant</td><td>Texas</td><td>Launched Mar 2026; notified NRC in 2026 of intent to start pre-application engagement <span class="chip prob">Probable</span></td></tr>
+<tr><td>Nucleon Fuel (Nucleon Energy)</td><td>Conversion facility</td><td>Near Gillette, WY</td><td>Applied Oct 2026 for a $20M Wyoming Energy Dominance Fund grant; no NRC docket found <span class="chip prob">Probable</span></td></tr>
+<tr><td>Quantum Leap Energy (ASP Isotopes)</td><td>High-purity UF6 R&amp;D</td><td>Texas A&amp;M (TEES)</td><td>Research agreement Jul 2026; not a license applicant yet <span class="chip prob">Probable</span></td></tr>
+</tbody>
+</table></div>
+</div>
+</section>
+<section class="section wrap" id="gain" aria-labelledby="gain-title">
+  <header class="section__head">
+    <p class="section__num">§ 05</p>
+    <div>
+      <h2 id="gain-title">GAIN &amp; NRIC</h2>
+      <p class="section__intro">GAIN (Gateway for Accelerated Innovation in Nuclear) is DOE-NE's front door to the national labs: technical, regulatory and financial help for developers. NRIC (National Reactor Innovation Center), also housed at INL, runs the test beds and the Launch Pad. All four companies that reached criticality by 4 July worked with NRIC.</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="grid two">
+<div class="panel">
+<h3>GAIN vouchers</h3>
+<p>Funding goes to the DOE lab, not the company; the company covers at least 20% cost share, in-kind allowed. Four rounds a year. By Feb 2025: 108 vouchers, $38.6M, 65 projects completed.</p>
+<p><b>FY 2026:</b> Round 2 (Apr) Constellation, Nano Nuclear, NuCube. Round 3 (Jun) Aalo Atomics, OrganiCore Nuclear, Raven-Flint, Srijan. Round 4 (Oct) three vouchers.</p>
+<p><b>Tracked companies with vouchers:</b> Antares (ORNL, Sep 2024), Raven-Flint (INL, material control and accountancy for its pilot), Aalo, Nano Nuclear, NuCube.</p>
+</div>
+<div class="panel">
+<h3>GAIN status resources</h3>
+<ul>
+<li><a href="https://gain.inl.gov/content/uploads/4/2026/04/GAIN-Advanced-Nuclear-Directory-2026-April-23.pdf">Advanced Nuclear Directory, Apr 2026</a> (GAIN, Third Way, USNIC): every U.S. developer with design and stated pathway.</li>
+<li>Milestones in Advanced Nuclear and State Nuclear Regulatory Dashboard (GAIN with Envoy Public Labs), listed in the <a href="https://gain.inl.gov/content/uploads/4/2023/10/Resource-Kit-v.2-1.pdf">GAIN Resource Kit</a>.</li>
+<li><a href="https://gain.inl.gov/industry-support/regulatory-support/regulatory-news/">GAIN Regulatory News</a>: NRC guidance updates such as ARCAP.</li>
+<li><a href="https://gain.inl.gov/content/uploads/4/2024/11/DOE-Advanced-Nuclear-Liftoff-Report.pdf">Pathways to Commercial Liftoff: Advanced Nuclear</a> (DOE, Sep 2024).</li>
+<li><a href="https://gain.inl.gov/content/uploads/4/2025/11/35-Andrus-DOEExperienceWithFacilityAuthorization.pdf">DOE facility authorization experience</a> (GAIN workshop slides, 2025).</li>
+</ul>
+</div>
+<div class="panel">
+<h3>NRIC test beds at INL</h3>
+<p><b>DOME</b> (former EBR-II containment): Radiant Kaleidos first; Deployable Energy named next in line (Oct 2026). <b>LOTUS</b> (former ZPPR cell, MFC): Molten Chloride Reactor Experiment, criticality as early as 2027. <b>Launch Pad INL / U.S.A.</b>: DOE-authorized projects on lab land or private sites.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section wrap" id="sources" aria-labelledby="sources-title">
+  <header class="section__head">
+    <p class="section__num">§ 06</p>
+    <div><h2 id="sources-title">Sources</h2>
+    <p class="section__intro">Primary documents (NRC ADAMS, DOE, Federal Register) first where available. Links only; no documents are hosted here.</p></div>
+  </header>
+  <div class="body"><ul class="sources" id="srclist">
+    <li><a href="https://www.energy.gov/ne/us-department-energy-reactor-pilot-program">DOE Reactor Pilot Program page</a></li>
+    <li><a href="https://www.energy.gov/articles/department-energy-announces-initial-selections-new-reactor-pilot-program">DOE RPP initial selections (Aug 2025)</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML2619/ML26198A212.pdf">DOE-NE Reactor Pilot Program update slides, ML26198A212</a></li>
+    <li><a href="https://www.ans.org/news/article-8178/the-deadline-arrives-checking-in-on-the-reactor-pilot-program/">ANS: The deadline arrives (2 Jul 2026)</a></li>
+    <li><a href="https://www.ans.org/news/article-8549/antares-last-energy-and-radiant-hit-doe-authorization-milestones/">ANS: Antares, Last Energy, Radiant milestones (2 Nov 2026)</a></li>
+    <li><a href="https://inl.gov/feature-story/america-built-nuclear-power-in-idaho-first-now-its-doing-it-again/">INL: America built nuclear power in Idaho first</a></li>
+    <li><a href="https://www.nrc.gov/reactors/new-reactors/advanced/who-were-working-with/pre-application-activities">NRC advanced reactor pre-application activities</a></li>
+    <li><a href="https://inl.gov/?p=138315">INL: launch pad round 1 (27 Apr 2026)</a></li>
+    <li><a href="https://inl.gov/?p=149184">INL: launch pad round 2 (24 Aug 2026)</a></li>
+    <li><a href="https://www.ans.org/news/article-8338/second-round-of-launch-pad-selections-includes-eight-newcomers/">ANS: second round of Launch Pad selections</a></li>
+    <li><a href="https://gain.inl.gov/industry-support/gain-ne-vouchers/">GAIN NE vouchers</a></li>
+    <li><a href="https://gain.inl.gov/content/uploads/4/2026/04/FY2026-Round-2-Voucher-Announcement.pdf">GAIN FY2026 Round 2 vouchers</a></li>
+    <li><a href="https://gain.inl.gov/content/uploads/4/2026/06/FY2026-Round-3-Voucher-Announcement-FINAL-v2.pdf">GAIN FY2026 Round 3 vouchers</a></li>
+    <li><a href="https://inl.gov/feature-story/celebrating-a-decade-of-innovation-the-gateway-for-accelerated-innovation-in-nuclear">INL: a decade of GAIN</a></li>
+    <li><a href="https://gain.inl.gov/content/uploads/4/2026/04/GAIN-Advanced-Nuclear-Directory-2026-April-23.pdf">GAIN Advanced Nuclear Directory (Apr 2026)</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML2622/ML26225A376.pdf">ARC Clean Technology REP Rev 2, ML26225A376</a></li>
+    <li><a href="https://www.nrc.gov/facilities-safety/new-reactors/advanced-reactors/who-were-working-with/pre-application-activities/newcleo-americas">NRC: Newcleo Americas pre-application</a></li>
+    <li><a href="https://www.ans.org/news/article-8367/ravenflint-u-conversion-plans-land-on-nrc-docket-in-launch-pad/">ANS: Raven-Flint docket and Launch Pad</a></li>
+    <li><a href="https://www.neimagazine.com/news/converdyn-weighs-new-uf6-plant/">NEI Magazine: ConverDyn weighs new UF6 plant</a></li>
+    <li><a href="https://www.ans.org/news/article-7899/new-company-throws-hat-into-uranium-conversion-ring">ANS: FluxPoint enters conversion</a></li>
+    <li><a href="https://www.ans.org/news/article-8486/uec-names-national-security-advisory-council-to-support-conversion-plans/">ANS: UEC conversion plans</a></li>
+    <li><a href="https://world-nuclear.org/information-library/country-profiles/countries-t-z/usa-nuclear-fuel-cycle">WNA: US nuclear fuel cycle</a></li>
+  </ul></div>
+</section><nav class="wrap nextlinks" aria-label="Related pages"><a href="pathways.html"><b>Licensing pathways</b><span>The rules, steps and timeframes behind each route.</span></a><a href="software-qa.html"><b>Nuclear software QA</b><span>How analysis codes are categorized and qualified under NQA-1.</span></a></nav></main>
+<footer>
+  <div class="wrap">
+    <p>Personal research compiled from public sources. Not affiliated with, reviewed by, or representing any employer, agency, or company listed. No proprietary, internal, or export-controlled information appears on this page. Confidence tags: <span class="chip sure">Sure</span> primary or multiple sources · <span class="chip prob">Probable</span> strong inference · <span class="chip spec">Speculating</span> estimate.</p>
+    <p>Updated 20 Nov 2026 · <a class="textlink" href="https://github.com/istrong8/professional-portfolio">Source</a></p>
+  </div>
+</footer>
+<script>
+
+const PATHS={
+  doe:{name:"DOE authorization",steps:["OTA","NSDA","PDSA","DSA + TSR","Readiness review","Startup / criticality","Power operations"]},
+  nrc50p:{name:"NRC Part 50 · power reactor",steps:["Pre-app & TRs","CP application","Docketed","SE + EIS/EA","CP issued","Construction","OL application","OL / fuel load"]},
+  nrc50np:{name:"NRC Part 50 · non-power test/research reactor",steps:["Pre-app & TRs","CP application","Docketed","SE + EIS/EA","CP issued","Construction","OL application","OL / fuel load"]},
+  nrc52col:{name:"NRC Part 52 · combined license",steps:["Pre-app & TRs","COLA Phase 1","COLA Phase 2","Docketed review","Hearing","COL issued","Build + ITAAC","§52.103(g) / fuel"]},
+  nrc52sda:{name:"NRC Part 52 · standard design approval",steps:["Pre-app & TRs","SDA application","Docketed","SER + ACRS","SDA issued","Referenced by CP/COL"]},
+  nrc40:{name:"NRC Part 40 · source material license (lab)",steps:["Letter of intent","Application","Docketed","Review","License issued"]}
+};
+const DOE_REQ="10 CFR 830 A & B; DOE-STD-1271-2025; DOE-STD-1237-2021; DOE NE O 414.1 (NQA-1); NE-STD-1020/1027-2025; NEPA";
+const P=[
+ {co:"Antares Nuclear · Torrance, CA",name:"Mark-0 → Mark-1 → R1",tech:"Sodium heat-pipe, 19.75% TRISO microreactor",site:"INL MFC-793; R1 at Fort Bragg (Army Janus)",tags:["doe","inl","crit"],conf:"sure",
+  tracks:[{p:"doe",label:"Mark-0 critical assembly",done:5,na:[6],d:{2:"Jan 2026",3:"Apr 2026",5:"4 Jun 2026"}},
+          {p:"doe",label:"Mark-1 electricity prototype",done:1,d:{1:"23 Oct 2026",6:"2027 (6 mo at full power)"}}],
+  next:"Mark-1 PDSA; R1 deliveries to customers in 2028 (company target).",
+  nrc:"Pre-application since May 2025, project 99902149; REP ML25212A105 (no review requested).",
+  req:DOE_REQ+"; future NRC: Part 50/53 or proposed Part 57 with §50.43(f)",
+  docs:[["DOE RPP update ML26198A212","https://www.nrc.gov/docs/ML2619/ML26198A212.pdf"],["ANS criticality","https://www.ans.org/news/article-8099/antares-achieves-zeropower-criticality-at-inl/"],["ANS Mark-1 NSDA","https://www.ans.org/news/article-8549/antares-last-energy-and-radiant-hit-doe-authorization-milestones/"],["NRC pre-app","https://www.nrc.gov/facilities-safety/new-reactors/advanced-reactors/who-were-working-with/pre-application-activities/antares-nuclear-inc"],["REP ML25212A105","https://ww2.nrc.gov/docs/ML2521/ML25212A105.pdf"]]},
+ {co:"Valar Atomics · El Segundo, CA",name:"Ward 250",tech:"Helium-cooled TRISO HTGR, 100 kWt",site:"Utah San Rafael Energy Lab, Emery County",tags:["doe","crit"],conf:"sure",
+  tracks:[{p:"doe",label:"Ward 250",done:6,d:{2:"Feb 2026",3:"23 Apr 2026",5:"18 Jun 2026",6:"2 Jul 2026, 100 kWt"}}],
+  next:"Higher-power demos 2026–27; BLM application for a 9,000-acre, multi-reactor Utah site under completeness review.",
+  nrc:"REP filed Mar 2026 (ML26274A394): no current plan to submit an NRC application.",
+  req:DOE_REQ+" (NEPA CX-271015)",
+  note:"DOE's CX describes Ward 250 as 250 kWt; DOE slides report 100 kWt full power.",
+  docs:[["DOE RPP update","https://www.nrc.gov/docs/ML2619/ML26198A212.pdf"],["NRC REP ML26274A394","https://www.nrc.gov/docs/ML2627/ML26274A394.pdf"],["DOE CX-271015","https://www.energy.gov/node/4859162"],["ANS Utah plans","https://www.ans.org/news/article-8462/details-emerge-on-valars-utah-plans/"]]},
+ {co:"Deployable Energy",name:"Unity Critical Experiment",tech:"Water-moderated critical assembly, <5% UO2; variant of 1 MWe Unity Nuclear Battery",site:"INL MFC, Neutron Radiography Reactor facility",tags:["doe","inl","crit"],conf:"sure",
+  tracks:[{p:"doe",label:"Unity CE",done:5,d:{2:"22 May 2026",3:"11 Jun 2026",5:"30 Jun 2026",6:"by 4 Jul 2027"}}],
+  next:"Full-power and transient testing by 4 Jul 2027; named next for DOME; maritime demonstrator with Hornbeck Offshore by 4 Jul 2028.",
+  nrc:"Listed on NRC advanced-reactor pre-application page.",
+  req:DOE_REQ,
+  docs:[["DOE RPP update","https://www.nrc.gov/docs/ML2619/ML26198A212.pdf"],["ANS deadline round-up","https://www.ans.org/news/article-8178/the-deadline-arrives-checking-in-on-the-reactor-pilot-program/"],["WNN Launch Pad R2","https://wnn.world-nuclear.org/articles/us-launch-pad-supports-reactor-and-fuel-projects"]]},
+ {co:"Aalo Atomics · Austin, TX",name:"Aalo-X",tech:"Sodium-cooled, 4.95% UO2; 10 MWe",site:"INL",tags:["doe","inl","crit"],conf:"sure",
+  tracks:[{p:"doe",label:"Aalo-X critical test reactor",done:5,d:{2:"3 Mar 2026",3:"30 Apr 2026",5:"4 Jul 2026",6:"2027 (30 MWt)"}}],
+  next:"Full-power Aalo-X in 2027 powering a co-located data center; second reactor (Project Ascension) at the same INL site; first commercial pod 2028.",
+  nrc:"Said in Mar 2026 it was gearing up to submit its first commercial NRC application in 2026; not confirmed docketed.",
+  req:DOE_REQ,
+  docs:[["DOE fourth criticality","https://www.energy.gov/articles/department-energy-celebrates-fourth-criticality-ahead-july-4th-goal"],["ANS road ahead","https://www.ans.org/news/article-7838/aalo-atomics-discusses-the-road-ahead/"],["DOE RPP update","https://www.nrc.gov/docs/ML2619/ML26198A212.pdf"]]},
+ {co:"Oklo Isotopes (Oklo) · Lockhart, TX",name:"Groves-1 Isotope Test Reactor",tech:"15 MWt pool-type, water-cooled, LEU",site:"Greenfield private site, Caldwell County, TX",tags:["doe","crit"],conf:"sure",
+  tracks:[{p:"doe",label:"Groves-1",done:6,d:{3:"~1 Jul 2026",5:"5 Aug 2026",6:"Nov 2026 hold point cleared"}}],
+  next:"Research, testing and training phase; Groves-2 Forge isotope production pilot under Launch Pad.",
+  nrc:"None reported for Groves.",
+  req:DOE_REQ,
+  docs:[["DOE fifth criticality","https://www.energy.gov/ne/articles/office-nuclear-energy-celebrates-fifth-advanced-reactor-criticality"],["WNN cleared for operations","https://www.world-nuclear-news.org/articles/us-test-reactor-cleared-for-operations"]]},
+ {co:"Oklo · Santa Clara, CA",name:"Aurora-INL Powerhouse",tech:"75 MWe liquid-metal-cooled, metal-fueled fast reactor",site:"INL",tags:["doe","nrc","inl"],conf:"sure",
+  tracks:[{p:"doe",label:"Aurora-INL (DOE first)",done:2,d:{2:"11 Jun 2026"}},
+          {p:"nrc52col",label:"Aurora COLA (2020 COLA denied without prejudice, Jan 2022)",done:0,d:{0:"Phase 1 readiness feedback 2025"}}],
+  next:"DOE DSA. NRC: pre-Phase 2 audit report issued; NQA program and staffing topical reports under review; licensing project plan Q4 2026.",
+  nrc:"NRC audited Oklo's DOE authorization work for Aurora-INL (report ML26238A237).",
+  req:DOE_REQ+"; NRC 10 CFR 52 Subpart C, App B, §50.43(f)",
+  docs:[["ANS PDSA approval","https://www.ans.org/news/2026-06-12/article-8119/oklo-secures-doe-pdsa-approval/"],["NRC pre-app table","https://www.nrc.gov/facilities-safety/new-reactors/advanced-reactors/who-were-working-with/pre-application-activities/oklo-aurora-powerhouse"],["2022 denial ML22006A267","https://forms.nrc.gov/docs/ML2200/ML22006A267.pdf"]]},
+ {co:"Radiant Industries · El Segundo, CA",name:"Kaleidos demonstration unit",tech:"Helium-cooled TRISO HTGR, 1 MWe / ~3 MWt",site:"INL NRIC DOME",tags:["doe","inl"],conf:"sure",
+  tracks:[{p:"doe",label:"Kaleidos at DOME",done:3,d:{2:"Feb 2026",3:"29 Oct 2026",5:"campaign next"}}],
+  next:"Readiness review, then a five-phase campaign: zero-power criticality → 1 MWt → full power → 150 h unattended; 60 EFPD in total.",
+  nrc:"NRC pre-application since 2022; Part 70 application for the R-50 factory in Oak Ridge under review (target Q4 2026). Test data to support an NRC license application.",
+  req:DOE_REQ+"; NRC Part 70 (factory)",
+  docs:[["NEI Mag DSA approval","https://www.neimagazine.com/?p=108614"],["WNN fuel delivered","https://world-nuclear-news.org/articles/triso-fuel-delivered-for-kaleidos-reactor-experiment"],["ANS Oct milestones","https://www.ans.org/news/article-8549/antares-last-energy-and-radiant-hit-doe-authorization-milestones/"]]},
+ {co:"Last Energy · Austin, TX",name:"PWR-5 pilot",tech:"Scaled PWR (5 MW) for the 20 MWe PWR-20, LEU",site:"Texas A&M RELLIS, Bryan, TX",tags:["doe"],conf:"sure",
+  tracks:[{p:"doe",label:"PWR-5",done:3,d:{2:"late May 2026",3:"7 Oct 2026"}}],
+  next:"Readiness review, then low-power criticality; later phases generate electricity.",
+  nrc:"Listed on NRC advanced-reactor pre-application page.",
+  req:DOE_REQ,
+  docs:[["WNN DSA","https://world-nuclear-news.org/articles/last-energy-texas-micro-modular-reactor-clears-safety-analysis"],["Last Energy PDSA","https://www.lastenergy.com/news-press/last-energy-receives-doe-approval-of-pwr-5-preliminary-documented-safety-analysis"]]},
+ {co:"Deep Fission · Berkeley, CA (Nasdaq: FISN)",name:"Gravity borehole reactor",tech:"15 MWe PWR in a 30-inch borehole ~1 mile deep, LEU",site:"Great Plains Industrial Park, Parsons, KS",tags:["doe"],conf:"sure",
+  tracks:[{p:"doe",label:"Gravity pilot",done:1,d:{0:"Dec 2025",1:"Jul–Aug 2026",6:"1H 2027 (company)"}}],
+  next:"PDSA. 6,000-ft test well drilled; prototype canister installed and retrieved. Master energy purchase agreement with the Great Plains Development Authority (Oct 2026).",
+  nrc:"Intends to apply to the NRC based on its DOE authorization under pending rules (ML26111A382); pilot designed to convert to commercial operation.",
+  req:DOE_REQ,
+  note:"First RPP company to publish its full NSDA (Sep 2026). Financial viability questioned in Kansas press (Oct 2026).",
+  docs:[["Published NSDA (release)","https://secure.businesswire.com/news/home/20260915793564/en/Deep-Fission-Publishes-DOE-Approved-Nuclear-Safety-Design-Agreement-for-Gravity-Pilot-Reactor-Demonstrating-Commitment-to-Transparency"],["ANS Kansas agreement","https://ans.org/news/2026-10-28/article-8524/deep-fission-signs-kansas-power-agreement-following-market-woes"],["NRC letter ML26111A382","https://www.nrc.gov/docs/ML2611/ML26111A382.pdf"]]},
+ {co:"Natura Resources · Abilene, TX",name:"MSR-1 (ACU Molten Salt Research Reactor)",tech:"1 MWt liquid-fueled fluoride molten salt, HALEU",site:"Abilene Christian University NEXT Lab",tags:["doe","nrc"],conf:"sure",
+  tracks:[{p:"nrc50np",label:"NRC (licensee: ACU)",done:4,d:{1:"Aug 2022",4:"16 Sep 2024"}},
+          {p:"doe",label:"DOE authorization (RPP)",done:0,d:{0:"Dec 2025"}}],
+  next:"NSDA under the DOE track; NRC OL application still pending. Natura QA program description topical report under NRC review.",
+  nrc:"First NRC construction permit for a liquid-fueled reactor; REP Jan 2026 (ML26024A002); QAPD TR ML26166A408 under review.",
+  req:"NRC 10 CFR 50 (NUREG-1537 for non-power reactors), App B; plus DOE route",
+  docs:[["NRC pre-app","https://www.nrc.gov/facilities-safety/new-reactors/advanced-reactors/who-were-working-with/pre-application-activities/natura-resources"],["ANS OTA","https://www.ans.org/news/article-7631/natura-executes-an-ota-with-the-doe/"]]},
+ {co:"Terrestrial Energy · Charlotte, NC",name:"Project Tetra (IMSR)",tech:"390 MWe integral molten salt, LEU",site:"77 acres at Texas A&M RELLIS",tags:["doe"],conf:"sure",
+  tracks:[{p:"doe",label:"Project Tetra",done:0,d:{0:"Jan 2026"}}],
+  next:"NSDA. Site lease and research agreements signed Jun 2026.",
+  nrc:"Listed on NRC advanced-reactor pre-application page.",
+  req:DOE_REQ,
+  docs:[["ANS deadline round-up","https://www.ans.org/news/article-8178/the-deadline-arrives-checking-in-on-the-reactor-pilot-program/"]]},
+ {co:"TerraPower · Bellevue, WA",name:"Natrium, Kemmerer Unit 1",tech:"Sodium fast reactor, 345 MWe (500 MWe peak with salt storage)",site:"Kemmerer, Lincoln County, WY",tags:["nrc"],conf:"sure",
+  tracks:[{p:"nrc50p",label:"Kemmerer 1 (licensee: US SFR Owner)",done:5,d:{1:"28 Mar 2024",2:"May 2024",3:"FEIS Oct 2025 · SE Dec 2025",4:"Mar 2026",6:"after build; complete by 28 Feb 2031"}}],
+  next:"Construction; Part 50 OL application for a Class 103 license (40 years).",
+  nrc:"First NRC CP for a commercial non-LWR. FEIS NUREG-2268.",
+  req:"10 CFR 50.34(a)/(b), Part 51, App B; RG 1.233 (LMP); ARCOP inspections",
+  docs:[["NRC news 26-028","https://www.nrc.gov/sites/default/files/cdn/doc-collection-news/2026/26-028.pdf"],["NRC project page","https://www.nrc.gov/reactors/new-reactors/advanced/who-were-working-with/applicant-projects/terrapower"],["Hearing SECY ML25324A372","https://www.nrc.gov/docs/ML2532/ML25324A372.pdf"]]},
+ {co:"Southern Co., TerraPower, Core Power + INL",name:"Molten Chloride Reactor Experiment (MCRE)",tech:"150 kWt fast-spectrum chloride fuel salt",site:"INL MFC, LOTUS (ex-ZPPR cell)",tags:["doe","inl"],conf:"prob",
+  tracks:[{p:"doe",label:"MCRE (DOE-authorized experiment)",unknown:"Authorization stage not public. Fuel salt production underway (72–75 batches needed)."}],
+  next:"ARDP cost-share approved Oct 2026 for an accelerated final stage; criticality as early as 2027. Informs TerraPower's MCFR licensing.",
+  nrc:"Not applicable for the experiment.",
+  req:"DOE O 420.1 family / 10 CFR 830; ARDP cooperative agreement DE-NE0009045",
+  docs:[["ANS ARDP funding","https://www.ans.org/news/article-8491/molten-saltfueled-reactor-experiment-approved-for-doe-costshared-funding/"],["NRIC LOTUS slides","https://nric.inl.gov/content/uploads/34/2025/08/06-Laboratory-for-Operations-and-Testing-in-the-United-States-LOTUS.pdf"]]},
+ {co:"X-energy · Rockville, MD (with Dow)",name:"Long Mott Generating Station",tech:"4 × Xe-100 pebble-bed HTGR, 80 MWe / 200 MWt each, HALEU TRISO",site:"Dow Seadrift Operations, Calhoun County, TX",tags:["nrc"],conf:"sure",
+  tracks:[{p:"nrc50p",label:"Long Mott (licensee: Long Mott Energy)",done:4,d:{1:"31 Mar 2025",2:"12 May 2025",3:"EA/FONSI ~Jun 2026",4:"9 Nov 2026"}}],
+  next:"Preliminary investment decision 2027; operating license application; operation early 2030s.",
+  nrc:"First CP for a reactor on an industrial site, first multimodule advanced plant, first pebble-bed approval. Topical reports include GOTHIC/Flownex and mechanistic source term.",
+  req:"10 CFR 50, 51, App B; RG 1.233; EO 14300 18-month target",
+  docs:[["NRC news 26-083","https://www.nrc.gov/sites/default/files/cdn/doc-collection-news/2026/26-083.pdf"],["Application documents","https://www.nrc.gov/facilities-safety/new-reactors/advanced-reactors/who-were-working-with/advanced-reactor-application-projects/long-mott-energy-llc/application-documents"],["ANS CP issued","https://www.ans.org/news/article-8573/nrc-issues-construction-permit-for-dowxenergy-long-mott-project/"]]},
+ {co:"Kairos Power · Alameda, CA",name:"Hermes and Hermes 2",tech:"Fluoride salt-cooled, TRISO pebble (KP-FHR); Hermes 2 = two 35 MWt units",site:"Oak Ridge, TN",tags:["nrc"],conf:"sure",
+  tracks:[{p:"nrc50np",label:"Hermes (CPTR-6)",done:5,d:{1:"Sep 2021",4:"14 Dec 2023",5:"complete by 30 Apr 2029"}},
+          {p:"nrc50np",label:"Hermes 2",done:4,d:{1:"14 Jul 2023",4:"21 Nov 2024"}}],
+  next:"Operating license applications; operator licensing exemption request filed Oct 2026 (ML26280A107).",
+  nrc:"Construction-completion date extended from 31 Dec 2026 to 30 Apr 2029 (order May 2026).",
+  req:"10 CFR 50 (non-power), NUREG-1537, App B, Part 55 (operators)",
+  docs:[["NRC Hermes","https://www.nrc.gov/facilities-safety/non-power-facilities/new-facility-licensing/hermes-kairos-application"],["NRC Hermes 2","https://www.nrc.gov/facilities-safety/non-power-facilities/new-facility-licensing/hermes-2-kairos-application"],["FR extension","https://www.govinfo.gov/content/pkg/FR-2026-05-18/html/2026-09880.htm"],["Exemption ML26280A107","https://www.nrc.gov/docs/ML2628/ML26280A107.pdf"]]},
+ {co:"TVA with GE Vernova Hitachi",name:"Clinch River Unit 1 (BWRX-300)",tech:"300 MWe natural-circulation BWR SMR",site:"Oak Ridge, TN (ESP 2019)",tags:["nrc"],conf:"sure",
+  tracks:[{p:"nrc50p",label:"Clinch River 1",done:4,d:{1:"May 2025",2:"Jul 2025",3:"hearing 13 Aug 2026",4:"29 Sep 2026"}}],
+  next:"No construction date announced; OL application.",
+  nrc:"14-month review, four months ahead of schedule; first use of NRC's modernized hearing process.",
+  req:"10 CFR 50, 51, App B; ESP reference",
+  docs:[["NRC news 26-079","https://www.nrc.gov/about-nrc/news-releases/2026/26-079"],["ANS CP issued","https://www.ans.org/news/article-8445/tva-receives-construction-permit-for-clinch-river"]]},
+ {co:"Holtec International",name:"Pioneer 1 & 2 (SMR-300) at Palisades",tech:"2 × SMR-300 PWR",site:"Palisades Energy Center, Covert, MI",tags:["nrc"],conf:"sure",
+  tracks:[{p:"nrc50p",label:"Pioneer 1 & 2 (phased CP)",done:2,d:{1:"Part 1 31 Dec 2025 · Part 2 2026",2:"Feb 2026",3:"LWA draft SE ~Dec 2026"}}],
+  next:"Draft SE for the limited work authorization (expected Dec 2026); EIS in preparation.",
+  nrc:"Phase 1 = LWA + ER; Phase 2 = PSAR (ML26273A417). Holtec SMR QA topical report has a final SE.",
+  req:"10 CFR 50.10 (LWA), 2.101(a)(9) phased application, Part 51 EIS",
+  docs:[["NRC project page","https://www.nrc.gov/facilities-safety/new-reactors/advanced-reactors/who-were-working-with/advanced-reactor-application-projects/pioneer-units-1-and-2-limited-work-authorization-application"],["Part 2 ML26273A417","https://www.nrc.gov/docs/ML2627/ML26273A417.pdf"],["WNN Part 2","https://world-nuclear-news.org/articles/second-part-of-construction-permit-application-submitted-for-pioneer-smrs"]]},
+ {co:"NuScale Power",name:"US460",tech:"77 MWe/module integral PWR SMR",site:"Design only",tags:["nrc"],conf:"sure",
+  tracks:[{p:"nrc52sda",label:"US460 SDA",done:4,d:{1:"1 Jan 2023",2:"Jul 2023",3:"May 2025",4:"29 May 2025"}}],
+  next:"Must be referenced by a utility CP, OL or COL application.",
+  nrc:"SDA issued two months ahead of schedule; builds on the US600 certification.",
+  req:"10 CFR 52 Subpart E",
+  docs:[["NRC news 25-033","https://www.nrc.gov/cdn/doc-collection-news/2025/25-033.pdf"],["SDA ML25129A004","https://www.nrc.gov/docs/ML2512/ML25129A004.pdf"]]},
+ {co:"NANO Nuclear with Univ. of Illinois",name:"KRONOS MMR research reactor",tech:"Solid-core HTGR microreactor, ~1 MWe",site:"UIUC campus, Champaign County, IL",tags:["nrc"],conf:"sure",
+  tracks:[{p:"nrc50np",label:"KRONOS (licensee: UIUC)",done:2,d:{1:"31 Mar 2026",2:"18 May 2026",4:"2027 (company est.)"}}],
+  next:"Safety and environmental review; nuclear construction targeted 2H 2027.",
+  nrc:"Fuel qualification topical report approved Apr 2025.",
+  req:"10 CFR 50 (non-power), NUREG-1537, App B",
+  docs:[["NRC project page","https://www.nrc.gov/reactors/new-reactors/advanced/who-were-working-with/applicant-projects/kronos"],["WNN accepted","https://wnn.world-nuclear.org/articles/microreactor-application-accepted-for-review-by-us-regulator"]]},
+ {co:"Westinghouse",name:"eVinci",tech:"Heat-pipe TRISO microreactor, 15 MWt / 5 MWe",site:"NCERC (test); prototype for INL DOME",tags:["crit"],conf:"sure",
+  tracks:[{p:"doe",label:"eVinci",unknown:"Zero-power criticality experiment at NCERC on 24 Aug 2026 under a DOE/NRC criticality-safety collaboration; not an RPP authorization."}],
+  next:"1/5-scale, 1 MWe prototype built in Etna, PA for DOME; Deployable Energy now ahead of it in the DOME queue.",
+  nrc:"ARDP-funded design; NRC licensing path not tracked here.",
+  req:"—",
+  docs:[["DOE criticality milestone","https://www.energy.gov/ne/articles/westinghouse-evinci-microreactor-achieves-criticality-milestone"],["Westinghouse release","https://info.westinghousenuclear.com/news/westinghouse-evinci-microreactor-achieves-zero-power-criticality"]]},
+ {co:"Raven-Flint Nuclear · Idaho Falls, ID",name:"MATCH lab → Torch pilot → Forge",tech:"Fluorine-free uranium conversion (\"Corvus Route\") to UF6 — fuel cycle, not a reactor",site:"MATCH in Idaho Falls; Torch at INL near CFA",tags:["fuel","nrc","doe","inl"],conf:"sure",
+  tracks:[{p:"nrc40",label:"MATCH bench-scale lab (10 CFR 40.31)",done:2,d:{0:"Jun 2026",2:"Aug 2026"}},
+          {p:"doe",label:"Torch pilot (Launch Pad INL)",unknown:"Selected Aug 2026; authorization stage not public. Company targets 500 tU/yr from mid-2028; Forge commercial plant by 2030."}],
+  next:"NRC review of the MATCH license (possession from a 1.5 kg admin cap up to 500 kg); Torch pilot design. UF6 produced at bench scale (Aug 2026).",
+  nrc:"Bridge rule §50.43(f) does not cover fuel cycle facilities; a commercial conversion plant would need its own NRC license.",
+  req:"10 CFR 40.31/40.32, Parts 19, 20, 21, 51; 40.64 reporting; DOE-STD-1271-2025 and DOE-STD-3009-2014 for Torch (see Fuel cycle section)",
+  docs:[["LOI ML26181A349","https://www.nrc.gov/docs/ML2618/ML26181A349.pdf"],["ANS docket + Launch Pad","https://www.ans.org/news/2026-09-04/article-8367/ravenflint-u-conversion-plans-land-on-nrc-docket-in-launch-pad/"],["Company site","https://raven-flint.com/"],["Orrick on bridge rule","https://www.orrick.com/de-DE/Insights/2026/10/NRC-Finalizes-DOE-to-NRC-Licensing-Pathway-Rulemaking-The-Regulatory-Crosswalk-Takes-Shape"]]}
+];
+
+function el(tag,attrs={},html=""){const e=document.createElement(tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(html)e.innerHTML=html;return e;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+const confChip={sure:'<span class="chip sure">Sure</span>',prob:'<span class="chip prob">Probable</span>',spec:'<span class="chip spec">Speculating</span>'};
+
+function renderTrack(t){
+  const box=el("div",{class:"track"});
+  const path=PATHS[t.p];
+  box.appendChild(el("div",{class:"tname"},esc(path.name)+" — "+esc(t.label)));
+  if(t.unknown){box.appendChild(el("div",{class:"unknown"},esc(t.unknown)));return box;}
+  const steps=el("div",{class:"steps",role:"list"});
+  path.steps.forEach((s,i)=>{
+    let st=i<=t.done?"done":(i===t.done+1?"next":"todo");
+    if(t.na&&t.na.includes(i))st="na";
+    const stepState={done:"completed",next:"next stage",todo:"ahead",na:"not applicable"}[st];
+    const d=t.d&&t.d[i]?'<span class="sd">'+esc(t.d[i])+'</span>':"";
+    steps.appendChild(el("div",{class:"step "+st,role:"listitem","aria-label":s+": "+stepState},'<span class="bar"></span><span class="sl">'+esc(s)+'</span>'+d));
+  });
+  box.appendChild(steps);return box;
+}
+function renderCards(filter){
+  const wrap=document.getElementById("cards");wrap.innerHTML="";
+  P.filter(p=>filter==="all"||p.tags.includes(filter)).forEach(p=>{
+    const c=el("article",{class:"card"});
+    const chips=(p.tags.includes("inl")?'<span class="chip inl">INL site</span> ':"")+(p.tags.includes("crit")?'<span class="chip crit">Critical 2026</span> ':"")+confChip[p.conf];
+    c.appendChild(el("header",{},'<div><div class="co">'+esc(p.co)+'</div><h3>'+esc(p.name)+'</h3><div class="meta">'+esc(p.tech)+' · '+esc(p.site)+'</div></div><div>'+chips+'</div>'));
+    p.tracks.forEach(t=>c.appendChild(renderTrack(t)));
+    let dl='<dt>Next</dt><dd>'+esc(p.next)+'</dd><dt>NRC</dt><dd>'+esc(p.nrc)+'</dd><dt>Comply with</dt><dd>'+esc(p.req)+'</dd>';
+    if(p.note)dl+='<dt>Note</dt><dd>'+esc(p.note)+'</dd>';
+    c.appendChild(el("dl",{},dl));
+    c.appendChild(el("div",{class:"docs"},p.docs.map(d=>'<a href="'+d[1]+'">'+esc(d[0])+'</a>').join("")));
+    wrap.appendChild(c);
+  });
+}
+document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true");renderCards(b.dataset.f);
+}));
+renderCards("all");
+
+// tiles
+const tiles=[["5","DOE-authorized criticalities, Jun–Aug 2026"],["3","NRC advanced-reactor construction permits issued in 2026"],["29 Apr 2026","10 CFR Part 53 effective"],["Oct 2026","§50.43(f) DOE-to-NRC bridge rule finalized"]];
+document.getElementById("tiles").innerHTML=tiles.map(t=>'<div class="tile"><div class="n">'+t[0]+'</div><div class="l">'+t[1]+'</div></div>').join("");
+
+// timeline
+(function(){
+  const ev=[["2026-06-04","Antares Mark-0","INL"],["2026-06-18","Valar Ward 250","Utah"],["2026-06-30","Deployable Unity","INL"],["2026-07-04","Aalo-X CTR","INL"],["2026-08-05","Oklo Groves-1","Texas"],["2026-08-24","eVinci (NCERC test)","Nevada"]];
+  const W=900,H=220,L=40,R=40,y0=150;
+  const t0=Date.parse("2026-05-25"),t1=Date.parse("2026-09-05");
+  const x=d=>L+(Date.parse(d)-t0)/(t1-t0)*(W-L-R);
+  let s='<line class="axis" x1="'+L+'" y1="'+y0+'" x2="'+(W-R)+'" y2="'+y0+'" stroke-width="2"/>';
+  ["2026-06-01","2026-07-01","2026-08-01","2026-09-01"].forEach(m=>{const xx=x(m);s+='<line class="axis" x1="'+xx+'" y1="'+(y0-6)+'" x2="'+xx+'" y2="'+(y0+6)+'"/><text class="tick" x="'+xx+'" y="'+(y0+24)+'" text-anchor="middle">'+new Date(m+"T12:00:00").toLocaleString("en-US",{month:"short"})+' 2026</text>';});
+  const dl=Date.parse("2026-07-04");const xd=x("2026-07-04");
+  s+='<line x1="'+xd+'" y1="'+(y0-30)+'" x2="'+xd+'" y2="'+(y0+10)+'" stroke="var(--next)" stroke-dasharray="4 4"/><text class="tick" x="'+(xd+10)+'" y="'+(y0-14)+'">EO 14301 deadline</text>';
+  ev.forEach((e,i)=>{const xx=x(e[0]);const ly=[48,82,116][i%3];const off=(e[1].startsWith("eVinci"));
+    s+='<line x1="'+xx+'" y1="'+(ly+6)+'" x2="'+xx+'" y2="'+y0+'" stroke="var(--line)"/>';
+    s+='<circle cx="'+xx+'" cy="'+y0+'" r="7" fill="'+(off?"var(--surface)":"var(--done)")+'" stroke="var(--done)" stroke-width="2"/>';
+    s+='<text x="'+xx+'" y="'+(ly-14)+'" text-anchor="middle" font-size="13" font-weight="600">'+e[1]+'</text>';
+    s+='<text class="tick" x="'+xx+'" y="'+ly+'" text-anchor="middle">'+new Date(e[0]+"T12:00:00").toLocaleString("en-US",{day:"numeric",month:"short"})+'</text>';
+  });
+  s+='<circle cx="'+(L+8)+'" cy="'+(H-12)+'" r="6" fill="var(--done)"/><text class="tick" x="'+(L+20)+'" y="'+(H-8)+'">DOE-authorized</text><circle cx="'+(L+150)+'" cy="'+(H-12)+'" r="6" fill="var(--surface)" stroke="var(--done)" stroke-width="2"/><text class="tick" x="'+(L+162)+'" y="'+(H-8)+'">Lab critical experiment</text>';
+  const svg=document.getElementById("tl");svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.setAttribute("width",W);svg.style.maxWidth="100%";svg.style.minWidth="640px";svg.innerHTML=s;
+})();
+
+
+// add per-project documents to the source list
+(function(){
+  const list=document.getElementById("srclist");const seen=new Set([...list.querySelectorAll("a")].map(a=>a.href));
+  P.forEach(p=>p.docs.forEach(d=>{const a=document.createElement("a");a.href=d[1];if(seen.has(a.href))return;seen.add(a.href);a.textContent=p.name+": "+d[0];const li=document.createElement("li");li.appendChild(a);list.appendChild(li);}));
+})();
+// project cards link to their route on the pathways page
+function addRouteLinks(){document.querySelectorAll(".card .tname").forEach(t=>{
+  const map={"DOE authorization":"pathways.html#routes","NRC Part 50":"pathways.html#routes","NRC Part 52":"pathways.html#routes","NRC Part 40":"pathways.html#fuelcycle-cfr"};
+  for(const k in map){if(t.textContent.startsWith(k)){const a=document.createElement("a");a.href=map[k];a.textContent="how this route works";a.style.marginLeft="8px";t.appendChild(a);break;}}
+});}
+const _renderCards=renderCards; renderCards=function(f){_renderCards(f);addRouteLinks();}; addRouteLinks();
+
+</script>
+</body>
+</html>

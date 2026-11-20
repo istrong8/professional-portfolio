@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuclear Software QA — Irais Strong</title>
+<meta name="description" content="Software categorization under DOE G 414.1-4 and the NRC with ASME NQA-1 Subpart 2.7: grading levels, life cycle, public SQA program examples, accepted codes, and a worked example.">
+<meta name="theme-color" content="#07060b">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307060b'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23a78bfa' stroke-width='2.5' transform='rotate(-28 32 32)'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e4d9ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..400&display=swap">
+<link rel="stylesheet" href="../assets/css/page.css?v=20261120">
+</head>
+<body>
+<a class="sr" href="#main" style="position:absolute;left:-999px">Skip to content</a>
+<header class="masthead">
+  <div class="wrap masthead__row">
+    <a class="wordmark" href="../" aria-label="Irais Strong — portfolio home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="12" ry="5" transform="rotate(-28 16 16)"/><circle cx="16" cy="16" r="2.6"/></svg>
+      Irais Strong
+    </a>
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html">Licensing &amp; QA</a>
+      <a href="tracker.html">Tracker</a>
+      <a href="pathways.html">Pathways</a>
+      <a href="software-qa.html" aria-current="page">Software QA</a>
+      <a href="../moon-mars.html">Moon &amp; Mars</a>
+      <a class="sitenav__cta" href="../">Portfolio</a>
+    </nav>
+  </div>
+</header><nav class="rail" aria-label="On this page"><div class="wrap"><ul><li><a href="#categorization">Categorization</a></li><li><a href="#nqa1">NQA-1 life cycle</a></li><li><a href="#sqaexamples">Program examples</a></li><li><a href="#codes">Accepted codes</a></li><li><a href="#worked-example">Worked example</a></li><li><a href="#software">Software in licensing</a></li><li><a href="#sources">Sources</a></li></ul></div></nav><main id="main">
+<section class="hero wrap" aria-labelledby="page-title">
+  <p class="label">Reference · software quality assurance</p>
+  <h1 id="page-title">Nuclear <em>software QA</em></h1>
+  <p class="hero__lede">How the codes behind a safety basis or license application are categorized, built, verified and accepted, under DOE directives and under the NRC with ASME NQA-1.</p>
+  <p class="hero__sub">Drawn from public guidance and public program documents. The "Software in licensing" section reports project status and is dated; the rest is reference material.</p>
+</section>
+<section class="section wrap" id="categorization" aria-labelledby="categorization-title">
+  <header class="section__head">
+    <p class="section__num">§ 01</p>
+    <div>
+      <h2 id="categorization-title">Software categorization (DOE &amp; NRC)</h2>
+      <p class="section__intro">Before any NQA-1 work, each piece of software is categorized: is it safety software, what kind of software is it, and how bad is a failure? The answer sets which of the life-cycle activities apply in full or graded form. DOE's framework is spelled out in DOE G 414.1-4 (2005, written for O 414.1C and still the main guide); the NRC's is built from Appendix B and its software regulatory guides.</p>
+    </div>
+  </header>
+  <div class="body">
+<h3 class="sub">DOE: three questions</h3>
+<div class="grid two">
+<div class="panel">
+<h3>1. Category</h3>
+<p><b>Safety system software</b>: performs a safety function as part of an SSC cited in a DOE-approved DSA or hazard analysis.</p>
+<p><b>Safety and hazard analysis and design software</b>: classifies, designs or analyzes facilities or safety SSCs; not part of an SSC (MELCOR, MCNP, RSAC, MicroShield used for a DSA fall here).</p>
+<p><b>Safety management and administrative controls software</b>: performs a hazard control function supporting safety programs or TSRs.</p>
+</div>
+<div class="panel">
+<h3>2. Software type</h3>
+<p><b>Custom developed</b> for the DOE application. <b>Configurable</b>: commercial software users can modify in limited ways (e.g. PLC logic). <b>Acquired</b>: COTS, freeware, firmware. <b>Utility calculation</b>: spreadsheets with user algorithms. <b>Commercial design and analysis</b>: a contractor's own software used on its own.</p>
+</div>
+<div class="panel">
+<h3>3. Grading level</h3>
+<p><b>A</b>: failure could compromise an LCO, reduce a cited SSC's safety margin, or produce nonconservative analysis or misclassification.</p>
+<p><b>B</b>: not A, but failure could corrupt safety-management databases, mis-record hazardous exposures, or weaken defense in depth.</p>
+<p><b>C</b>: not B, but failure could cause a permit violation or affect ES&amp;H monitoring or safe SSC operation.</p>
+</div>
+</div>
+<h3 class="sub">Ten work activities and how grading applies (DOE G 414.1-4, Table 4)</h3>
+<p class="prose">F = full, G = graded, n/a = not applicable. Values read Custom / Configurable / Acquired / Utility calc / Commercial D&amp;A. The design row is garbled in the public PDF; check the original before relying on it.</p>
+<div class="tablebox"><table>
+<thead><tr><th>Work activity</th><th>Level A</th><th>Level B</th><th>Level C</th></tr></thead>
+<tbody>
+<tr><td>1. Project management &amp; quality planning</td><td class="num">F F G G n/a</td><td class="num">F F G G n/a</td><td class="num">G G G G n/a</td></tr>
+<tr><td>2. Risk management</td><td class="num">F F F F n/a</td><td class="num">G G G G n/a</td><td class="num">G G G G n/a</td></tr>
+<tr><td>3. Configuration management</td><td class="num">F G G G G</td><td class="num">F G G G G</td><td class="num">G G G G G</td></tr>
+<tr><td>4. Procurement &amp; supplier management</td><td class="num">F F F F F</td><td class="num">F F F F F</td><td class="num">F F F F F</td></tr>
+<tr><td>5. Requirements identification &amp; management</td><td class="num">F F F F F</td><td class="num">F F F F F</td><td class="num">F F F F F</td></tr>
+<tr><td>6. Design &amp; implementation</td><td class="num">F G n/a G n/a</td><td class="num">F G n/a G n/a</td><td class="num">F G n/a G n/a</td></tr>
+<tr><td>7. Software safety</td><td class="num">F F F n/a n/a</td><td class="num">G G G n/a n/a</td><td class="num">G G G n/a n/a</td></tr>
+<tr><td>8. Verification &amp; validation</td><td class="num">F F F G n/a</td><td class="num">G G G G n/a</td><td class="num">G G G G n/a</td></tr>
+<tr><td>9. Problem reporting &amp; corrective action</td><td class="num">F F F G F</td><td class="num">F F F G F</td><td class="num">F G G G G</td></tr>
+<tr><td>10. Training</td><td class="num">F F F F n/a</td><td class="num">G G G G n/a</td><td class="num">G G G G n/a</td></tr>
+</tbody>
+</table></div>
+<h3 class="sub">Categorization steps</h3>
+<div class="nqa">
+<div class="nstep"><h3>Inventory the software and its use</h3><p>Name, version, owner, platform and exactly what each output feeds (a DSA table, a TSR surveillance, an operator display).</p></div>
+<div class="nstep"><h3>Decide whether it is safety software</h3><p>DOE O 414.1F: at minimum, software cited in a DOE-approved safety analysis. NRC: safety-related under Appendix B if it performs or verifies a safety function, or is used in the design or analysis of safety-related SSCs.</p></div>
+<div class="nstep"><h3>Assign the category and software type</h3><p>Using the three categories and five types above. The same code can be Level A in one use and non-safety in another, so categorize the use, not the code.</p></div>
+<div class="nstep"><h3>Assign the grading level from failure consequence</h3><p>Ask what a wrong answer would do: nonconservative safety analysis is Level A; a bad exposure record is B; a monitoring glitch is C.</p></div>
+<div class="nstep"><h3>Map the work activities</h3><p>Read the table for that level and type; justify every "graded" or "n/a" in writing.</p></div>
+<div class="nstep"><h3>Document and get approval</h3><p>Record it in a safety software determination and quality level determination, then the SQA plan. DOE O 414.1F requires the graded-approach basis to be submitted to DOE for approval.</p></div>
+<div class="nstep"><h3>Control it and re-evaluate on change</h3><p>Register in the software inventory under configuration management; re-categorize when the version, platform or use changes.</p></div>
+</div>
+<h3 class="sub">NRC software categorization with NQA-1</h3>
+<p class="prose">The NRC has no A/B/C levels. Categorization comes from the applicant's own QA program description (QAPD), which the NRC approves: software takes the safety classification of the function it serves, and that class decides how much of 10 CFR 50 Appendix B and NQA-1 Part II Subpart 2.7 applies. NRC accepts NQA-1-2017, -2019 and -2022 through RG 1.28 Rev 6.</p>
+<div class="grid two">
+<div class="panel">
+<h3>Axis 1: what the software does</h3>
+<p><b>Process (plant) software</b>: embedded in an SSC, such as digital I&amp;C, protection logic, PLCs.</p>
+<p><b>Non-process software</b>: design and analysis codes, evaluation models, spreadsheets, databases whose output supports design or safety analysis.</p>
+</div>
+<div class="panel">
+<h3>Axis 2: safety class of that function</h3>
+<p><b>Safety-related (SR)</b>: performs or verifies a safety-related function, or analyzes a safety-related SSC. Full Appendix B and Subpart 2.7; Part 21 applies.</p>
+<p><b>Non-safety-related with special treatment</b>: the NSRST class of the LMP framework (NEI 18-04, RG 1.233) or "augmented quality"; graded controls set in the QAPD <span class="chip prob">Probable</span>.</p>
+<p><b>Non-safety-related (NST)</b>: commercial practice.</p>
+</div>
+<div class="panel">
+<h3>Axis 3: how it was obtained</h3>
+<p><b>Developed</b> under an Appendix B/NQA-1 program: Subpart 2.7 section 400 life cycle.</p>
+<p><b>Acquired or commercial</b>: qualify per Subpart 2.7 section 300, or dedicate per Subpart 2.14 with RG 1.231 / EPRI 3002002289.</p>
+</div>
+</div>
+<h3 class="sub">What Subpart 2.7 asks for</h3>
+<div class="tablebox"><table>
+<thead><tr><th>Section</th><th>Content</th><th>Applies to</th></tr></thead>
+<tbody>
+<tr><td class="num">100</td><td>General: applicability, software engineering activities, definitions</td><td>All software in scope</td></tr>
+<tr><td class="num">200</td><td>General requirements: 201 documentation, 202 review, 203 configuration management, 204 problem reporting and corrective action</td><td>All software in scope</td></tr>
+<tr><td class="num">300</td><td>Software acquisition, including qualification of otherwise acquired software (302)</td><td>Purchased, legacy, freeware, open source</td></tr>
+<tr><td class="num">400</td><td>Software engineering method: requirements, design, implementation, test (V&amp;V), installation and checkout, operation and maintenance, retirement</td><td>Developed or modified software</td></tr>
+<tr><td class="num">500</td><td>Standards, conventions and other work practices</td><td>Development teams</td></tr>
+<tr><td class="num">600</td><td>Support software (compilers, operating systems, test tools)</td><td>Tools that can affect results</td></tr>
+<tr><td class="num">Part I</td><td>Requirement 3 (design control, including verification of computer programs) and Requirement 11 (test control)</td><td>All safety-related use</td></tr>
+</tbody>
+</table></div>
+<h3 class="sub">NRC categorization steps</h3>
+<div class="nqa">
+<div class="nstep"><h3>List each use</h3><p>Code, version, platform and the licensing-basis document its output feeds (PSAR or FSAR chapter, a topical report, a technical specification surveillance).</p></div>
+<div class="nstep"><h3>Classify the function, then the software</h3><p>Take the SSC classification from the licensing basis (50.2 safety-related, or SR / NSRST / NST under LMP) and give the software the same class for that use.</p></div>
+<div class="nstep"><h3>Pick the pedigree path</h3><p>Developed under Appendix B → Subpart 2.7 section 400. Commercial or legacy → section 300 qualification or Subpart 2.14 dedication with EPRI 3002002289.</p></div>
+<div class="nstep"><h3>Add the use-specific layer</h3><p>Evaluation models: RG 1.203 EMDAP and usually a topical report. Digital I&amp;C: IEEE 1012 integrity level via RG 1.168, RG 1.169–1.173, IEEE 7-4.3.2 via RG 1.152, BTP 7-19 for common-cause failure.</p></div>
+<div class="nstep"><h3>Write it into the QAPD and SQA plan</h3><p>The graded approach for NSRST and NST software must be stated in the QAPD. The NRC reviews the QAPD as a topical report or in Chapter 17 of the application.</p></div>
+<div class="nstep"><h3>Expect inspection</h3><p>NRC vendor and construction inspections sample software records; for safety-related software, errors found later are reportable under Part 21.</p></div>
+</div>
+<h3 class="sub">DOE level vs NRC class (rough crosswalk)</h3>
+<div class="tablebox"><table>
+<thead><tr><th>DOE G 414.1-4</th><th>Closest NRC treatment</th><th>Confidence</th></tr></thead>
+<tbody>
+<tr><td>Level A safety system or safety analysis software</td><td>Safety-related: full Appendix B + Subpart 2.7</td><td><span class="chip spec">Speculating</span></td></tr>
+<tr><td>Level B</td><td>NSRST / augmented quality, graded in the QAPD</td><td><span class="chip spec">Speculating</span></td></tr>
+<tr><td>Level C</td><td>Non-safety-related, commercial practice with configuration control</td><td><span class="chip spec">Speculating</span></td></tr>
+</tbody>
+</table></div>
+<p class="prose">No agency publishes this crosswalk; it is a working aid for moving a code from a DOE-authorized project into an NRC application under §50.43(f).</p>
+<h3 class="sub">NRC equivalents by software use</h3>
+<div class="tablebox"><table>
+<thead><tr><th>Software use</th><th>Classification</th><th>Main requirements and guidance</th></tr></thead>
+<tbody>
+<tr><td>Design and analysis codes (safety analysis, core design)</td><td>Safety-related if results support safety-related design</td><td>10 CFR 50 App B Criterion III (design control); NQA-1 Part II Subpart 2.7 via RG 1.28 Rev 6; RG 1.203 EMDAP for evaluation models; RG 1.231 / EPRI 3002002289 for commercial-grade dedication <span class="chip sure">Sure</span></td></tr>
+<tr><td>Safety system software (digital I&amp;C)</td><td>Safety-related; highest software integrity level</td><td>RG 1.168 (V&amp;V, endorses IEEE 1012 integrity levels), RG 1.169–1.173 (configuration management, test documentation, unit testing, requirements, life cycle), RG 1.152 / IEEE 7-4.3.2 (computers in safety systems), RG 1.250 (dedication of digital I&amp;C) <span class="chip prob">Probable</span></td></tr>
+<tr><td>Business and AI drafting tools</td><td>Non-safety unless their output is used without independent verification</td><td>Licensee QA program and document review; no NRC code-specific guidance yet <span class="chip spec">Speculating</span></td></tr>
+</tbody>
+</table></div>
+</div>
+</section>
+<section class="section wrap" id="nqa1" aria-labelledby="nqa1-title">
+  <header class="section__head">
+    <p class="section__num">§ 02</p>
+    <div>
+      <h2 id="nqa1-title">NQA-1 software life cycle</h2>
+      <p class="section__intro">The stages an analysis code goes through under ASME NQA-1 (Part II Subpart 2.7, with Part I Requirements 3 and 11) before its results can support a DSA or PSAR. Durations are estimates for a mid-size thermal-hydraulic or neutronics code with one developer team; they vary by an order of magnitude with code size and pedigree.</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="nqa">
+<div class="nstep"><span class="dur">2–6 weeks <span class="chip spec">Speculating</span></span><h3>Classify and grade</h3><p>Safety software determination and quality level: is the code cited in a safety analysis, used for design verification, or neither? Grading sets how much of the rest applies.</p></div>
+<div class="nstep"><span class="dur">1–3 months <span class="chip spec">Speculating</span></span><h3>Software QA plan</h3><p>SQAP covering configuration management, V&amp;V plan, problem reporting and corrective action, roles, and the NQA-1 edition used (the NRC accepts 2017, 2019 or 2022 under RG 1.28 Rev 6).</p></div>
+<div class="nstep"><span class="dur">2–6 months <span class="chip spec">Speculating</span></span><h3>Requirements specification</h3><p>SRS: functions, physics models, ranges of applicability, inputs and outputs, performance and security requirements; traceability matrix starts here.</p></div>
+<div class="nstep"><span class="dur">2–6 months <span class="chip spec">Speculating</span></span><h3>Design description</h3><p>SDD: model equations, numerical methods, data structures, interfaces; each requirement mapped to a design element.</p></div>
+<div class="nstep"><span class="dur">continuous</span><h3>Implementation under configuration control</h3><p>Version control, reviewed changes, controlled baselines and release records. MOOSE shows this can run inside a CI workflow.</p></div>
+<div class="nstep"><span class="dur">6–24 months <span class="chip spec">Speculating</span></span><h3>Verification and validation</h3><p>Unit, regression and method-of-manufactured-solutions tests; benchmarks against experiments. For an evaluation model the NRC expects the RG 1.203 EMDAP: PIRT, assessment base, scaling, uncertainty.</p></div>
+<div class="nstep"><span class="dur">2–8 weeks <span class="chip spec">Speculating</span></span><h3>Acceptance and installation testing</h3><p>Test on each target platform; user documentation and training; release for use.</p></div>
+<div class="nstep"><span class="dur">life of use</span><h3>Operation, maintenance, retirement</h3><p>Error notification to users, change control, periodic re-verification; formal retirement record.</p></div>
+</div>
+<div class="grid two">
+<div class="panel">
+<h3>Shortcut: commercial-grade dedication</h3>
+<p>For a code not built under NQA-1, dedication against EPRI 3002002289 (Rev 1 of 1025243), endorsed by RG 1.231, or DOE-HDBK-1230-2019 on the DOE side. Typical range 3–12 months <span class="chip spec">Speculating</span>.</p>
+</div>
+<div class="panel">
+<h3>Regulator acceptance: NRC</h3>
+<p>The NRC accepts methods, not codes in general: a code becomes usable through a topical report SE or the application review itself. Observed TR reviews in this tracker ran about 12–24 months <span class="chip prob">Probable</span>.</p>
+</div>
+<div class="panel">
+<h3>Regulator acceptance: DOE</h3>
+<p>DOE NE Order 414.1 (Aug 2025) treats software as an item; private facilities must manage safety-function software under a DOE-approved standard. DOE O 414.1F (5 Aug 2026) Part B scopes safety software as at least software cited in a DOE-approved safety analysis, with a DOE-approved graded approach. The code's acceptance rides on the NSDA Code of Record and the 45-day PDSA/DSA reviews.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section wrap" id="sqaexamples" aria-labelledby="sqaexamples-title">
+  <header class="section__head">
+    <p class="section__num">§ 03</p>
+    <div>
+      <h2 id="sqaexamples-title">Public software QA programs to learn from</h2>
+      <p class="section__intro">Utilities' internal software procedures (such as a plant's software control procedure) are not public; their QA program descriptions are. These public documents show full classification schemes and can be cited and linked, never copied.</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="tablebox"><table>
+<thead><tr><th>Document</th><th>Owner / regulator</th><th>Classification scheme</th><th>Why it is useful</th></tr></thead>
+<tbody>
+<tr><td><a href="https://www.nrc.gov/docs/ML2114/ML21146A203.pdf">WCAP-16096-NP-A Rev 5.1, Software Program Manual for Common Q</a> (ML21146A203)</td><td>Westinghouse; NRC-approved topical report (final SE ML18270A029)</td><td>4 classes: Protection → Important-to-Safety → Important-to-Availability → General Purpose, mapped to IEEE 1012-2004 integrity levels 4, 3, 2, 1 <span class="chip sure">Sure</span></td><td>Commercial NRC example for safety-related digital I&amp;C; covers the 12 BTP 7-14 plans and V&amp;V independence</td></tr>
+<tr><td><a href="https://www.nrc.gov/docs/ML1111/ML111180570.pdf">Software Quality Assurance, Procedure 20-1 Rev 11, Manual 1Q</a> (ML111180570)</td><td>Savannah River Site contractor (WSRC), 2008; DOE O 414.1C</td><td>SSC software uses the SSC's functional class; other software A–E by intended use (A direct effect on nuclear safety protection → E none of the criteria) <span class="chip sure">Sure</span></td><td>Closest public match to an A–E scheme; Attachment B marks each life-cycle activity Required, Graded, Optional or N/A per class</td></tr>
+<tr><td><a href="https://www.energy.gov/sites/prod/files/2014/05/f16/Applying%20DOE%20O%20414.1C%20and%20NQA-1%20Requirements%20to%20ISM%20Software.pdf">Applying DOE O 414.1C and NQA-1 to ISM Software</a> (2009 ISM conference)</td><td>Training deck</td><td>A–C safety software (DOE G 414.1-4), then D–F non-safety: D verified design/analysis tools, E unverified or not used for SSCs, F COTS utilities <span class="chip sure">Sure</span></td><td>Shows a six-level A–F scheme and maps it to NQA-1 Subpart 2.7</td></tr>
+<tr><td><a href="https://www.nrc.gov/docs/ML1408/ML14085A084.pdf">EPRI 3002002289</a> (ML14085A084)</td><td>EPRI; endorsed by RG 1.231</td><td>Functional safety classification of non-process computer programs, then dedication if safety-related <span class="chip sure">Sure</span></td><td>The NRC-side method for design and analysis codes such as reload, core physics or T-H codes</td></tr>
+<tr><td><a href="https://www.nrc.gov/docs/ML1920/ML19205A218.pdf">PVNGS Operations QAPD Rev 1</a> (ML19205A218)</td><td>APS / Palo Verde</td><td>QA program level; software controls are in plant procedures that are not public <span class="chip prob">Probable</span></td><td>Shows how a utility's NQA-1/App B commitments are structured</td></tr>
+</tbody>
+</table></div>
+<h3 class="sub">Illustrative class scheme for an NQA-1 SQA program</h3>
+<p class="prose">A composite built from the public examples above, for teaching and portfolio use. It is not any company's program. Column "Subpart 2.7 rigor" shows how many of the 200/300/400 requirements apply.</p>
+<div class="tablebox"><table>
+<thead><tr><th>Class</th><th>Definition</th><th>Typical software</th><th>Subpart 2.7 rigor</th><th>NRC / DOE anchor</th></tr></thead>
+<tbody>
+<tr><td><b>A</b></td><td>Performs a safety-related or protection function directly</td><td>Reactor protection logic, safety PLC code</td><td>Full; independent V&amp;V; IEEE 1012 integrity level 4</td><td>App B, RG 1.168–1.173, IEEE 7-4.3.2 · DOE Level A safety system software</td></tr>
+<tr><td><b>B</b></td><td>Output used to design, analyze or set limits for safety-related SSCs</td><td>Reload and core design codes, T-H and source-term evaluation models, dose codes in a DSA</td><td>Full section 400 life cycle or section 300 / Subpart 2.14 dedication; RG 1.203 for evaluation models</td><td>App B Criterion III, RG 1.231 · DOE Level A safety analysis and design software</td></tr>
+<tr><td><b>C</b></td><td>Supports safety programs, tech spec or TSR administrative controls, or monitors safety functions</td><td>Surveillance tracking, dosimetry records, fire impairment databases</td><td>Graded; configuration control and problem reporting required</td><td>Augmented quality / NSRST · DOE Level B</td></tr>
+<tr><td><b>D</b></td><td>Important to availability, regulatory compliance or major cost, no safety function</td><td>Outage scheduling, environmental permit reporting</td><td>Graded at the owner's discretion</td><td>Non-safety · DOE Level C</td></tr>
+<tr><td><b>E</b></td><td>No safety, availability or compliance function</td><td>Research and teaching codes, office tools, general databases</td><td>Inventory and classification record only</td><td>Non-safety</td></tr>
+<tr><td><b>F</b></td><td>Support and COTS utilities that can affect class A–B results</td><td>Compilers, operating systems, test tools, Python and library versions</td><td>Section 600 support software: identify, control versions, verify where results depend on them</td><td>NQA-1 Subpart 2.7 section 600</td></tr>
+</tbody>
+</table></div>
+<div class="callout"><p><b>For the portfolio.</b> Describe your own experience in general terms (for example, writing a V&amp;V plan under an NQA-1 SQA program) and link the public documents above. Do not reproduce a former employer's internal procedure, class definitions or forms from memory; those belong to the company even when the scheme feels generic.</p></div>
+</div>
+</section>
+<section class="section wrap" id="codes" aria-labelledby="codes-title">
+  <header class="section__head">
+    <p class="section__num">§ 04</p>
+    <div>
+      <h2 id="codes-title">Accepted codes</h2>
+      <p class="section__intro">Neither agency keeps a general list of "approved" codes for applicants. DOE's Safety Software Central Registry is the closest thing: "toolbox" codes evaluated against DOE safety software QA requirements. Use is not mandatory, and listed versions are old.</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="tablebox"><table>
+<thead><tr><th>Toolbox code</th><th>Listed version</th><th>Use in a DSA</th><th>Owner</th></tr></thead>
+<tbody>
+<tr><td>ALOHA</td><td class="num">5.4.4 (2014)</td><td>Chemical release dispersion</td><td>NOAA</td></tr>
+<tr><td>CFAST</td><td class="num">7.1.1 (2017)</td><td>Fire source term</td><td>NIST</td></tr>
+<tr><td>EPIcode</td><td class="num">7.0 (2004)</td><td>Chemical dispersion</td><td>LLNL</td></tr>
+<tr><td>GENII</td><td class="num">2.10.1 (2013)</td><td>Radiological dose and dispersion</td><td>PNNL</td></tr>
+<tr><td>MACCS2</td><td class="num">1.13.1</td><td>Accident consequences</td><td>SNL</td></tr>
+<tr><td>MELCOR</td><td class="num">1.8.5 (2004)</td><td>Leak path factor</td><td>SNL</td></tr>
+<tr><td>HotSpot</td><td class="num">listed</td><td>Plume dispersion</td><td>LLNL</td></tr>
+<tr><td>IMBA</td><td class="num">listed</td><td>Internal dosimetry</td><td>—</td></tr>
+</tbody>
+</table></div>
+<p class="prose">In a 2020 EFCOG survey of DOE sites, MCNP drew the most votes of any code proposed for toolbox addition; it is still not on the registry.</p>
+<h3 class="sub">Applicant codes the NRC has accepted for a specific use (examples)</h3>
+<div class="tablebox"><table>
+<thead><tr><th>Code or framework</th><th>Applicant</th><th>Accepted for</th><th>Vehicle</th></tr></thead>
+<tbody>
+<tr><td>GOTHIC + Flownex</td><td>X-energy</td><td>Xe-100 transient and safety analysis EM</td><td>TR 008585 Rev 3-A</td></tr>
+<tr><td>KP-SAM</td><td>Kairos Power</td><td>KP-FHR test reactor postulated events</td><td>KP-TR-020 Rev 1-A</td></tr>
+<tr><td>Serpent 2 + STAR-CCM+</td><td>Kairos Power</td><td>KP-FHR core design and analysis</td><td>KP-TR-024 SE</td></tr>
+</tbody>
+</table></div>
+</div>
+</section>
+<section class="section wrap" id="worked-example" aria-labelledby="worked-example-title">
+  <header class="section__head">
+    <p class="section__num">§ 05</p>
+    <div><h2 id="worked-example-title">Worked example: categorizing TLECUIL</h2>
+    <p class="section__intro">The categorization steps above, applied to my own open-source code, <a href="https://github.com/istrong8/tlecuil">TLECUIL</a>, a first-order fission surface power sizer. It is a good test case because the honest answer is "not safety software", and the program still chooses NQA-1-style controls.</p></div>
+  </header>
+  <div class="body">
+    <div class="tablebox"><table>
+      <thead><tr><th>Step</th><th>Question</th><th>Answer for TLECUIL</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>What is the use?</td><td>First-order thermal–electrical balance for surface fission power (reactor thermal power, conversion efficiency, waste heat, radiator area, U-235 burned) for education and early concept trades. Its output is not cited in any DSA, PSAR or licensing document.</td></tr>
+        <tr><td class="num">2</td><td>Is it safety software?</td><td><b>DOE:</b> no; it is not cited in a DOE-approved safety analysis. <b>NRC:</b> non-safety-related; it performs no safety function and does not design a safety-related SSC.</td></tr>
+        <tr><td class="num">3</td><td>Category and type</td><td>None of the three DOE safety categories. Software type: custom developed (Python and JavaScript engines).</td></tr>
+        <tr><td class="num">4</td><td>Grading level</td><td>Below DOE Level C. Class E in the illustrative scheme: no safety, availability or compliance function.</td></tr>
+        <tr><td class="num">5</td><td>Work activities applied anyway</td><td>V&amp;V plan structured after NQA-1-2024 Subpart 2.7; 16 verification tests; JavaScript and Python engines agree to machine precision; benchmarks against four published NASA designs with a ±15% acceptance band; version control and BSD-3-Clause release on GitHub.</td></tr>
+        <tr><td class="num">6</td><td>Planned (v0.3)</td><td>Independent human review (IR-002), verification tests VT-01 to VT-07, golden-file regression, and a first signed release record.</td></tr>
+        <tr><td class="num">7</td><td>Re-categorization trigger</td><td>If a TLECUIL result were ever cited in a safety analysis or used to size a safety SSC, it would move to Class B (DOE Level A analysis and design software). That would require the full Subpart 2.7 section 400 life cycle, or using a qualified code instead.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><p><b>Edition note.</b> TLECUIL's plan follows NQA-1-2024. The NRC's RG 1.28 Rev 6 endorses the 2017, 2019 and 2022 editions, so an NRC applicant would map the plan to one of those. <span class="chip prob">Probable</span></p></div>
+  </div>
+</section>
+<section class="section wrap" id="software" aria-labelledby="software-title">
+  <header class="section__head">
+    <p class="section__num">§ 06</p>
+    <div>
+      <h2 id="software-title">Software in licensing <span class="chip">as of 20 Nov 2026</span></h2>
+      <p class="section__intro">Two different things share the word "software" here: safety-analysis codes whose results go into a PSAR or DSA, which need NQA-1-grade qualification and regulator acceptance of the method, and AI tools that help write or search licensing documents, which so far are reviewed by people rather than qualified as safety software.</p>
+    </div>
+  </header>
+  <div class="body">
+<div class="tablebox"><table>
+<thead><tr><th>Project</th><th>Owner</th><th>What it does</th><th>Regulatory status</th><th>Key documents</th></tr></thead>
+<tbody>
+<tr><td><b>GOTHIC + Flownex</b> transient and safety analysis evaluation model</td><td>X-energy (Xe-100)</td><td>Thermal-hydraulic models for the Xe-100 TSA evaluation model</td><td>NRC-accepted: TR 008585 Rev 3 "-A" version (Sep 2025), referenced by the Long Mott CP <span class="chip sure">Sure</span></td><td class="docs"><a href="https://www.nrc.gov/docs/ML2327/ML23275A203.pdf">Rev 1 ML23275A203</a> <a href="https://www.nrc.gov/docs/ML2414/ML24143A195.pdf">Rev 2 ML24143A195</a> <a href="https://www.nrc.gov/docs/ML2529/ML25295A314.pdf">Audit ML25295A314</a> <a href="https://www.nrc.gov/docs/ML2519/ML25192A240.pdf">ACRS ML25192A240</a> <a href="https://www.nrc.gov/docs/ML2526/ML25262A060.html">Accepted ML25262A060</a></td></tr>
+<tr><td><b>KP-SAM</b> safety analysis methodology</td><td>Kairos Power</td><td>Postulated-event evaluation model for KP-FHR test reactors, built per RG 1.203 EMDAP</td><td>Final SE issued; approved version (KP-TR-020 Rev 1) filed 7 Jan 2026 <span class="chip sure">Sure</span></td><td class="docs"><a href="https://www.nrc.gov/docs/ML2531/ML25317A472.pdf">Final SE ML25317A472</a> <a href="https://www.nrc.gov/docs/ML2600/ML26007A305.pdf">-A version ML26007A305</a></td></tr>
+<tr><td><b>Serpent 2 + STAR-CCM+</b> core design framework</td><td>Kairos Power</td><td>Core physics and thermal-hydraulic uncertainty method (KP-TR-024)</td><td>Final SE issued 2025 <span class="chip sure">Sure</span></td><td class="docs"><a href="https://www.nrc.gov/docs/ML2520/ML25206A372.pdf">SE ML25206A372</a></td></tr>
+<tr><td><b>Nuclearn</b> AI platform</td><td>Nuclearn (founded by former Palo Verde staff)</td><td>Nuclear-specific language models for operations, engineering and regulatory workflows; deployed at 65+ reactors</td><td>Business software; $10.5M Series A (Sep 2025). No NRC/DOE code acceptance <span class="chip prob">Probable</span></td><td class="docs"><a href="https://www.ans.org/news/article-7356/ai-startup-nuclearn-nets-105m-in-series-a-funding">ANS</a></td></tr>
+<tr><td><b>Gordian</b> (retrieval-augmented drafting)</td><td>Everstar with DOE, INL, ANL, Microsoft</td><td>Mapped a DOE authorization safety document into NRC application structure (HTGR test case, Mar 2026)</td><td>Demonstration; DOE-NE next steps: discrepancy review tool and an NRC working group on AI-assisted licensing <span class="chip sure">Sure</span></td><td class="docs"><a href="https://www.energy.gov/ne/articles/department-energy-unleashes-ai-reduce-reactor-licensing-timelines">DOE</a> <a href="https://www.ans.org/news/article-7902/the-does-plan-for-ai-in-nrc-licensing/">ANS</a></td></tr>
+<tr><td><b>Atomic Canyon</b></td><td>Atomic Canyon with ORNL</td><td>Generative AI for licensing search and drafting</td><td>Lab partnership (Jul 2025) <span class="chip prob">Probable</span></td><td class="docs"><a href="https://www.ans.org/news/2025-07-25/article-7236/ornl-inl-make-deals-on-ai-for-nuclear-licensing">ANS</a></td></tr>
+<tr><td><b>MOOSE / BISON</b></td><td>INL (NEAMS)</td><td>Multiphysics framework and fuel performance code</td><td>Developed under an NQA-1 SQA plan using continuous integration and automated documentation <span class="chip sure">Sure</span></td><td class="docs"><a href="https://mooseframework.inl.gov/sqa/training/ccb/index.html">MOOSE SQA</a> <a href="https://ans.org/pubs/journals/nt/article-49876">Nucl. Technol. paper</a></td></tr>
+<tr><td><b>BlueCRAB</b></td><td>NRC with DOE/INL</td><td>NRC's own non-LWR review suite: TRACE, PARCS, SCALE, FAST, MELCOR coupled with Griffin, BISON, SAM, Pronghorn, Sockeye via MOOSE</td><td>Regulator's confirmatory tool, not an applicant code <span class="chip sure">Sure</span></td><td class="docs"><a href="https://www.nrc.gov/docs/ML2408/ML24081A362.pdf">NRC ML24081A362</a> <a href="https://neams.inl.gov/?p=27065">NEAMS</a></td></tr>
+</tbody>
+</table></div>
+<div class="callout"><p><b>Worked example, X-energy GOTHIC/Flownex.</b> White paper feedback 2020 → TR Rev 1 submitted Oct 2023 → completeness determination Nov 2023 → Rev 2 May 2024 → audit → ACRS subcommittee on the draft SE (Jul 2025) → accepted Rev 3 (Sep 2025). About two years from formal submittal to acceptance, and about six from first engagement.</p></div>
+</div>
+</section>
+<section class="section wrap" id="sources" aria-labelledby="sources-title">
+  <header class="section__head">
+    <p class="section__num">§ 07</p>
+    <div><h2 id="sources-title">Sources</h2>
+    <p class="section__intro">Primary documents (NRC ADAMS, DOE, Federal Register) first where available. Links only; no documents are hosted here.</p></div>
+  </header>
+  <div class="body"><ul class="sources" id="srclist">
+    <li><a href="https://id.energy.gov/Home/DownloadDocument/5645">DOE NE Order 414.1, Quality Assurance (Aug 2025)</a></li>
+    <li><a href="https://www.energy.gov/documents/doe-o-414-1-fquality-assurance2026-07-23pdf">DOE O 414.1F, Quality Assurance (5 Aug 2026)</a></li>
+    <li><a href="https://ehss.energy.gov/deprep/2025/FB25J31A.PDF">DNFSB letter on safety software in draft DOE O 414.1 (Jan 2025)</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML2317/ML23177A002.pdf">RG 1.28 Rev 6 (NQA-1-2017/2019/2022)</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML1408/ML14085A084.pdf">EPRI 3002002289, commercial-grade design and analysis software</a></li>
+    <li><a href="https://www.standards.doe.gov/tsm-resources/safety-software-quality-assurance-central-registry">DOE Safety Software Central Registry</a></li>
+    <li><a href="https://www.energy.gov/node/711321">DOE Central Registry toolbox list</a></li>
+    <li><a href="https://efcog.org/wp-content/uploads/Wgs/Operations%20Working%20Group/_Nuclear%20and%20Facility%20Safety%20Subgroup/Meetings/2020%20NFS%20Workshop/Toolbox%20Qualifications%20Update.pdf">EFCOG 2020 toolbox qualification survey</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML2408/ML24081A362.pdf">NRC BlueCRAB overview, ML24081A362</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML1908/ML19087A081.pdf">RG 1.168 Rev 2 family of software RGs (NRC summary)</a></li>
+    <li><a href="https://www.energy.gov/sites/default/files/2014/05/f16/Applying%20DOE%20O%20414.1C%20and%20NQA-1%20Requirements%20to%20ISM%20Software.pdf">DOE training: structure of NQA-1 Subpart 2.7</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML2114/ML21146A203.pdf">Westinghouse Common Q SPM, WCAP-16096-NP-A Rev 5.1</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML1827/ML18270A029.pdf">NRC final SE, Common Q SPM Rev 5, ML18270A029</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML1111/ML111180570.pdf">SRS Software Quality Assurance Procedure 20-1, ML111180570</a></li>
+    <li><a href="https://www.nrc.gov/docs/ML1920/ML19205A218.pdf">PVNGS Operations QAPD Rev 1, ML19205A218</a></li>
+    <li><a href="https://www.energy.gov/sites/prod/files/hss/Enforcement%20and%20Oversight/Enforcement/docs/guides/DOE_Guide_414_1_4.pdf">DOE G 414.1-4 Safety Software Guide</a></li>
+    <li><a href="https://github.com/istrong8/tlecuil">TLECUIL repository</a></li>
+  </ul></div>
+</section><nav class="wrap nextlinks" aria-label="Related pages"><a href="pathways.html"><b>Licensing pathways</b><span>Where software QA sits inside DOE authorization and NRC licensing.</span></a><a href="tracker.html"><b>Advanced reactor tracker</b><span>Which developers have had codes accepted, and where they are now.</span></a></nav></main>
+<footer>
+  <div class="wrap">
+    <p>Personal research compiled from public sources. Not affiliated with, reviewed by, or representing any employer, agency, or company listed. No proprietary, internal, or export-controlled information appears on this page. Confidence tags: <span class="chip sure">Sure</span> primary or multiple sources · <span class="chip prob">Probable</span> strong inference · <span class="chip spec">Speculating</span> estimate.</p>
+    <p>Updated 20 Nov 2026 · <a class="textlink" href="https://github.com/istrong8/professional-portfolio">Source</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -181,8 +181,8 @@ p{margin:0}
 
 
 /* Hazards */
-.hz{display:grid;gap:16px}
-.hz__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-raise);padding:26px;display:grid;gap:16px}
+.hz{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+.hz__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-raise);padding:26px;display:grid;gap:16px;min-width:0;grid-template-columns:minmax(0,1fr)}
 .hz__card h3{font:400 25px/1.2 var(--serif);letter-spacing:-.01em}
 .hz__card p.lead{color:var(--text-2);font-size:15px;max-width:70ch}
 .hz__kicker{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
@@ -195,7 +195,8 @@ p{margin:0}
 .big{display:flex;flex-wrap:wrap;gap:28px;align-items:baseline}
 .big b{font:300 clamp(34px,4vw,48px)/1 var(--serif);color:var(--violet-hi)}
 .big span{display:block;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-.hits{width:100%;border-collapse:collapse;font-size:14px}
+.hits-scroll{overflow-x:auto;max-width:100%}
+.hits{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
 .hits th,.hits td{text-align:left;padding:9px 10px 9px 0;border-bottom:1px solid var(--line);vertical-align:middle}
 .hits thead th{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .hits td.n{font:500 13.5px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -272,6 +273,7 @@ footer p{max-width:70ch}
       <a href="#standards">Standards</a>
       <a href="moon-mars-reading.html">Reading list</a>
       <a href="space-reactors.html">Space reactors</a>
+      <a href="licensing/">Licensing &amp; QA</a>
       <a class="sitenav__cta" href="./">Portfolio</a>
     </nav>
   </div>
@@ -404,10 +406,12 @@ footer p{max-width:70ch}
         <div><b id="mc-p1">—</b><span>Chance of at least one ≥ 1 mm</span></div>
         <div><b id="mc-e1">—</b><span>Energy of a 1 mm hit at 20 km/s</span></div>
       </div>
+      <div class="hits-scroll">
       <table class="hits">
         <thead><tr><th>Particle at least</th><th>Mass</th><th>Expected hits</th><th class="barcell">Relative (log)</th><th>Chance ≥ 1</th><th>Energy</th></tr></thead>
         <tbody id="mc-rows"></tbody>
       </table>
+      </div>
       <p class="hz__note">Model: Grün et al. (1985) interplanetary flux at 1 AU on a randomly oriented plate, 20 km/s mean speed, as used in NASA's Meteoroid Engineering Model. Expected hits = flux × area × years; chance = 1 − e<sup>−N</sup>. LRO counted about 33% more new craters than the standard lunar model predicted, and secondary debris from nearby impacts adds slower particles, so treat these as a floor.</p>
     </article>
 

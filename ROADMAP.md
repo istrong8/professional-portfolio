@@ -8,6 +8,8 @@ Planned work, kept separate from finished projects so that nothing in this repos
 - **OpenMC pin-cell study — write-up.** Reproducible inputs, convergence and verification checks, LaTeX technical report.
 - **TLECUIL v0.3.** Independent human review (IR-002), verification tests VT-01 to VT-07, golden-file regression, and a first signed release record. v0.2.1 is released at [istrong8/tlecuil](https://github.com/istrong8/tlecuil).
 
+- **Licensing tracker — monthly refresh.** Re-check each project's DOE and NRC milestones against primary sources and update the "status as of" date on `docs/licensing/tracker.html`.
+
 ## Later — OpenMC
 
 - Reactor criticality benchmark against a publicly available reference
