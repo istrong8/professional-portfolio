@@ -60,14 +60,10 @@
     </button>
 
     <nav class="sitenav" id="sitenav" aria-label="Primary">
-      <a href="#work">Work</a>
-      <a href="moon-mars.html">Moon &amp; Mars</a>
-      <a href="licensing/">Licensing &amp; QA</a>
-      <a href="#expertise">Expertise</a>
-      <a href="toolkit.html">Toolkit</a>
-      <a href="#experience">Experience</a>
-      <a href="#standards">Standards</a>
-      <a href="resume/Gemma-Irais-Strong-Resume.pdf">Résumé</a>
+      <a href="moon-mars.html" target="_blank" rel="noopener">Moon &amp; Mars<span class="sr"> (opens in a new tab)</span></a>
+      <a href="licensing/" target="_blank" rel="noopener">Licensing &amp; regulation<span class="sr"> (opens in a new tab)</span></a>
+      <a href="planet_x_live.html" target="_blank" rel="noopener">Astrophysics (Ku Saga)<span class="sr"> (opens in a new tab)</span></a>
+      <a href="resume/Gemma-Irais-Strong-Resume.pdf" target="_blank" rel="noopener">Résumé<span class="sr"> (opens in a new tab)</span></a>
       <a class="sitenav__cta" href="https://www.linkedin.com/in/iraisstrong/" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true"> ↗</span></a>
     </nav>
   </div>
@@ -84,7 +80,7 @@
     <p class="hero__sub">Nuclear Safety Analyst III at Idaho National Laboratory. PhD student in nuclear engineering at Idaho State University. Contributor to ANS and ASTM standards working groups, including space nuclear power and propulsion.</p>
     <div class="hero__actions">
       <a class="btn btn--solid" href="#work">Selected work</a>
-      <a class="btn" href="resume/Gemma-Irais-Strong-Resume.pdf">Résumé <span class="btn__fmt">PDF</span></a>
+      <a class="btn" href="resume/Gemma-Irais-Strong-Resume.pdf" target="_blank" rel="noopener">Résumé <span class="btn__fmt">PDF</span><span class="sr"> (opens in a new tab)</span></a>
     </div>
   </div>
 
@@ -135,8 +131,8 @@
           <li>Interactive offline viewer</li>
         </ul>
         <div class="case__links">
-          <a class="btn btn--solid" href="planet_x_live.html">Open the viewer <span aria-hidden="true">↗</span></a>
-          <a class="textlink" href="https://github.com/istrong8/professional-portfolio/tree/main/02-space-astronomy/rebound/ku-saga-planet-x">Methods &amp; limitations</a>
+          <a class="btn btn--solid" href="planet_x_live.html" target="_blank" rel="noopener">Open the viewer <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+          <a class="textlink" href="https://github.com/istrong8/professional-portfolio/tree/main/02-space-astronomy/rebound/ku-saga-planet-x" target="_blank" rel="noopener">Methods &amp; limitations<span class="sr"> (opens in a new tab)</span></a>
         </div>
         <p class="case__note">The system is fictional. Short-term agreement between integrators is not evidence of long-term stability or habitability. Not peer reviewed.</p>
       </div>
@@ -151,11 +147,20 @@
       <p class="case__name">Named for <em>tlecuilli</em> — Nahuatl for the three-stone hearth.</p>
       <ul class="case__meta"><li>Python · JavaScript · LaTeX</li><li>BSD-3-Clause</li></ul>
       <div class="case__links">
-        <a class="btn btn--solid" href="https://istrong8.github.io/tlecuil/">Try the calculator <span aria-hidden="true">↗</span></a>
-        <a class="textlink" href="https://github.com/istrong8/tlecuil">Code</a>
-        <a class="textlink" href="https://github.com/istrong8/tlecuil/blob/main/docs/tlecuil_theory.pdf">Theory (PDF)</a>
-        <a class="textlink" href="https://github.com/istrong8/tlecuil/blob/main/docs/tlecuil_vv_plan.pdf">V&amp;V plan (PDF)</a>
+        <a class="btn btn--solid" href="https://istrong8.github.io/tlecuil/" target="_blank" rel="noopener">Try the calculator <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+        <a class="textlink" href="https://github.com/istrong8/tlecuil" target="_blank" rel="noopener">Code<span class="sr"> (opens in a new tab)</span></a>
+        <a class="textlink" href="https://github.com/istrong8/tlecuil/blob/main/docs/tlecuil_theory.pdf" target="_blank" rel="noopener">Theory (PDF)<span class="sr"> (opens in a new tab)</span></a>
+        <a class="textlink" href="https://github.com/istrong8/tlecuil/blob/main/docs/tlecuil_vv_plan.pdf" target="_blank" rel="noopener">V&amp;V plan (PDF)<span class="sr"> (opens in a new tab)</span></a>
       </div>
+    </article>
+
+    <!-- OpenMC -->
+    <article class="case">
+      <p class="status status--prep">Documentation in preparation</p>
+      <h3>Monte Carlo reactor physics with OpenMC</h3>
+      <p>Uranium fuel pin-cell study: effective multiplication factor, flux distributions, multigroup spectra, fission reaction rates, and Monte Carlo convergence. Being written up with reproducible inputs, verification checks, and a technical report.</p>
+      <ul class="case__meta"><li>OpenMC · Python</li></ul>
+      <a class="textlink" href="https://github.com/istrong8/professional-portfolio/tree/main/01-nuclear-engineering/openmc" target="_blank" rel="noopener">Project notes<span class="sr"> (opens in a new tab)</span></a>
     </article>
 
     <!-- NSEN 6684 talk -->
@@ -168,28 +173,19 @@
           <p>An 18-minute talk for NSEN 6684 (Reactor Physics) at Idaho State University. I wrote a multigroup Monte Carlo transport code, checked it against five exact benchmark solutions, and used it to measure where one-group diffusion breaks down in small fast cores. The answer: k is 6–12% low, reflector savings are overestimated by the textbook formula, and leakage hardens the spectrum. The talk then reads NASA's KRUSTY test results to separate fuel-expansion, Doppler, and reflector feedback.</p>
           <ul class="case__meta"><li>Python · Numba · Monte Carlo transport</li><li>LaTeX report</li><li>Public sources only</li></ul>
           <div class="case__links">
-            <a class="btn btn--solid" href="papers/nsen6684-beyond-six-factor-slides.pdf">Slides <span class="btn__fmt">PDF · 14</span></a>
-            <a class="btn" href="papers/nsen6684-beyond-six-factor-report.pdf">Technical report <span class="btn__fmt">PDF</span></a>
-            <a class="textlink" href="https://github.com/istrong8/professional-portfolio/tree/main/01-nuclear-engineering/nsen6684-beyond-six-factor">Code &amp; reproduction</a>
+            <a class="btn btn--solid" href="papers/nsen6684-beyond-six-factor-slides.pdf" target="_blank" rel="noopener">Slides <span class="btn__fmt">PDF · 14</span><span class="sr"> (opens in a new tab)</span></a>
+            <a class="btn" href="papers/nsen6684-beyond-six-factor-report.pdf" target="_blank" rel="noopener">Technical report <span class="btn__fmt">PDF</span><span class="sr"> (opens in a new tab)</span></a>
+            <a class="textlink" href="https://github.com/istrong8/professional-portfolio/tree/main/01-nuclear-engineering/nsen6684-beyond-six-factor" target="_blank" rel="noopener">Code &amp; reproduction<span class="sr"> (opens in a new tab)</span></a>
           </div>
           <p class="case__note">Calculations use idealized LA-13511 benchmark cross sections: mathematical illustrations, not predictions for KRUSTY or any reactor. KRUSTY values are from the cited NASA/LANL papers. Coursework; not peer reviewed.</p>
         </div>
         <div class="talk__media" data-youtube="" data-title="Beyond the Six-Factor Formula — NSEN 6684 talk">
-          <a href="papers/nsen6684-beyond-six-factor-slides.pdf" class="talk__poster">
+          <a href="papers/nsen6684-beyond-six-factor-slides.pdf" class="talk__poster" target="_blank" rel="noopener">
             <img src="assets/img/nsen6684-cover.jpg" width="1280" height="719" loading="lazy" alt="Title slide: Beyond the Six-Factor Formula, with a core and reflector diagram.">
             <span class="talk__badge">Video coming soon</span>
-          </a>
+          <span class="sr"> (opens in a new tab)</span></a>
         </div>
       </div>
-    </article>
-
-    <!-- OpenMC -->
-    <article class="case">
-      <p class="status status--prep">Documentation in preparation</p>
-      <h3>Monte Carlo reactor physics with OpenMC</h3>
-      <p>Uranium fuel pin-cell study: effective multiplication factor, flux distributions, multigroup spectra, fission reaction rates, and Monte Carlo convergence. Being written up with reproducible inputs, verification checks, and a technical report.</p>
-      <ul class="case__meta"><li>OpenMC · Python</li></ul>
-      <a class="textlink" href="https://github.com/istrong8/professional-portfolio/tree/main/01-nuclear-engineering/openmc">Project notes</a>
     </article>
 
     <!-- MOON & MARS -->
@@ -199,7 +195,7 @@
           <p class="status status--dev">Research program · In development</p>
           <h3>Fission power safety for the <em class="mm__moon">Moon</em> and <em class="mm__mars">Mars</em></h3>
         </div>
-        <a class="btn btn--solid" href="moon-mars.html">Open the overview <span aria-hidden="true">→</span></a>
+        <a class="btn btn--solid" href="moon-mars.html" target="_blank" rel="noopener">Open the overview <span aria-hidden="true">→</span><span class="sr"> (opens in a new tab)</span></a>
       </div>
       <p>How do you show a reactor is safe when the nearest people are astronauts and there is no air to carry anything away? I am working through a full safety design sequence for a lunar surface reactor, using DOE reactor safety methods adapted for the Moon, and the same path for Mars as my dissertation.</p>
       <div class="mm__tracks">
@@ -223,8 +219,8 @@
         </div>
       </div>
       <div class="case__links">
-        <a class="textlink" href="moon-mars-reading.html">Hazards reading list</a>
-        <a class="textlink" href="space-reactors.html">Space reactors: types &amp; timeline</a>
+        <a class="textlink" href="moon-mars-reading.html" target="_blank" rel="noopener">Hazards reading list<span class="sr"> (opens in a new tab)</span></a>
+        <a class="textlink" href="space-reactors.html" target="_blank" rel="noopener">Space reactors: types &amp; timeline<span class="sr"> (opens in a new tab)</span></a>
       </div>
       <p class="case__note">Methods and status are public. Designs, calculations, and draft safety documents stay private until they have been reviewed.</p>
     </article>
@@ -236,13 +232,13 @@
           <p class="status status--live">Reference set · Updated November 2026</p>
           <h3>Advanced reactor licensing &amp; nuclear software QA</h3>
         </div>
-        <a class="btn btn--solid" href="licensing/">Open the set <span aria-hidden="true">→</span></a>
+        <a class="btn btn--solid" href="licensing/" target="_blank" rel="noopener">Open the set <span aria-hidden="true">→</span><span class="sr"> (opens in a new tab)</span></a>
       </div>
       <p>In 2026 five DOE-authorized test reactors went critical and the NRC finalized a rule that lets DOE test results support commercial licenses. Three companion pages map that crossover from public sources: where each developer stands, what each route requires, and how the software behind a safety case is categorized and qualified under NQA-1.</p>
       <div class="case__links">
-        <a class="textlink" href="licensing/tracker.html">Advanced reactor tracker</a>
-        <a class="textlink" href="licensing/pathways.html">Licensing pathways</a>
-        <a class="textlink" href="licensing/software-qa.html">Nuclear software QA</a>
+        <a class="textlink" href="licensing/tracker.html" target="_blank" rel="noopener">Advanced reactor tracker<span class="sr"> (opens in a new tab)</span></a>
+        <a class="textlink" href="licensing/pathways.html" target="_blank" rel="noopener">Licensing pathways<span class="sr"> (opens in a new tab)</span></a>
+        <a class="textlink" href="licensing/software-qa.html" target="_blank" rel="noopener">Nuclear software QA<span class="sr"> (opens in a new tab)</span></a>
       </div>
       <p class="case__note">Compiled independently from NRC, DOE, Federal Register and trade-press sources; every status is dated and linked. Not affiliated with any employer, agency, or company listed.</p>
     </article>
@@ -263,7 +259,7 @@
     <article class="domain">
       <p class="domain__idx">A</p>
       <h3>Safety basis &amp; regulatory analysis</h3>
-      <p>Documented safety analyses, technical safety requirements, unreviewed safety question determinations, and potential inadequacies of the safety analysis for DOE nuclear facilities. Resolving regulator review comments and implementing new DOE requirements from directive to document. <a class="textlink" href="licensing/pathways.html">Licensing pathways</a></p>
+      <p>Documented safety analyses, technical safety requirements, unreviewed safety question determinations, and potential inadequacies of the safety analysis for DOE nuclear facilities. Resolving regulator review comments and implementing new DOE requirements from directive to document. <a class="textlink" href="licensing/pathways.html" target="_blank" rel="noopener">Licensing pathways<span class="sr"> (opens in a new tab)</span></a></p>
     </article>
     <article class="domain">
       <p class="domain__idx">B</p>
@@ -273,7 +269,7 @@
     <article class="domain">
       <p class="domain__idx">C</p>
       <h3>Computation &amp; software quality</h3>
-      <p>Python automation and code standardization for reactor engineering, NQA-1 software quality assurance, and numerical modeling — transport, thermal-hydraulics, and orbital dynamics — with explicit verification. <a class="textlink" href="licensing/software-qa.html">Nuclear software QA</a></p>
+      <p>Python automation and code standardization for reactor engineering, NQA-1 software quality assurance, and numerical modeling — transport, thermal-hydraulics, and orbital dynamics — with explicit verification. <a class="textlink" href="licensing/software-qa.html" target="_blank" rel="noopener">Nuclear software QA<span class="sr"> (opens in a new tab)</span></a></p>
     </article>
   </div>
 
@@ -301,7 +297,7 @@
 
   <div class="tools">
     <h3 class="tools__title">Analysis codes &amp; tools</h3>
-    <p class="tools__legend">Professional safety-analysis and reactor-physics codes from industry and laboratory work, independent verified workflows, and the open-source tools I am exploring across astronomy, planetary science, seismic and materials simulation. <a class="textlink" href="toolkit.html">See the full toolkit</a></p>
+    <p class="tools__legend">Professional safety-analysis and reactor-physics codes from industry and laboratory work, independent verified workflows, and the open-source tools I am exploring across astronomy, planetary science, seismic and materials simulation. <a class="textlink" href="toolkit.html" target="_blank" rel="noopener">See the full toolkit<span class="sr"> (opens in a new tab)</span></a></p>
     <p class="tools__certs"><span>Certifications</span> Python Institute PCEP (2021) · Six Sigma Yellow Belt (2021)</p>
   </div>
 </section>
@@ -407,8 +403,8 @@
     <p class="writing__type">White paper · NE 5599, Idaho State University · May 2025</p>
     <p class="writing__abstract">Argues that the Final Safety Analysis Report is a strategic tool for advanced reactor licensing rather than a bureaucratic barrier, drawing on the Production Part Approval Process from manufacturing, case studies of NuScale, Oklo, and Kairos Power, NRC hearing and NEPA reforms, and the then-forthcoming 10 CFR Part 53.</p>
     <div class="writing__links">
-      <a class="btn" href="papers/reframing-nuclear-licensing-fsar.pdf">Read the white paper <span class="writing__fmt">PDF · 11 pp.</span></a>
-      <a class="textlink" href="https://github.com/istrong8/professional-portfolio/tree/main/writing/fsar-white-paper">LaTeX source</a>
+      <a class="btn" href="papers/reframing-nuclear-licensing-fsar.pdf" target="_blank" rel="noopener">Read the white paper <span class="writing__fmt">PDF · 11 pp.</span><span class="sr"> (opens in a new tab)</span></a>
+      <a class="textlink" href="https://github.com/istrong8/professional-portfolio/tree/main/writing/fsar-white-paper" target="_blank" rel="noopener">LaTeX source<span class="sr"> (opens in a new tab)</span></a>
     </div>
     <p class="writing__note">Written as a course paper in May 2025. The Oklo case study discusses the NRC’s January 2022 denial of the first Aurora application; Oklo’s licensing work has progressed since then.</p>
   </div>
@@ -451,7 +447,7 @@
     <a class="btn btn--solid" href="mailto:irastrong3@gmail.com">irastrong3@gmail.com</a>
     <a class="btn" href="https://www.linkedin.com/in/iraisstrong/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
     <a class="btn" href="https://github.com/istrong8" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-    <a class="btn" href="resume/Gemma-Irais-Strong-Resume.pdf">Résumé <span class="btn__fmt">PDF</span></a>
+    <a class="btn" href="resume/Gemma-Irais-Strong-Resume.pdf" target="_blank" rel="noopener">Résumé <span class="btn__fmt">PDF</span><span class="sr"> (opens in a new tab)</span></a>
   </div>
 </section>
 
