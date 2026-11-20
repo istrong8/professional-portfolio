@@ -62,9 +62,9 @@
     <nav class="sitenav" id="sitenav" aria-label="Primary">
       <a href="#work">Work</a>
       <a href="moon-mars.html">Moon &amp; Mars</a>
-      <a href="moon-mars-reading.html">Reading list</a>
-      <a href="space-reactors.html">Space reactors</a>
+      <a href="licensing/">Licensing &amp; QA</a>
       <a href="#expertise">Expertise</a>
+      <a href="toolkit.html">Toolkit</a>
       <a href="#experience">Experience</a>
       <a href="#standards">Standards</a>
       <a href="resume/Gemma-Irais-Strong-Resume.pdf">Résumé</a>
@@ -222,7 +222,29 @@
           </ul>
         </div>
       </div>
+      <div class="case__links">
+        <a class="textlink" href="moon-mars-reading.html">Hazards reading list</a>
+        <a class="textlink" href="space-reactors.html">Space reactors: types &amp; timeline</a>
+      </div>
       <p class="case__note">Methods and status are public. Designs, calculations, and draft safety documents stay private until they have been reviewed.</p>
+    </article>
+
+    <!-- LICENSING & SOFTWARE QA -->
+    <article class="case case--wide">
+      <div class="mm__head">
+        <div>
+          <p class="status status--live">Reference set · Updated November 2026</p>
+          <h3>Advanced reactor licensing &amp; nuclear software QA</h3>
+        </div>
+        <a class="btn btn--solid" href="licensing/">Open the set <span aria-hidden="true">→</span></a>
+      </div>
+      <p>In 2026 five DOE-authorized test reactors went critical and the NRC finalized a rule that lets DOE test results support commercial licenses. Three companion pages map that crossover from public sources: where each developer stands, what each route requires, and how the software behind a safety case is categorized and qualified under NQA-1.</p>
+      <div class="case__links">
+        <a class="textlink" href="licensing/tracker.html">Advanced reactor tracker</a>
+        <a class="textlink" href="licensing/pathways.html">Licensing pathways</a>
+        <a class="textlink" href="licensing/software-qa.html">Nuclear software QA</a>
+      </div>
+      <p class="case__note">Compiled independently from NRC, DOE, Federal Register and trade-press sources; every status is dated and linked. Not affiliated with any employer, agency, or company listed.</p>
     </article>
   </div>
 </section>
@@ -241,7 +263,7 @@
     <article class="domain">
       <p class="domain__idx">A</p>
       <h3>Safety basis &amp; regulatory analysis</h3>
-      <p>Documented safety analyses, technical safety requirements, unreviewed safety question determinations, and potential inadequacies of the safety analysis for DOE nuclear facilities. Resolving regulator review comments and implementing new DOE requirements from directive to document.</p>
+      <p>Documented safety analyses, technical safety requirements, unreviewed safety question determinations, and potential inadequacies of the safety analysis for DOE nuclear facilities. Resolving regulator review comments and implementing new DOE requirements from directive to document. <a class="textlink" href="licensing/pathways.html">Licensing pathways</a></p>
     </article>
     <article class="domain">
       <p class="domain__idx">B</p>
@@ -251,7 +273,7 @@
     <article class="domain">
       <p class="domain__idx">C</p>
       <h3>Computation &amp; software quality</h3>
-      <p>Python automation and code standardization for reactor engineering, NQA-1 software quality assurance, and numerical modeling — transport, thermal-hydraulics, and orbital dynamics — with explicit verification.</p>
+      <p>Python automation and code standardization for reactor engineering, NQA-1 software quality assurance, and numerical modeling — transport, thermal-hydraulics, and orbital dynamics — with explicit verification. <a class="textlink" href="licensing/software-qa.html">Nuclear software QA</a></p>
     </article>
   </div>
 
@@ -279,126 +301,7 @@
 
   <div class="tools">
     <h3 class="tools__title">Analysis codes &amp; tools</h3>
-    <p class="tools__legend">A multidisciplinary toolkit spanning nuclear safety and reactor physics, radiation transport, scientific computing, thermal and structural simulation, astronomy, planetary science, seismic hazards, and reliability analysis. Select a category to show or hide its tools.</p>
-    <details class="tools__group">
-      <summary><span class="tools__group-title">Professional safety analysis &amp; engineering</span></summary>
-        <div class="tools__table-scroll">
-        <table>
-          <caption class="sr">Professional safety analysis &amp; engineering: code, purpose, experience</caption>
-          <colgroup><col style="width:32%"><col style="width:43%"><col></colgroup>
-          <thead><tr><th scope="col">Code / tool</th><th scope="col">What it does</th><th scope="col">Experience</th></tr></thead>
-          <tbody>
-        <tr><th scope="row">MicroShield</th><td>Gamma shielding and dose-rate calculations</td><td>Safety analysis</td></tr>
-        <tr><th scope="row">RSAC</th><td>Radiological accident consequence and dose assessment</td><td>Safety analysis</td></tr>
-        <tr><th scope="row">Python · Fortran · Perl</th><td>Engineering calculations, automation, and scientific computing</td><td>Industry · research</td></tr>
-        <tr><th scope="row">SIMULATE</th><td>Reactor-core physics and fuel-management analysis</td><td>Industry internship</td></tr>
-        <tr><th scope="row">VIPRE</th><td>Subchannel thermal-hydraulics and critical heat-flux assessment</td><td>Industry internship</td></tr>
-        <tr><th scope="row">MCNP</th><td>Monte Carlo neutron and photon transport</td><td>Graduate · undergraduate work</td></tr>
-        <tr><th scope="row">SCALE</th><td>Criticality safety and nuclear analysis methods</td><td>Graduate coursework</td></tr>
-        <tr><th scope="row">Serpent</th><td>Monte Carlo reactor physics</td><td>Undergraduate senior project</td></tr>
-        <tr><th scope="row">RELAP5</th><td>System-level reactor thermal-hydraulics</td><td>University research · training</td></tr>
-        <tr><th scope="row">MELCOR</th><td>Severe-accident progression and source-term modeling</td><td>Training</td></tr>
-        <tr><th scope="row">SAPHIRE</th><td>Fault-tree and event-tree probabilistic risk assessment</td><td>Training</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details class="tools__group">
-      <summary><span class="tools__group-title">Independent models &amp; verified computational workflows</span></summary>
-        <div class="tools__table-scroll">
-        <table>
-          <caption class="sr">Independent models &amp; verified computational workflows: code, purpose, experience</caption>
-          <colgroup><col style="width:32%"><col style="width:43%"><col></colgroup>
-          <thead><tr><th scope="col">Code / tool</th><th scope="col">What it does</th><th scope="col">Experience</th></tr></thead>
-          <tbody>
-        <tr><th scope="row">OpenMC</th><td>Monte Carlo reactor physics: pin-cell neutronics, flux, reaction rates</td><td>Independent research</td></tr>
-        <tr><th scope="row">MOOSE</th><td>Finite-element heat conduction; verified against an analytical temperature profile</td><td>Hands-on · verified</td></tr>
-        <tr><th scope="row">RAVEN + MOOSE</th><td>Monte Carlo sampling of MOOSE boundary conditions; 100 simulation runs</td><td>Hands-on · verified</td></tr>
-        <tr><th scope="row">REBOUND · SciPy</th><td>Orbital N-body integration and numerical cross-checks</td><td>Independent research</td></tr>
-        <tr><th scope="row">Geant4 · OpenGATE</th><td>Particle transport and radiation simulation frameworks</td><td>Hands-on setup</td></tr>
-        <tr><th scope="row">SpacePy · SpiceyPy</th><td>Space environment analysis and NASA SPICE geometry</td><td>Hands-on setup</td></tr>
-        <tr><th scope="row">NJOY2016 · FUDGE</th><td>Evaluated nuclear-data processing and inspection</td><td>Exploration</td></tr>
-        <tr><th scope="row">OpenFOAM · FiPy · FEniCSx</th><td>Finite-volume and finite-element thermal/transport modeling</td><td>Exploration</td></tr>
-        <tr><th scope="row">OpenMDAO · CoolProp · Cantera</th><td>Design optimization, thermophysical properties, gas thermodynamics</td><td>Exploration</td></tr>
-        <tr><th scope="row">Gmsh · ParaView · QGIS</th><td>Mesh generation, scientific visualization, and geospatial mapping</td><td>Hands-on setup</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details class="tools__group">
-      <summary><span class="tools__group-title">Astronomy, astrodynamics &amp; space environments</span></summary>
-        <div class="tools__table-scroll">
-        <table>
-          <caption class="sr">Astronomy, astrodynamics &amp; space environments: code, purpose, experience</caption>
-          <colgroup><col style="width:32%"><col style="width:43%"><col></colgroup>
-          <thead><tr><th scope="col">Code / tool</th><th scope="col">What it does</th><th scope="col">Experience</th></tr></thead>
-          <tbody>
-        <tr><th scope="row">Astropy · Astroquery · Skyfield</th><td>Astronomical coordinates, catalogs, ephemerides</td><td>Exploration</td></tr>
-        <tr><th scope="row">REBOUND · Gala · Galpy · Healpy</th><td>Orbital dynamics, galactic models, spherical sky data</td><td>Exploration</td></tr>
-        <tr><th scope="row">TudatPy · Basilisk · Orekit</th><td>Trajectory propagation, spacecraft dynamics, mission mechanics</td><td>Exploration</td></tr>
-        <tr><th scope="row">SunPy · PlasmaPy · PySPEDAS · IRBEM</th><td>Solar observations, plasma physics, radiation-belt analysis</td><td>Exploration</td></tr>
-        <tr><th scope="row">Gammapy</th><td>High-energy gamma-ray astronomy and sky-map analysis</td><td>Exploration</td></tr>
-        <tr><th scope="row">Sionna RT</th><td>Radio propagation and ray tracing for communications scenarios</td><td>Exploration</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details class="tools__group">
-      <summary><span class="tools__group-title">Planetary science, climate &amp; terrain</span></summary>
-        <div class="tools__table-scroll">
-        <table>
-          <caption class="sr">Planetary science, climate &amp; terrain: code, purpose, experience</caption>
-          <colgroup><col style="width:32%"><col style="width:43%"><col></colgroup>
-          <thead><tr><th scope="col">Code / tool</th><th scope="col">What it does</th><th scope="col">Experience</th></tr></thead>
-          <tbody>
-        <tr><th scope="row">PlanetaryPy · PDS4 Tools</th><td>NASA Planetary Data System discovery and scientific product readers</td><td>Exploration</td></tr>
-        <tr><th scope="row">GDAL · Rasterio · Cartopy · GeoPandas</th><td>Terrain rasters, projections, and geospatial mapping</td><td>Exploration</td></tr>
-        <tr><th scope="row">USGS ISIS3 · Ames Stereo Pipeline</th><td>Planetary image calibration and stereo terrain reconstruction</td><td>Exploration</td></tr>
-        <tr><th scope="row">Spectral Python · PyHAT</th><td>Hyperspectral imagery and planetary spectroscopy</td><td>Exploration</td></tr>
-        <tr><th scope="row">Craterpy · Craterstats</th><td>Crater geometry, statistics, and surface chronology</td><td>Exploration</td></tr>
-        <tr><th scope="row">NASA metnumdens</th><td>Meteoroid density and encounter-velocity research examples</td><td>Exploration</td></tr>
-        <tr><th scope="row">climlab · ExoPlaSim</th><td>Energy-balance and atmospheric circulation modeling</td><td>Exploration</td></tr>
-        <tr><th scope="row">petitRADTRANS</th><td>Atmospheric radiative-transfer and spectroscopy</td><td>Exploration</td></tr>
-        <tr><th scope="row">OpenDrift · PySDM</th><td>Particle trajectories and aerosol/cloud microphysics methods</td><td>Exploration</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details class="tools__group">
-      <summary><span class="tools__group-title">Structural, seismic &amp; materials simulation</span></summary>
-        <div class="tools__table-scroll">
-        <table>
-          <caption class="sr">Structural, seismic &amp; materials simulation: code, purpose, experience</caption>
-          <colgroup><col style="width:32%"><col style="width:43%"><col></colgroup>
-          <thead><tr><th scope="col">Code / tool</th><th scope="col">What it does</th><th scope="col">Experience</th></tr></thead>
-          <tbody>
-        <tr><th scope="row">OpenQuake · ObsPy</th><td>Probabilistic seismic hazards and waveform analysis</td><td>Exploration</td></tr>
-        <tr><th scope="row">SimPEG · Devito</th><td>Geophysical inversion and finite-difference wave propagation</td><td>Exploration</td></tr>
-        <tr><th scope="row">OpenSeesPy · CalculiX · Code_Aster</th><td>Structural dynamics, finite-element stress and thermal response</td><td>Exploration</td></tr>
-        <tr><th scope="row">Kratos · Elmer FEM</th><td>Structural, fluid, and coupled multiphysics models</td><td>Exploration</td></tr>
-        <tr><th scope="row">LAMMPS</th><td>Atomistic materials dynamics and microscopic impacts</td><td>Exploration</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
-    <details class="tools__group">
-      <summary><span class="tools__group-title">Nuclear data, shielding &amp; reliability tools</span></summary>
-        <div class="tools__table-scroll">
-        <table>
-          <caption class="sr">Nuclear data, shielding &amp; reliability tools: code, purpose, experience</caption>
-          <colgroup><col style="width:32%"><col style="width:43%"><col></colgroup>
-          <thead><tr><th scope="col">Code / tool</th><th scope="col">What it does</th><th scope="col">Experience</th></tr></thead>
-          <tbody>
-        <tr><th scope="row">radioactivedecay</th><td>Nuclide decay chains, activities, and daughter buildup</td><td>Exploration</td></tr>
-        <tr><th scope="row">SANDY</th><td>Nuclear-data covariance and stochastic sampling</td><td>Exploration</td></tr>
-        <tr><th scope="row">PyNE · pymchelper</th><td>Nuclear data/material handling and transport-output conversion</td><td>Exploration</td></tr>
-        <tr><th scope="row">OpenMC Plot Explorer · DAGMC</th><td>Neutronics visualization and CAD-based transport geometry</td><td>Exploration</td></tr>
-        <tr><th scope="row">Paramak · Cad-to-DAGMC</th><td>Parametric CAD and conversion to DAGMC geometry</td><td>Exploration</td></tr>
-        <tr><th scope="row">reliability · pgmpy · SCRAM</th><td>Lifetime statistics, Bayesian networks, fault/event trees</td><td>Exploration</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
+    <p class="tools__legend">Professional safety-analysis and reactor-physics codes from industry and laboratory work, independent verified workflows, and the open-source tools I am exploring across astronomy, planetary science, seismic and materials simulation. <a class="textlink" href="toolkit.html">See the full toolkit</a></p>
     <p class="tools__certs"><span>Certifications</span> Python Institute PCEP (2021) · Six Sigma Yellow Belt (2021)</p>
   </div>
 </section>
